@@ -25,4 +25,4 @@ jobs:
         pip install flake8
 
     - name: Lint with flake8
-      run: flake8 --ignore F401,E501, F821
+      run: flake8 --ignore F401,E501,F821
