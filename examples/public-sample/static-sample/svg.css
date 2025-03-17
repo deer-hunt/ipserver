@@ -1,0 +1,14 @@
+body {
+	font-family: Arial, sans-serif;
+	text-align: center;
+	background-color: #f0f0f0;
+}
+
+.svg-container {
+	margin: 20px auto;
+}
+
+.svg-object {
+	width: 400px;
+	height: 400px;
+}
