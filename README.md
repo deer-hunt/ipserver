@@ -60,7 +60,7 @@ Coming soon...
 - HTTP / HTTPS server.
 - IP restriction.
 - Interactive sending.
-- Simple Forwarding.
+- TCP Forwarding.
 - Display received data or sent data in various format(TEXT, BINARY, BASE64, HEX...).
 - HTTP -> FORWARDING: Forwarding HTTP communication. e.g. HTTP <-> HTTPS
 - HTTP -> FILE: Viewing file and directory and uploading file.
@@ -178,6 +178,8 @@ $ openssl s_client -connect 192.168.1.100:8443
 
 $ curl https://localhost/path -v
 ```
+
+> Please see the following about "HTTP Forwarding".
 
 ### HTTP/HTTPS
 
