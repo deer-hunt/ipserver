@@ -6,7 +6,7 @@ This document is a description of ipserver's command arguments.
 
 ### `--verbose`
 
-Verbose mode. Level - 1:TRACE_ERROR, 2:INFO, 3:DEBUG.
+Verbose mode. `Level - 1:TRACE_ERROR, 2:INFO, 3:DEBUG.`
 
 - **Type:** `int`
 - **Default:** `0`
@@ -32,12 +32,24 @@ Verbose mode. Level - 1:TRACE_ERROR, 2:INFO, 3:DEBUG.
 
 - **Type:** `bool`
 - **Default:** `False`
-- **Action:** `store_true`
 
 - **Example:**
 
 ```
 --debug
+```
+
+### `--info`
+
+`--info` is equivalent to `--verbose=2`.
+
+- **Type:** `bool`
+- **Default:** `False`
+
+- **Example:**
+
+```
+--info
 ```
 
 ### `--log`
@@ -46,7 +58,6 @@ Verbose log filename.
 
 - **Type:** `str`
 - **Default:** `None`
-- **Metavar:** `{string}`
 
 - **Example:**
 
@@ -56,11 +67,10 @@ Verbose log filename.
 
 ### `--quiet`
 
-Hide to output message.
+Stop to output message. And Enable logging.
 
 - **Type:** `bool`
 - **Default:** `False`
-- **Action:** `store_true`
 
 - **Example:**
 
@@ -70,11 +80,10 @@ Hide to output message.
 
 ### `--conf`
 
-Load arguments from conf file by JSON. e.g.: ipserver.json
+Load arguments from conf file by JSON. e.g. ipserver.json
 
 - **Type:** `str`
 - **Default:** `None`
-- **Metavar:** `{string}`
 
 - **Example:**
 
@@ -88,7 +97,7 @@ Load arguments from conf file by JSON. e.g.: ipserver.json
 
 Listening mode. Default: TCP
 
-- **Type:** `str.upper`
+- **Type:** `str`
 - **Default:** `TCP`
 - **Choices:**
 
@@ -105,13 +114,14 @@ Listening mode. Default: TCP
 ```
 --mode=TCP
 --mode=HTTP
+--mode=SSL
 ```
 
 ### `--input`
 
 Input format. Default: TEXT
 
-- **Type:** `str.upper`
+- **Type:** `str`
 - **Default:** `TEXT`
 - **Choices:**
 
@@ -133,7 +143,7 @@ Input format. Default: TEXT
 
 Output format. Default: TEXT
 
-- **Type:** `str.upper`
+- **Type:** `str`
 - **Default:** `TEXT`
 - **Choices:**
 
@@ -150,49 +160,43 @@ Output format. Default: TEXT
 ```
 --output=TEXT
 --output=NONE
+--output=BASE64
 ```
 
-### `--bind`
+### `--output_target`
 
-Bind IP. e.g. 127.0.0.1, localhost, 0.0.0.0
+Output target. Default: RECEIVE
 
 - **Type:** `str`
-- **Default:** `0.0.0.0`
-- **Metavar:** `{string}`
+- **Default:** `RECEIVE`
+- **Choices:**
+
+| Value  | Description |
+|--------|-------------|
+| ALL   | Both directions.            |
+| SEND   | Only send. |
+| RECEIVE | Only receive. |
 
 - **Example:**
 
 ```
---bind=127.0.0.1
+--output=ALL
+--output=SEND
+--output=RECEIVE
 ```
 
-### `--port`
+### `--output_max`
 
-Listen port.
+Max output bytes.
 
 - **Type:** `int`
-- **Default:** `0`
-- **Metavar:** `{int}`
+- **Default:** 10240
+- **Choices:**
 
 - **Example:**
 
 ```
---port=8000
---port=8001
-```
-
-### `--timeout`
-
-Timeout. Default: 30.0
-
-- **Type:** `float`
-- **Default:** `30.0`
-- **Metavar:** `{float}`
-
-- **Example:**
-
-```
---timeout=60.0
+--output_max=100000
 ```
 
 ### `--dumpfile`
@@ -201,7 +205,6 @@ Dump response data to files. Dir: `./dump_logs/`
 
 - **Type:** `bool`
 - **Default:** `False`
-- **Action:** `store_true`
 
 - **Example:**
 
@@ -209,21 +212,107 @@ Dump response data to files. Dir: `./dump_logs/`
 --dumpfile
 ```
 
+### `--bind`
+
+Bind IP. e.g. 127.0.0.1, localhost, 0.0.0.0
+
+- **Type:** `str`
+- **Default:** `0.0.0.0`
+
+- **Example:**
+
+```
+--bind=127.0.0.1
+--bind=192.168.10.1
+```
+
+### `--port`
+
+Listen port.
+
+- **Type:** `int`
+- **Default:** `8000`
+
+- **Example:**
+
+```
+--port=8002
+--port=8003
+```
+
+### `--timeout`
+
+Timeout. Default: 30.0
+
+- **Type:** `float`
+- **Default:** `30.0`
+
+- **Example:**
+
+```
+--timeout=60.0
+```
+
+### `--restrict_allow`
+
+Restrict except for allowed IP. e.g. 192.168.10.101;192.168.10.0/24
+
+- **Type:** `str`
+- **Default:** `None`
+
+- **Example:**
+
+```
+--restrict_allow="192.168.2.10;192.168.10.0/24"
+```
+
+### `--restrict_deny`
+
+Restrict specified IP. e.g. 192.168.10.101;192.168.10.0/24
+
+- **Type:** `str`
+- **Default:** `None`
+
+- **Example:**
+
+```
+--restrict_deny="192.168.10.101;192.168.10.102"
+```
+
+
+### `--forwarding`
+
+Enable forwarding and set forwarding destination. Specify TCP forwarding or HTTP forwarding.
+
+- **Type:** `str`
+- **Default:** `None`
+
+- **Example:**
+
+```
+--forwarding=www.wikipedia.org	# TCP mode
+--forwarding=tcp://www.wikipedia.org:80	# TCP mode
+
+--forwarding=http://www.wikipedia.org/ # HTTP mode
+--forwarding=https://www.wikipedia.org/ # HTTP mode
+```
+
+
 ### `--ssl_context`
 
 SSL context. [SSLv3, TLS1.0, TLS1.1, TLS1.2, TLS1.3]
 
-- **Type:** `str.upper`
+- **Type:** `str`
 - **Default:** `None`
 - **Choices:**
 
 | Value  | Description |
 |--------|-------------|
-| SSLV3  |             |
-| TLS1.0 |             |
-| TLS1.1 |             |
-| TLS1.2 |             |
-| TLS1.3 |             |
+| SSLV3  | SSLv3      |
+| TLS1.0 | TLS1.0     |
+| TLS1.1 | TLS1.1     |
+| TLS1.2 | TLS1.2     |
+| TLS1.3 | TLS1.3     |
 
 - **Example:**
 
@@ -237,12 +326,11 @@ SSL key path.
 
 - **Type:** `str`
 - **Default:** ``
-- **Metavar:** `{string}`
 
 - **Example:**
 
 ```
---ssl_keypath=path/to/key
+--ssl_keypath=/path/to/keys/
 ```
 
 ### `--ssl_certfile`
@@ -251,12 +339,11 @@ SSL certificate file.
 
 - **Type:** `str`
 - **Default:** ``
-- **Metavar:** `{string}`
 
 - **Example:**
 
 ```
---ssl_certfile=path/to/cert
+--ssl_certfile=file.cert
 ```
 
 ### `--ssl_keyfile`
@@ -265,73 +352,106 @@ SSL key file.
 
 - **Type:** `str`
 - **Default:** ``
-- **Metavar:** `{string}`
 
 - **Example:**
 
 ```
---ssl_keyfile=path/to/keyfile
+--ssl_keyfile=file.key
 ```
 
 ### `--http_opt`
 
 Behaviors in HTTP option.
 
-- **Type:** `str.upper`
+- **Type:** `str`
 - **Default:** `INTERACTIVE`
 - **Choices:**
 
-| Value       | Description |
-|-------------|-------------|
-| INTERACTIVE |             |
-| FILE        |             |
-| PASS        |             |
-| APP      |             |
-| INFO        |             |
-| FORWARDING  |             |
+| Value       | Description | Related option |
+|-------------|-------------|---------------|
+| INTERACTIVE | Interactive response.     | -                     |
+| FILE        | Display file or directory.      | --http_path, --http_file, --http_file_upload |
+| FORWARDING  | Request Forwarding      | --forwarding, --http_forwarding |
+| APP      |  Run application or show file.    | --http_path, --http_app |
+| INFO        | Display info. It's request headers.   | - |
+| PASS        | Pass the display. Mainly used when customizing with Python.    | -            |
 
 - **Example:**
 
 ```
 --http_opt=FILE
+--http_opt=FILE --http_path='../'
+--http_opt=APP
+--http_opt=APP --http_path='./app/'
+--http_opt=FORWARDING --forwarding='http://www.wikipedia.org/'
 ```
 
 ### `--http_path`
 
-HTTP path.
+HTTP public directory path.
 
 - **Type:** `str`
 - **Default:** `./`
-- **Metavar:** `{string}`
 
 - **Example:**
 
 ```
---http_path=./path
+--http_path="../"
+--http_path="/path"
 ```
 
-### `--forwarding`
+### `--http_digest_auth`
 
-Forwarding destination.
+Enable digest authentication. Set authentication setting.
+
+**Formart**
+
+```
+- "File": .htdigest
+- "User/Raw": "admin2:123456"
+- "User/MD5": "admin2:d71fab~~~~dfca14112"
+```
 
 - **Type:** `str`
-- **Default:** `None`
-- **Metavar:** `{string}`
+- **Default:** ``
 
 - **Example:**
 
 ```
---forwarding=http://example.com
+--http_digest_auth="admin:123456"
+--http_digest_auth=".htdigest"
 ```
+
+### `--enable_file_upload`
+
+Enable file-upload in FILE mode. 1: Overwrite 2: New create only
+
+- **Type:** `int`
+- **Default:** `0`
+
+- **Example:**
+
+```
+--enable_file_upload=1
+--enable_file_upload=2
+```
+
+
+### `--version`
+
+Show version information.
+
+- **Type:** `bool`
+- **Default:** `False`
+
+## Shortcut options
 
 ### `--http_app`
 
 `--http_app` is equivalent to `--mode=HTTP and --http_opt=APP`.
 
 - **Type:** `str`
-- **Default:** `False`
-- **Metavar:** `{string}`
-- **Group:** `shortcut`
+- **Default:** `None`
 
 - **Example:**
 
@@ -345,15 +465,27 @@ Forwarding destination.
 `--http_file` is equivalent to `--mode=HTTP and --http_opt=FILE`.
 
 - **Type:** `str`
-- **Default:** `False`
-- **Metavar:** `{string}`
-- **Group:** `shortcut`
+- **Default:** `None`
 
 - **Example:**
 
 ```
 --http_file=1 # Current directory
---http_file=./
+--http_file="../"
+```
+
+### `--http_file_upload`
+
+`--http_file_upload` is equivalent to `--mode=HTTP and --http_opt=FILE and --enable_file_upload=1`.
+
+- **Type:** `str`
+- **Default:** `None`
+
+- **Example:**
+
+```
+--http_file_upload=1
+--http_file_upload="../"
 ```
 
 ### `--http_forwarding`
@@ -361,21 +493,10 @@ Forwarding destination.
 `--mode=HTTP and --http_opt=FORWARDING`.
 
 - **Type:** `str`
-- **Default:** `False`
-- **Metavar:** `{string}`
-- **Group:** `shortcut`
+- **Default:** `None`
 
 - **Example:**
 
 ```
---http_forwarding=https://www.amazon.com
+--http_forwarding="https://www.amazon.com"
 ```
-
-### `--version`
-
-Show version information.
-
-- **Type:** `bool`
-- **Default:** `False`
-- **Action:** `store_true`
-

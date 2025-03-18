@@ -137,7 +137,7 @@ class Config:
         'dumpfile': {'default': False, 'help': 'Dump response data to files. Dir: `./dump_logs/`', 'action': 'store_true'},
 
         'bind': {'default': '0.0.0.0', 'type': str, 'help': 'Bind IP. e.g. 127.0.0.1, localhost, 0.0.0.0', 'metavar': '{string}'},
-        'port': {'default': 0, 'type': int, 'help': 'Listen port.', 'metavar': '{int}'},
+        'port': {'default': 8000, 'type': int, 'help': 'Listen port.', 'metavar': '{int}'},
         'timeout': {'default': 30.0, 'type': float, 'help': 'Timeout. Default: 30.0', 'metavar': '{float}'},
 
         'restrict_allow': {'default': None, 'type': str, 'help': 'Restrict except for allowed IP. e.g. 192.168.10.101;192.168.10.0/24', 'metavar': '{string}'},

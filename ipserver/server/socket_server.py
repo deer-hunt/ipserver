@@ -32,6 +32,8 @@ class SocketServer(ABC):
             error = 'Permission error. Please run as "root" user.'
         elif isinstance(e, socket.herror):
             error = 'Socket error.'
+        elif isinstance(e, ssl.SSLError):
+            error = 'SSL/TLS error.'
         elif isinstance(e, socket.error):
             if e.errno == 98:
                 error = 'This port is already used.'

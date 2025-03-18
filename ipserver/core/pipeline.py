@@ -119,9 +119,6 @@ class Pipeline(ABC):
     def pre_http_respond(self, httpio):
         pass
 
-    def complete(self):
-        pass
-
     def get_filename(self, conn_sock, direction, filename):
         return filename
 
@@ -129,4 +126,7 @@ class Pipeline(ABC):
         pass
 
     def post_writefile(self, dest, port, binary, file):
+        pass
+
+    def complete(self):
         pass

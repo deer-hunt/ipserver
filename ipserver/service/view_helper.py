@@ -66,6 +66,8 @@ class ViewHelper:
 
             self.line('Timeout:'.ljust(width) + str(args.timeout))
 
+            self.line('Dumpfile:'.ljust(width) + str(args.dumpfile))
+
             if args.mode == Constant.MODE_SSL:
                 ssl_context = args.ssl_context if args.ssl_context is not None else 'auto'
                 self.line('SSL context: '.ljust(width) + ssl_context)

@@ -97,22 +97,22 @@ exit:         Exit.
 help:         Show help.
 
 :
-[1] Accepted from 192.168.56.1:52322
+[1] Accepted from 192.168.10.1:52322
 
-[1] Closed from 192.168.56.1:52322
+[1] Closed from 192.168.10.1:52322
 
-[2] Accepted from 192.168.56.1:52329
+[2] Accepted from 192.168.10.1:52329
 
-[2] Receive 600 bytes from 192.168.56.1:52329
+[2] Receive 600 bytes from 192.168.10.1:52329
 
-[2] Send 421 bytes to 192.168.56.1:52329
+[2] Send 421 bytes to 192.168.10.1:52329
 
-[3] Accepted from 192.168.56.1:52330
+[3] Accepted from 192.168.10.1:52330
 ```
 
-## Usage
+## Description of Mode
 
-### Basic
+### TCP Server
 
 **Simple server**
 
@@ -236,7 +236,6 @@ $ ipserver --port=8002 --http_forwarding="https://www.reddit.com/"
 $ ipserver --port=8002 --mode=HTTPS --http_forwarding="https://www.wikipedia.org/"
 ```
 
-
 **HTTP/HTTPS test**
 
 You can test by web-browser or command.
@@ -256,6 +255,82 @@ $ ipserver --port=8002 --mode=HTTP --http_digest_auth="admin:d71fa85bc0ded05215b
 
 $ ipserver --port=8002 --http_app="./app/" --http_digest_auth=".htdigest"
 $ ipserver --port=8443 --mode=HTTPS --http_app="./app/" --http_digest_auth=".htdigest"
+```
+
+## Mixed options
+
+**HTTP file-upload + IP restriction**
+
+```
+$ ipserver --port=8002 --http_file_upload="../" --restrict_allow="192.168.2.10;192.168.10.0/24"
+```
+
+**HTTP application + Digest auth**
+
+```
+$ ipserver --port=8002 --http_app="./app/" --http_digest_auth="admin:123456"
+```
+
+**HTTPS + info + dump**
+
+```
+$ ipserver --port=8002 --mode=HTTPS --http_opt=INFO --dumpfile
+```
+
+
+## Description of Interactive command
+
+```
+:help
+[Command help]
+send:         Begin input to send. Send by a Line-break. The shortcut is `s`.
+bulk:         Begin bulk input to send. Send by Ctrl-key. The shortcut is `b`.
+"1,2,3,..":   Switch the connection.
+current:      Show current connection.
+latest:       Switch latest connection.
+list:         List the connections.
+close:        Close current connection.
+refresh:      Refresh connections.
+exit:         Exit.
+help:         Show help.
+```
+
+**Examples**
+
+```
+:s
+[1] Switched automatically.
+Please input data to send...
+
+Hello world!
+
+[1] Sent to 127.0.0.1:45528
+
+--
+:2
+[2] Switched.
+
+--
+:list
+[1] 192.168.10.1:54721
+[2] 192.168.10.1:54722
+
+--
+:latest
+[2] Switched automatically.
+
+--
+:current
+
+[2] Switched automatically.
+ID: 2
+Client IP: 192.168.10.1
+Client port: 54722
+
+--
+:close
+[2] Switched automatically.
+[2] The connection is closed.
 ```
 
 
@@ -291,8 +366,20 @@ usage: ipserver [-h] [--verbose {0,1,2,3}] [--debug] [--info]
 | `.github`            | GitHub Actions files          |
 | `docs`               | Documentation files                                 |
 | `examples`           | Customizing program examples                 |
+| `examples/public-sample`           | Sample public files                 |
 | `ipserver`             | Main package/Sources                            |
 | `tests`              | Test files                     |
+
+## Documents
+
+The following documents exist in `ipsurv`. You can read documents in [Documentation site](https://deer-hunt.github.io/ipsurv/).
+
+| Title                       | Path                                                                                                                             |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| **Command arguments**    | [command_arguments.md](https://deer-hunt.github.io/ipserver/pages/command_arguments.html)                       |
+| **Customizing and Examples**       | [customize_examples.md](https://deer-hunt.github.io/ipserver/pages/customize_examples.html)                     |
+| **Development and Architecture**    | [development_architecture.md](https://github.com/deer-hunt/ipserver/blob/main/docs/development_architecture.md)      |
+| **ipserver's Major Modules and Classes** | Coming soon.                                 |
 
 
 ## Debugging
