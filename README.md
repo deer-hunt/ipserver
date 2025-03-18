@@ -16,7 +16,7 @@
 </div>
 
 <div>
-<img width="80" height="100" src="https://raw.githubusercontent.com/deer-hunt/ipserver/main/docs/images/ipsurv-logo.png" align="left" />
+<img width="80" height="80" src="https://raw.githubusercontent.com/deer-hunt/ipserver/main/docs/images/ipsurv-logo.png" align="left" />
 
 "ipserver" is a simple server that supports TCP, UDP, SSL, HTTP, and HTTPS protocols for various uses such as testing, debugging, or network investigation. It features also an interactive mode and forwarding capabilities. Additionally, you can customize its behavior using Python.
 
@@ -24,9 +24,6 @@
 
 <br>
 <img src="https://raw.githubusercontent.com/deer-hunt/ipserver/main/docs/images/ipserver-thumbs.png" alt="ipserver visual image" />
-
-
-<p>&nbsp;</p>
 
 ## Installation
 
