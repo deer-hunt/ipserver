@@ -1,6 +1,7 @@
 import pytest
 from unittest.mock import patch
 from ipserver.__main__ import main
+from ipserver.util.args_util import StdinLoader
 import re
 import sys
 import io
