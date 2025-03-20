@@ -31,7 +31,7 @@ class ViewHelper:
         self.output_max = args.output_max
 
     def show_help(self):
-        width = 14
+        width = 16
 
         self.line('[Command help]')
         self.line('send:'.ljust(width) + 'Begin input to send. Send by a Line-break. The shortcut is `s`.')
@@ -48,7 +48,7 @@ class ViewHelper:
 
     def show_head(self, args):
         if not args.quiet:
-            width = 14
+            width = 16
 
             self.line('Mode: '.ljust(width) + args.mode)
 
@@ -63,6 +63,7 @@ class ViewHelper:
 
             self.line('Input:'.ljust(width) + str(args.input))
             self.line('Output:'.ljust(width) + str(args.output))
+            self.line('Output target:'.ljust(width) + str(args.output_target))
 
             self.line('Timeout:'.ljust(width) + str(args.timeout))
 

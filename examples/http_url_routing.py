@@ -10,6 +10,7 @@ URL routing.
 
 Command:
 # python3 http_url_routing.py --port=8002
+# http://localhost:8002/
 '''
 
 

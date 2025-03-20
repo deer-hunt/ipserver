@@ -213,11 +213,13 @@ class IpServerCmd:
         return conn_sock
 
     def _listen_quiet(self):
-        self.view.print('\nStarting ipserver in quiet mode...')
+        self.view.print('Starting ipserver in quiet mode...')
 
         while True:
             self.pipeline.kick_quiet()
-            time.sleep(60)
+            self.conn_bucket.refresh_connections()
+
+            time.sleep(Constant.QUIET_INTERVAL)
 
     def _select_conn_sock(self, conn_sock):
         if conn_sock is not None:

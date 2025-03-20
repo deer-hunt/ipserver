@@ -12,7 +12,8 @@ Specification:
 - Creating ObjectFactory class.
 
 Command:
-# python3 config_customize.py --port=8000
+# python3 config_customize.py --info
+# telnet localhost 8000
 '''
 
 

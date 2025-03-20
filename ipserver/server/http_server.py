@@ -1,3 +1,4 @@
+import copy
 import html
 import importlib.util
 import io
@@ -6,7 +7,6 @@ import os
 import re
 import ssl
 import sys
-import copy
 import urllib.parse
 from datetime import datetime
 from http import HTTPStatus
@@ -21,6 +21,7 @@ from multipart import parse_form_data
 from ipserver.configs import Constant
 from ipserver.server.http_server_module import HTTPDigestAuth, HttpFileUploader, QueueLogger
 from ipserver.server.socket_server import TCPSocketServer, SSLSocketServer, ConnSock, SendQueue, SocketCloseError
+from ipserver.util.sys_util import AppException
 from ipserver.util.urlparser import URLParser
 
 
@@ -214,8 +215,10 @@ class HTTPHandler(SimpleHTTPRequestHandler):
         self.enable_file_upload = args.enable_file_upload if self.http_opt == Constant.HTTP_FILE else 0
         self.forwarding = args.forwarding
         self.forwarding_requester = None
+        self.forwarding_convert_host = args.http_forwarding_convert_host
         self.url_parser = URLParser()
         self.interactive_queue = None
+        self.command = None
         self.path = None
         self.directory = os.getcwd()
         self.conn_sock = conn_sock
@@ -273,7 +276,10 @@ class HTTPHandler(SimpleHTTPRequestHandler):
 
         success = super().parse_request()
 
-        self.logger.debug('REQUEST_PATH: ' + self.path)
+        if self.command is not None:
+            self.logger.debug('REQUEST_PATH: ' + self.path)
+        else:
+            raise AppException('HTTP protocol error.(Illegal data or Other protocol)')
 
         return success
 
@@ -555,11 +561,16 @@ class HTTPHandler(SimpleHTTPRequestHandler):
 
         response, binary = self.forwarding_requester.request(self.command, forwarding_url, req_headers, httpio.post_data)
 
+        self.logger.debug('Forwarding response is ' + str(len(binary)) + ' bytes')
+
         res_headers = response.msg
 
-        binary = self.pipeline.post_http_forwarding_request(httpio, forwarding_url, req_headers, res_headers, response, binary)
+        if self.forwarding_convert_host and self._is_convert_forwarding(res_headers):
+            binary = self._convert_forwarding_host(binary, res_headers, forwarding_url)
 
-        self.logger.debug('Forwarding response ' + str(len(binary)) + ' bytes')
+            self.logger.debug('Forwarding converted response is ' + str(len(binary)) + ' bytes')
+
+        binary = self.pipeline.post_http_forwarding_request(httpio, forwarding_url, req_headers, res_headers, response, binary)
 
         httpio.status = response.status
 
@@ -573,6 +584,35 @@ class HTTPHandler(SimpleHTTPRequestHandler):
         httpio.body = binary
 
         self._respond_content(httpio)
+
+    def _is_convert_forwarding(self, res_headers):
+        content_type = res_headers['Content-Type']
+
+        if content_type is not None and re.search(r'(text|javascript)', content_type):
+            return True
+
+        return False
+
+    def _convert_forwarding_host(self, binary, res_headers, forwarding_url):
+        request_host = self._get_forwarding_replace_host(forwarding_url.hostname)
+
+        hostname = r'\1/'
+
+        binary = re.sub(request_host.encode(), hostname.encode(), binary)
+
+        return binary
+
+    def _get_forwarding_replace_host(self, v):
+        v = re.sub(r'^www\.', '', v, flags=re.I)
+
+        if not re.search(r'\.[0-9a-z-]{1,63}\.[a-z]{2,}$', v, flags=re.I):
+            v = r'(www\.)?' + re.escape(v)
+        else:
+            v = re.escape(v)
+
+        v = r'(=\s*["\']*\s*)(https?://|//)?' + v + r'(:\d+)?/?'
+
+        return v
 
     def _respond_content(self, httpio):
         self.pipeline.pre_http_respond(httpio)

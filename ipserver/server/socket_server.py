@@ -32,6 +32,8 @@ class SocketServer(ABC):
             error = 'Permission error. Please run as "root" user.'
         elif isinstance(e, socket.herror):
             error = 'Socket error.'
+        elif isinstance(e, ConnectionResetError):
+            error = 'Connection reset by peer.'
         elif isinstance(e, ssl.SSLError):
             error = 'SSL/TLS error.'
         elif isinstance(e, socket.error):
@@ -68,7 +70,7 @@ class SocketServer(ABC):
                 sock.shutdown(socket.SHUT_RDWR)
                 sock.close()
             except OSError as e:
-                if e.errno != 107:  # Not Transport endpoint is not connected
+                if e.errno not in [9, 107]:  # Not Bad file descriptor, Transport endpoint is not connected
                     raise e
 
     def __del__(self):
@@ -150,6 +152,7 @@ class ConnSock(ABC):
         self.queue = SendQueue()
         self.sequence = 0
         self.cur = 0
+        self.data = {}
 
     def set_conn_id(self, conn_id):
         self.conn_id = conn_id
@@ -192,7 +195,7 @@ class ConnSock(ABC):
             sock.shutdown(socket.SHUT_RDWR)
             sock.close()
         except OSError as e:
-            if e.errno != 9:  # Not Bad file descriptor
+            if e.errno not in [9, 107]:  # Not Bad file descriptor, Transport endpoint is not connected
                 raise e
 
     def is_connected(self, verify_data=False, binary=None):

@@ -10,10 +10,10 @@ HTTP opt by path.
 Command:
 # python3 http_opt_by_path.py --port=8002
 
-http://test-develop:8002/
-http://test-develop:8002/info/
-http://test-develop:8002/pass/
-http://test-develop:8002/public-sample/hello.py
+http://develop-server:8002/
+http://develop-server:8002/info/
+http://develop-server:8002/pass/
+http://develop-server:8002/public-sample/hello.py
 '''
 
 

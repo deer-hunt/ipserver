@@ -59,16 +59,17 @@ Coming soon...
 - Simple TCP / UDP server.
 - Support SSL.
 - HTTP / HTTPS server.
-- IP restriction.
+- IP restriction - Allow / Deny.
 - Interactive sending.
-- TCP Forwarding.
+- TCP Forwarding. Bypassing the data transmission is available.
 - Display received data or sent data in various format(TEXT, BINARY, BASE64, HEX...).
 - HTTP -> FORWARDING: Forwarding HTTP communication. e.g. HTTP <-> HTTPS
 - HTTP -> FILE: Viewing file and directory and uploading file.
 - HTTP -> APP: Running python application. And Running CGI via python.
 - HTTP -> INFO: Show request headers from client. 
 - Support HTTP digest authentication.
-- Logging / Data dump File.
+- Logging / Debug log.
+- Dump transmission data to file.
 - Configure by JSON file.
 - Customize by Python code. e.g. You can convert transmission data or develop original protocol server.
 
@@ -76,10 +77,10 @@ Coming soon...
 ## Running example
 
 ```bash
-$ ipserver --port=8002 --mode=HTTP
+$ ipserver  --mode=HTTP
 Mode:         HTTP
 Listen:       0.0.0.0
-Port:         8002
+Port:         8000
 HTTP opt:     FILE
 Input:        TEXT
 Output:       NONE
@@ -119,18 +120,19 @@ help:         Show help.
 
 ```bash
 $ ipserver --port=8002
-$ ipserver --port=8002 --mode=TCP --bind=127.0.0.1
-$ ipserver --port=8002 --timeout=120
+$ ipserver  --mode=TCP --bind=127.0.0.1
+$ ipserver  --timeout=120
 
-$ ipserver --port=8002 --info
-$ ipserver --port=8002 --debug
+$ ipserver  --info
+$ ipserver  --debug
 $ ipserver --port=8002 --log=app.log
 
-$ ipserver --port=8002 --quiet
+$ ipserver  --quiet
 ```
 
 ```
 # TEST
+# telnet localhost 8000
 # telnet localhost 8002
 ```
 
@@ -151,11 +153,11 @@ $ openssl s_client -connect 192.168.1.100:8443
 **IP restriction**
 
 ```bash
-$ ipserver --port=8002 --restrict_allow=192.168.2.10
-$ ipserver --port=8002 --restrict_allow="192.168.2.10;192.168.10.0/24"
+$ ipserver  --restrict_allow=192.168.2.10
+$ ipserver  --restrict_allow="192.168.2.10;192.168.10.0/24"
 
-$ ipserver --port=8002 --restrict_deny=192.168.10.101
-$ ipserver --port=8002 --restrict_deny="192.168.10.101;192.168.50.0/24"
+$ ipserver  --restrict_deny=192.168.10.101
+$ ipserver  --restrict_deny="192.168.10.101;192.168.50.0/24"
 ```
 
 **Dump file**
@@ -167,10 +169,10 @@ $ ipserver --port=8002 --dumpfile
 ### TCP Forwarding
 
 ```
-$ ipserver --port=8002 --forwarding=wikipedia.org:80
+$ ipserver --port=8001 --forwarding=wikipedia.org:80
 $ ipserver --port=8443 --mode=SSL --forwarding=tcp://wikipedia.org:80
-$ ipserver --port=8002 --forwarding=ssl://wikipedia.org:443
-$ ipserver --port=8002 --forwarding=wikipedia.org:80 --dumpfile
+$ ipserver  --forwarding=ssl://wikipedia.org:443
+$ ipserver  --forwarding=wikipedia.org:80 --dumpfile
 ```
 
 ```bash
@@ -187,54 +189,54 @@ $ curl https://localhost/path -v
 **View File and directory**
 
 ```bash
-$ ipserver --port=8002 --mode=HTTP
-$ ipserver --port=8002 --mode=HTTP --http_opt=FILE
-$ ipserver --port=8002 --mode=HTTP --http_opt=FILE --http_path="../"
+$ ipserver  --mode=HTTP
+$ ipserver  --mode=HTTP --http_opt=FILE
+$ ipserver  --mode=HTTP --http_opt=FILE --http_path="../"
 
 $ ipserver --port=8443 --mode=HTTPS
 $ ipserver --port=8443 --mode=HTTPS --http_path="../"
 
 # Shortcut
-$ ipserver --port=8002 --http_file=1
-$ ipserver --port=8002 --http_file="../"
+$ ipserver  --http_file=1
+$ ipserver  --http_file="../"
 ```
 
 **Enable file upload**
 
 ```bash
-$ ipserver --port=8002 --mode=HTTP --http_opt=FILE --enable_file_upload=1
-$ ipserver --port=8002 --mode=HTTPS --http_path="../" --enable_file_upload=2
+$ ipserver  --mode=HTTP --http_opt=FILE --enable_file_upload=1
+$ ipserver  --mode=HTTPS --http_path="../" --enable_file_upload=2
 
 # Shortcut
-$ ipserver --port=8002 --http_file_upload=1
-$ ipserver --port=8002 --http_file_upload="../"
+$ ipserver  --http_file_upload=1
+$ ipserver  --http_file_upload="../"
 ```
 
 **Application**
 
 ```bash
-$ ipserver --port=8002 --mode=HTTP --http_opt=APP
-$ ipserver --port=8002 --mode=HTTPS--http_opt=APP --http_path="../"
+$ ipserver  --mode=HTTP --http_opt=APP
+$ ipserver  --mode=HTTPS--http_opt=APP --http_path="../"
 
 # Shortcut
-$ ipserver --port=8002 --http_app=1
-$ ipserver --port=8002 --http_app="./app/"
+$ ipserver  --http_app=1
+$ ipserver  --http_app="./app/"
 ```
 
 **Display info**
 
 ```bash
-$ ipserver --port=8002 --mode=HTTP --http_opt=INFO
+$ ipserver  --mode=HTTP --http_opt=INFO
 ```
 
 **HTTP Forwarding**
 
 ```bash
-$ ipserver --port=8002 --mode=HTTP --http_opt=FORWARDING --forwarding="https://www.reddit.com/"
+$ ipserver  --mode=HTTP --http_opt=FORWARDING --forwarding="https://www.reddit.com/"
 
 # Shortcut
-$ ipserver --port=8002 --http_forwarding="https://www.reddit.com/"
-$ ipserver --port=8002 --mode=HTTPS --http_forwarding="https://www.wikipedia.org/"
+$ ipserver  --http_forwarding="https://www.reddit.com/"
+$ ipserver  --mode=HTTPS --http_forwarding="https://www.wikipedia.org/"
 ```
 
 **HTTP/HTTPS test**
@@ -251,10 +253,10 @@ $ curl https://localhost:8443 -k -v
 ## HTTP Digest authentication
 
 ```bash
-$ ipserver --port=8002 --mode=HTTP --http_digest_auth="admin:123456"
-$ ipserver --port=8002 --mode=HTTP --http_digest_auth="admin:d71fa85bc0ded05215b28dfd8ca14112" --http_file_upload=1
+$ ipserver  --mode=HTTP --http_digest_auth="admin:123456"
+$ ipserver  --mode=HTTP --http_digest_auth="admin:d71fa85bc0ded05215b28dfd8ca14112" --http_file_upload=1
 
-$ ipserver --port=8002 --http_app="./app/" --http_digest_auth=".htdigest"
+$ ipserver --port=8001 --http_app="./app/" --http_digest_auth=".htdigest"
 $ ipserver --port=8443 --mode=HTTPS --http_app="./app/" --http_digest_auth=".htdigest"
 ```
 
@@ -263,19 +265,19 @@ $ ipserver --port=8443 --mode=HTTPS --http_app="./app/" --http_digest_auth=".htd
 **HTTP file-upload + IP restriction**
 
 ```
-$ ipserver --port=8002 --http_file_upload="../" --restrict_allow="192.168.2.10;192.168.10.0/24"
+$ ipserver  --http_file_upload="../" --restrict_allow="192.168.2.10;192.168.10.0/24"
 ```
 
 **HTTP application + Digest auth**
 
 ```
-$ ipserver --port=8002 --http_app="./app/" --http_digest_auth="admin:123456"
+$ ipserver  --http_app="./app/" --http_digest_auth="admin:123456"
 ```
 
 **HTTPS + info + dump**
 
 ```
-$ ipserver --port=8002 --mode=HTTPS --http_opt=INFO --dumpfile
+$ ipserver  --mode=HTTPS --http_opt=INFO --dumpfile
 ```
 
 
@@ -373,7 +375,7 @@ usage: ipserver [-h] [--verbose {0,1,2,3}] [--debug] [--info]
 
 ## Documents
 
-The following documents exist in `ipsurv`. You can read documents in [Documentation site](https://deer-hunt.github.io/ipsurv/).
+The following documents exist in `ipserver`. You can read documents in [Documentation site](https://deer-hunt.github.io/ipserver/).
 
 | Title                       | Path                                                                                                                             |
 |-------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
@@ -401,3 +403,7 @@ $ ipserver ***** --debug     #DEBUG  This option is equivalent to "--verbose=3"
 
 - [multipart](https://pypi.org/project/multipart/)
 
+
+## Related OSS
+
+- [IpSurv](https://github.com/deer-hunt/ipsurv/)

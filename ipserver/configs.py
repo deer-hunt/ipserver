@@ -52,6 +52,7 @@ documents:
     CONF_FILE = 'ipserver.json'
     LOG_FILE = 'ipserver.log'
 
+    QUIET_INTERVAL = 60
     RECV_BUF_SIZE = 65565
 
     MODE_TCP = 'TCP'
@@ -113,7 +114,7 @@ documents:
     HTTP_FILE_CMD = 'ipcmd'
     HTTP_FILE_UPLOAD = 'file-upload'
 
-    DUMPFILE_DIR = 'dump_logs'
+    DUMPFILE_DIR = 'dumpfiles'
 
     HTTP_MD5_SALT = 'ipsalt'
 
@@ -133,8 +134,8 @@ class Config:
         'input': {'default': 'TEXT', 'type': str.upper, 'help': 'Input format in interactive input. Default: TEXT', 'choices': ['TEXT', 'BINARY', 'HEX', 'BASE64']},
         'output': {'default': 'TEXT', 'type': str.upper, 'help': 'Output format. Default: TEXT', 'choices': ['NONE', 'TEXT', 'BINARY', 'HEX', 'BASE64']},
         'output_target': {'default': 'RECEIVE', 'type': str.upper, 'help': 'Output target.', 'choices': ['ALL', 'SEND', 'RECEIVE']},
-        'output_max': {'default': 10240, 'type': int, 'help': 'Max output bytes.'},
-        'dumpfile': {'default': False, 'help': 'Dump response data to files. Dir: `./dump_logs/`', 'action': 'store_true'},
+        'output_max': {'default': 2048, 'type': int, 'help': 'Max output bytes.'},
+        'dumpfile': {'default': False, 'help': 'Dump response data to files. Dir: `./dumpfiles/`', 'action': 'store_true'},
 
         'bind': {'default': '0.0.0.0', 'type': str, 'help': 'Bind IP. e.g. 127.0.0.1, localhost, 0.0.0.0', 'metavar': '{string}'},
         'port': {'default': 8000, 'type': int, 'help': 'Listen port.', 'metavar': '{int}'},
@@ -152,6 +153,7 @@ class Config:
 
         'http_opt': {'default': 'FILE', 'type': str.upper, 'help': 'Behaviors in HTTP option.', 'choices': ['INTERACTIVE', 'FILE', 'PASS', 'APP', 'INFO', 'FORWARDING']},
         'http_path': {'default': './', 'type': str, 'help': 'HTTP public directory.', 'metavar': '{string}'},
+        'http_forwarding_convert_host': {'default': False, 'help': 'Convert hostname of content to `/` in HTTP forwarding.', 'action': 'store_true'},
         'http_digest_auth': {'default': '', 'type': str, 'help': 'Enable digest authentication. Set authentication setting.\nFile: .htdigest\n"User/Raw: admin2:123456"\n"User/MD5: admin2:d71fab~~~~dfca14112"', 'metavar': '{string}'},
         'enable_file_upload': {'default': 0, 'type': int, 'help': 'Enable file-upload in FILE mode. 1: Overwrite 2: New create only', 'metavar': '{int}'},
 

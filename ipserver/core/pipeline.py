@@ -75,7 +75,7 @@ class Pipeline(ABC):
         return binary
 
     def complete_send(self, conn_sock, binary):
-        return binary
+        pass
 
     def pre_forwarding_send(self, conn_sock, binary):
         return binary
@@ -122,10 +122,7 @@ class Pipeline(ABC):
     def get_filename(self, conn_sock, direction, filename):
         return filename
 
-    def pre_writefile(self, dest, port, binary, file):
-        pass
-
-    def post_writefile(self, dest, port, binary, file):
+    def pre_dump_write(self, file, binary, filename, conn_sock, direction):
         pass
 
     def complete(self):

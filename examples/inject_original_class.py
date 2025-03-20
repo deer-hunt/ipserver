@@ -11,7 +11,8 @@ Specification:
 - Customizing Pipeline class object.
 
 Command:
-# python3 inject_original_class.py
+# python3 inject_original_class.py --info
+# http://localhost:8000/
 '''
 
 

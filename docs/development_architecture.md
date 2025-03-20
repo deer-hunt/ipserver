@@ -82,8 +82,7 @@ When Pipeline's methods are dispatched:
 | `post_http_file_upload`      | After uploading an file in HTTP mode.                               | Handling post-upload operations.          |
 | `pre_http_respond`           | Before responding to an HTTP request.                       | Customizing HTTP response.                |
 | `get_filename`               | Getting the filename for a connection.                      | Customizing filename resolution.          |
-| `pre_writefile`              | Before writing to a file.                                   | Customizing file write operations.        |
-| `post_writefile`             | After writing to a file.                                    | Handling post-write operations.           |
+| `pre_dump_write`              | Before writing to a file.                                   | Customizing file write operations.        |
 | `complete`                   | After completing all processes.                             | Final processing.                         |
 
 

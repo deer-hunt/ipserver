@@ -13,7 +13,7 @@ Path: [../examples/public-sample](examples/public-sample)
 **Run application**
 
 ```
-$ ipserver --port=8002 --http_app="/path/to/examples/public-sample/"
+$ ipserver --http_app="/path/to/examples/public-sample/"
 ```
 
 **Result by browser**
@@ -39,13 +39,14 @@ Application
 **Display file and directory**
 
 ```
-$ ipserver --port=8002 --http_file="/path/to/examples/public-sample/"
+$ ipserver --http_file="/path/to/examples/public-sample/"
 ```
 
 **Use Digest auth**
 
 ```
-$ ipserver --port=8002 --http_file=1 --http_digest_auth="/path/to/examples/public-sample/.htdigest"
+$ ipserver --http_file=1 --http_digest_auth="admin:12345678"
+$ ipserver --http_file=1 --http_digest_auth="/path/to/examples/public-sample/.htdigest"
 ```
 
 
@@ -63,12 +64,16 @@ There are several example programs of how to customize. Please refer to the comm
 | pipeline_customize.py            | Customizing Pipeline class.                      |
 | original_protocol.py             | Implementing a custom protocol for calculations. |
 | inject_original_class.py         | Injecting original class object.                 |
+| tcp_raw_http_response.py           | Response HTTP by raw data.            |
+| tcp_forwarding_change_data.py        | TCP forwarding. Changing transmission data.         |
+| tcp_forwarding_ssl_protocol.py        | The forwarding protocol is SSL, however the listening protocol is not SSL. So you can debug the transmission data in detail.         
+| benchmark_download_speed.py        | Benchmark download speed by downloading dummy image. e.g. `http://develop-server:8002/bench?mb=250`         |
 | http_url_routing.py              | Implementing URL routing.                        |
 | http_upload_filtering.py         | Filtering file uploads.                          |
 | http_response_customize.py       | Customizing HTTP responses.                      |
 | http_opt_by_path.py              | Setting HTTP options based on the request path.   |
-| http_forwarding_html_append.py   | Appending HTML content to forwarded responses.   |
-| http_dummy_response.py           | Generating dummy HTTP responses.                 |
+| http_forwarding_change_header.py | Changing request header in HTTP forwarding. Set random Accept-Language. Forwarding-request is HTTPS request, But the protocol listened on  HTTP, So you can change HTTP header.|
+| http_forwarding_html_append.py   | Appending HTML content in HTTP forwarding.   |
 | customize_http_handler.py        | Customizing the HTTP handler.                    |
 
 

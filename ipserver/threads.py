@@ -246,7 +246,7 @@ class ConnSockSender(threading.Thread):
 
             self.conn_sock.complete_send(binary)
 
-            binary = self.pipeline.complete_send(self.conn_sock, binary)
+            self.pipeline.complete_send(self.conn_sock, binary)
 
         return binary
 

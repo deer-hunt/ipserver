@@ -9,7 +9,8 @@ import re
 Upload filtering.
 
 Command:
-# python3 upload_filtering.py --port=8002 --http_path='../../'
+# python3 upload_filtering.py --info --http_path='../../'
+# curl http://develop-server:8000/
 '''
 
 

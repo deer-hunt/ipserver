@@ -7,9 +7,9 @@ from string import Template
 HTTP customize response.
 
 Command:
-# python3 http_response_customize.py --port=8002
+# python3 http_response_customize.py --info
 
-http://test-develop:8002/
+http://develop-server:8000/
 '''
 
 
@@ -26,16 +26,22 @@ class MyPipeline(Pipeline):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World!</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <style>
         body {
             display: flex;
             justify-content: center;
             height: 100vh;
             background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
             overflow: hidden;
             position: relative;
+
+            font-family: "Lora", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
         }
         .message {
             margin-top: 3rem;

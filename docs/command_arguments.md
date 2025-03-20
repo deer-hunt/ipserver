@@ -190,7 +190,7 @@ Output target. Default: RECEIVE
 Max output bytes.
 
 - **Type:** `int`
-- **Default:** 10240
+- **Default:** 2048
 - **Choices:**
 
 - **Example:**
@@ -201,7 +201,7 @@ Max output bytes.
 
 ### `--dumpfile`
 
-Dump response data to files. Dir: `./dump_logs/`
+Dump response data to files. Dir: `./dumpfiles/`
 
 - **Type:** `bool`
 - **Default:** `False`
@@ -210,6 +210,22 @@ Dump response data to files. Dir: `./dump_logs/`
 
 ```
 --dumpfile
+```
+
+**Dumpfile examples:**
+
+```
+ipserver_9_1_recv_192.168.10.3_58395.dat
+ipserver_8_1_recv_192.168.10.3_58385.dat
+ipserver_7_1_recv_192.168.10.3_58384.dat
+ipserver_6_4_send_192.168.10.3_58442.dat
+ipserver_6_3_recv_192.168.10.3_58442.dat
+ipserver_6_2_send_192.168.10.3_58442.dat
+ipserver_6_1_recv_192.168.10.3_58442.dat
+ipserver_5_1_recv_192.168.10.3_58441.dat
+ipserver_5_1_recv_192.168.10.3_58362.dat
+ipserver_4_1_recv_192.168.10.3_58355.dat
+ipserver_3_4_send_192.168.10.3_58426.dat
 ```
 
 ### `--bind`
@@ -289,12 +305,19 @@ Enable forwarding and set forwarding destination. Specify TCP forwarding or HTTP
 
 - **Example:**
 
-```
---forwarding=www.wikipedia.org	# TCP mode
---forwarding=tcp://www.wikipedia.org:80	# TCP mode
+**In TCP mode**
 
---forwarding=http://www.wikipedia.org/ # HTTP mode
---forwarding=https://www.wikipedia.org/ # HTTP mode
+```
+--forwarding=www.wikipedia.org	 # TCP connection
+--forwarding=tcp://www.wikipedia.org:80 # TCP connection
+--forwarding=ssl://www.wikipedia.org:80 # SSL connection
+```
+
+**In HTTP mode**
+
+```
+--forwarding=http://www.wikipedia.org/ # HTTP reuqest
+--forwarding=https://www.wikipedia.org/ # HTTPS request
 ```
 
 
@@ -400,16 +423,38 @@ HTTP public directory path.
 --http_path="/path"
 ```
 
+### `--http_forwarding_convert_host`
+
+Convert hostname of content to `/` in HTTP forwarding. This feature provide that the resource file as "css, js, img" to be loaded through `ipserver` forcibly.
+
+**Behavior:**
+
+```
+<img src="https://www.github.com/hello">, <img src="http://github.com/hello">
+↓
+<img src="/hello">
+```
+
+- **Type:** `bool`
+- **Default:** `False`
+
+- **Example:**
+
+```
+--http_forwarding_convert_host
+ipserver --http_forwarding="https://www.amazon.com/" --http_forwarding_convert_host --info
+```
+
 ### `--http_digest_auth`
 
 Enable digest authentication. Set authentication setting.
 
-**Formart**
+**Format**
 
 ```
-- "File": .htdigest
-- "User/Raw": "admin2:123456"
-- "User/MD5": "admin2:d71fab~~~~dfca14112"
+a. "Filename": .htdigest
+b. "User/Password": "admin2:123456"
+c. "User/MD5": "admin2:d71fab~~~~dfca14112"
 ```
 
 - **Type:** `str`
@@ -420,6 +465,15 @@ Enable digest authentication. Set authentication setting.
 ```
 --http_digest_auth="admin:123456"
 --http_digest_auth=".htdigest"
+```
+
+**How to create .htdigest file**
+
+```
+$ htdigest -c .htdigest "digest" admin
+
+--
+admin:digest:09b62d36d2639b4431bef96221975aed
 ```
 
 ### `--enable_file_upload`

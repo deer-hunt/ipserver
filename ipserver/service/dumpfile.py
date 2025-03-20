@@ -22,11 +22,9 @@ class DumpFile:
         getLogger(__name__).info('DUMPFILE_PATH: ' + path)
 
         with open(path, 'ab') as file:
-            # self.pipeline.pre_writefile(client, port, binary, file)
+            self.pipeline.pre_dump_write(file, binary, filename, conn_sock, direction)
 
             file.write(binary)
-
-            # self.pipeline.post_writefile(client, port, binary, file)
 
         return path
 
