@@ -1,16 +1,16 @@
 import argparse
+import ipaddress
+import json
+import re
 import ssl
 import sys
-import json
-import ipaddress
-import re
-
 from logging import getLogger
+
 from ipserver.configs import Constant
 from ipserver.core.pipeline import Pipeline
 from ipserver.util.args_util import ArgsHelper
-from ipserver.util.sys_util import Output
 from ipserver.util.sys_util import AppException
+from ipserver.util.sys_util import Output
 
 
 class ArgsBuilder:
@@ -19,14 +19,27 @@ class ArgsBuilder:
         self.pipeline = pipeline  # type: Pipeline
 
     def parse(self):
-        parent_parser, args = self.init_args(self.config.PRE_ARGUMENTS)
+        arguments = self.config.ARGUMENTS
 
-        if args.conf:
-            conf_args = self._load_conf(args.conf)
-        else:
-            conf_args = {}
+        _, rawargs = ArgsHelper.init_parser(arguments, raw=True)
 
-        return self.build_args(parent_parser, self.config.ARGUMENTS, conf_args)
+        conf_args = self._load_conf(rawargs.conf) if rawargs.conf else {}
+
+        self.pipeline.init_configure(arguments, conf_args)
+
+        parser = self._create_parser(arguments, conf_args)
+
+        args = parser.parse_args()
+
+        self._setup_logging(args)
+
+        self.pipeline.pre_configure(args)
+
+        self._configure(parser, args, rawargs)
+
+        self.pipeline.post_configure(args)
+
+        return (args, parser)
 
     def _load_conf(self, conf):
         if ArgsHelper.is_bool(conf):
@@ -44,59 +57,45 @@ class ArgsBuilder:
 
         return conf_args
 
-    def init_args(self, arguments):
-        parser, args = ArgsHelper.init_parser(arguments)
+    def _create_parser(self, arguments, conf_args):
+        parser = argparse.ArgumentParser(add_help=False, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
+        ArgsHelper.add_arguments(parser, arguments, conf_args, group_names=self.config.ARGUMENTS_GROUP_NAMES)
+
+        desc = self._create_bottom_desc()
+
+        parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter, parents=[parser], description=Constant.APP_DESCRIPTION, epilog=desc)
+
+        return parser
+
+    def _setup_logging(self, args):
         if args.info:
             args.verbose = 2
 
         if args.debug:
             args.verbose = 3
 
-        if args.quiet:
+        if args.log is not None:
             if args.verbose == 0:
                 args.verbose = 2
 
-            if not args.log:
-                args.log = Constant.LOG_FILE
-
-        ArgsHelper.init_logging(args.verbose, args.log)
+        ArgsHelper.setup_logging(args.verbose, args.log)
 
         if args.verbose > 0:
-            Output.warn('Verbose mode: ' + str(args.verbose) + ' [1:TRACE_ERROR, 2:INFO, 3:DEBUG]')
+            getLogger(__name__).info('VERBOSE_LEVEL: ' + str(args.verbose) + ' [1:TRACE_ERROR, 2:INFO, 3:DEBUG]')
 
-            if args.log is not None:
-                Output.warn('Enable log.(File:' + args.log + ')')
+        if args.log is not None:
+            getLogger(__name__).info('ENABLE_LOG: ' + args.log)
 
-        return parser, args
-
-    def build_args(self, parent_parser, arguments, conf_args):
-        desc = self._create_bottom_desc()
-
-        parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter, parents=[parent_parser], description=Constant.APP_DESCRIPTION, epilog=desc)
-
-        self.pipeline.init_configure(arguments, conf_args)
-
-        self._prepare_arguments(parser, arguments, conf_args)
-
-        args = parser.parse_args()
-
-        self.pipeline.pre_configure(args, conf_args)
-
+    def _configure(self, parser, args, rawargs):
         self._assign_shorten_option(args)
 
         if Output.is_logging():
-            self.logging(args)
+            self._logging_args(args)
 
-        self._configure(parser, args)
+        self._fix_args(parser, args)
 
-        self._validate_options(parser, args, arguments)
-
-        self.pipeline.post_configure(args, conf_args)
-
-        self._notice(args)
-
-        return (args, parser)
+        self._validate_args(parser, args, rawargs)
 
     def _create_bottom_desc(self):
         desc = ''
@@ -137,7 +136,7 @@ class ArgsBuilder:
             if not ArgsHelper.is_bool(args.http_forwarding):
                 args.forwarding = args.http_forwarding
 
-    def _configure(self, parser, args):
+    def _fix_args(self, parser, args):
         try:
             args.fixed_output_target = self._fix_output_target(args)
             args.fixed_ssl_context = self._fix_ssl_context(args)
@@ -196,9 +195,7 @@ class ArgsBuilder:
 
         return ips
 
-    def _validate_options(self, parser, args, arguments):
-        _, rawargs = ArgsHelper.init_parser(arguments, raw=True)
-
+    def _validate_args(self, parser, args, rawargs):
         if args.version or len(sys.argv) == 1:
             return
 
@@ -235,10 +232,7 @@ class ArgsBuilder:
             msg += ' option is not supported in `{}` mode.'.format(mode)
             parser.error(msg)
 
-    def _prepare_arguments(self, parser, arguments, conf_args):
-        ArgsHelper.add_arguments(parser, arguments, conf_args, group_names=self.config.ARGUMENTS_GROUP_NAMES)
-
-    def logging(self, args):
+    def _logging_args(self, args):
         params = vars(args)
 
         getLogger(__name__).info('ARGUMENTS:\n' + Output.get_formatted_data(params))
@@ -246,6 +240,3 @@ class ArgsBuilder:
         v = json.dumps(params, ensure_ascii=False)
 
         getLogger(__name__).info('ARGUMENTS_JSON:\n' + v)
-
-    def _notice(self, args):
-        pass

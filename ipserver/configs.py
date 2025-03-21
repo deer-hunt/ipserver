@@ -53,6 +53,8 @@ documents:
     LOG_FILE = 'ipserver.log'
 
     QUIET_INTERVAL = 60
+    QUIET_STARTING_MSG = 'Starting IpServer in quiet mode...'
+
     RECV_BUF_SIZE = 65565
 
     MODE_TCP = 'TCP'
@@ -120,16 +122,14 @@ documents:
 
 
 class Config:
-    PRE_ARGUMENTS = {
+    ARGUMENTS = {
         'verbose': {'default': 0, 'type': int, 'help': 'Verbose mode. [Level - 1:TRACE_ERROR, 2:INFO, 3:DEBUG]', 'choices': [0, 1, 2, 3]},
         'debug': {'default': False, 'help': '`--debug` is equivalent to `--verbose=3`.', 'action': 'store_true'},
         'info': {'default': False, 'help': '`--info` is equivalent to `--verbose=2`.', 'action': 'store_true'},
         'log': {'default': None, 'type': str, 'help': 'Verbose log filename.', 'metavar': '{string}'},
-        'quiet': {'default': False, 'help': 'Hide to output message.', 'action': 'store_true'},
-        'conf': {'default': None, 'type': str, 'help': 'Load arguments from conf file by JSON. e.g.: ipserver.json '}
-    }
+        'quiet': {'default': 0, 'help': 'Hide to output message.', 'action': 'store_true'},
+        'conf': {'default': None, 'type': str, 'help': 'Load arguments from conf file by JSON. e.g.: ipserver.json '},
 
-    ARGUMENTS = {
         'mode': {'default': 'TCP', 'type': str.upper, 'help': 'Listening mode. Default: TCP', 'choices': ['TCP', 'UDP', 'SSL', 'HTTP', 'HTTPS']},
         'input': {'default': 'TEXT', 'type': str.upper, 'help': 'Input format in interactive input. Default: TEXT', 'choices': ['TEXT', 'BINARY', 'HEX', 'BASE64']},
         'output': {'default': 'TEXT', 'type': str.upper, 'help': 'Output format. Default: TEXT', 'choices': ['NONE', 'TEXT', 'BINARY', 'HEX', 'BASE64']},
@@ -140,6 +140,7 @@ class Config:
         'bind': {'default': '0.0.0.0', 'type': str, 'help': 'Bind IP. e.g. 127.0.0.1, localhost, 0.0.0.0', 'metavar': '{string}'},
         'port': {'default': 8000, 'type': int, 'help': 'Listen port.', 'metavar': '{int}'},
         'timeout': {'default': 30.0, 'type': float, 'help': 'Timeout. Default: 30.0', 'metavar': '{float}'},
+        'connection_max': {'default': 20, 'type': int, 'help': 'Max connection', 'metavar': '{int}'},
 
         'restrict_allow': {'default': None, 'type': str, 'help': 'Restrict except for allowed IP. e.g. 192.168.10.101;192.168.10.0/24', 'metavar': '{string}'},
         'restrict_deny': {'default': None, 'type': str, 'help': 'Restrict specified IP. e.g. 192.168.10.101;192.168.10.0/24', 'metavar': '{string}'},

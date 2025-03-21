@@ -12,19 +12,20 @@ Response HTTP by raw data.
 
 
 class MyPipeline(Pipeline):
-    def pre_configure(self, args, conf_args):
+    def pre_configure(self, args):
         args.mode = 'TCP'
 
-    def post_receive(self, conn_sock, binary):
+    def complete_receive(self, conn_sock, binary, send_binary=None):
         command = binary.decode().strip()
 
+        response = None
+
         if command:
-            response = self._get_dummy_response()
-            conn_sock.send_queue(response.encode())
+            response = self._create_dummy_response()
 
-        return binary
+        return response
 
-    def _get_dummy_response(self):
+    def _create_dummy_response(self):
         content = '''<html>
 <head>
 <title>Hello! - Raw response</title>
@@ -55,7 +56,7 @@ Content-Length: {}
 
         response = response.format(len(content), content)
 
-        return response
+        return response.encode()
 
     def pre_send(self, conn_sock, binary):
         return binary

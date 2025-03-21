@@ -56,30 +56,6 @@ class ArgsHelper:
         return parser, args
 
     @staticmethod
-    def init_logging(verbose, log):
-        if verbose > 0:
-            if verbose == 1:
-                level = logging.ERROR
-            elif verbose == 2:
-                level = logging.INFO
-            else:
-                level = logging.DEBUG
-        else:
-            level = logging.CRITICAL
-
-        opts = {
-            'level': level,
-            'format': '%(asctime)s - %(levelname)s - %(message)s'
-        }
-
-        if log is None:
-            opts['stream'] = sys.stdout
-        else:
-            opts['filename'] = log
-
-        logging.basicConfig(**opts)
-
-    @staticmethod
     def add_arguments(parser, arguments, overrides, raw=False, group_names=None):
         groups = {}
 
@@ -128,6 +104,30 @@ class ArgsHelper:
                 target_parser.add_argument(*params, **options)
             else:
                 target_parser.add_argument(arg, **options)
+
+    @staticmethod
+    def setup_logging(verbose, log):
+        if verbose > 0:
+            if verbose == 1:
+                level = logging.ERROR
+            elif verbose == 2:
+                level = logging.INFO
+            else:
+                level = logging.DEBUG
+        else:
+            level = logging.CRITICAL
+
+        opts = {
+            'level': level,
+            'format': '%(asctime)s - %(levelname)s - %(message)s'
+        }
+
+        if log is None:
+            opts['stream'] = sys.stdout
+        else:
+            opts['filename'] = log
+
+        logging.basicConfig(**opts)
 
     @staticmethod
     def is_bool(v):

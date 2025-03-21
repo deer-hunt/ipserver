@@ -122,7 +122,7 @@ class HTTPConnSock(ConnSock):
 
         QueueLogger.get_instance().flush()
 
-        self.queue.send(send_data)
+        return send_data
 
 
 class HttpIo:

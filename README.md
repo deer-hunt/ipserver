@@ -77,26 +77,29 @@ Coming soon...
 ## Running example
 
 ```bash
-$ ipserver  --mode=HTTP
-Mode:         HTTP
-Listen:       0.0.0.0
-Port:         8000
-HTTP opt:     FILE
-Input:        TEXT
-Output:       NONE
-Timeout:      30.0
+$ ipserver --mode=HTTP
+Mode:             HTTP
+Bind:             0.0.0.0
+Port:             8000
+HTTP opt:         FILE
+Input:            TEXT
+Output:           NONE
+Output target:    RECEIVE
+Timeout:          30.0
+Max connection:   20
+Dumpfile:         False
 
 [Command help]
-send:         Begin input to send. Send by a Line-break. The shortcut is `s`.
-bulk:         Begin bulk input to send. Send by Ctrl-key. The shortcut is `b`.
-"1,2,3,..":   Switch the connection.
-current:      Show current connection.
-latest:       Switch latest connection.
-list:         List the connections.
-close:        Close current connection.
-refresh:      Refresh connections.
-exit:         Exit.
-help:         Show help.
+send:             Begin input to send. Send by a Line-break. The shortcut is `s`.
+bulk:             Begin bulk input to send. Send by Ctrl-key. The shortcut is `b`.
+"1,2,3,..":       Switch the connection.
+current:          Show current connection.
+latest:           Switch latest connection.
+list:             List the connections.
+close:            Close current connection.
+refresh:          Refresh connections.
+exit:             Exit.
+help:             Show help.
 
 :
 [1] Accepted from 192.168.10.1:52322
@@ -120,14 +123,14 @@ help:         Show help.
 
 ```bash
 $ ipserver --port=8002
-$ ipserver  --mode=TCP --bind=127.0.0.1
-$ ipserver  --timeout=120
+$ ipserver --mode=TCP --bind=127.0.0.1
+$ ipserver --timeout=120
 
-$ ipserver  --info
-$ ipserver  --debug
+$ ipserver --info
+$ ipserver --debug
 $ ipserver --port=8002 --log=app.log
 
-$ ipserver  --quiet
+$ ipserver --quiet
 ```
 
 ```
@@ -153,11 +156,11 @@ $ openssl s_client -connect 192.168.1.100:8443
 **IP restriction**
 
 ```bash
-$ ipserver  --restrict_allow=192.168.2.10
-$ ipserver  --restrict_allow="192.168.2.10;192.168.10.0/24"
+$ ipserver --restrict_allow=192.168.2.10
+$ ipserver --restrict_allow="192.168.2.10;192.168.10.0/24"
 
-$ ipserver  --restrict_deny=192.168.10.101
-$ ipserver  --restrict_deny="192.168.10.101;192.168.50.0/24"
+$ ipserver --restrict_deny=192.168.10.101
+$ ipserver --restrict_deny="192.168.10.101;192.168.50.0/24"
 ```
 
 **Dump file**
@@ -171,8 +174,8 @@ $ ipserver --port=8002 --dumpfile
 ```
 $ ipserver --port=8001 --forwarding=wikipedia.org:80
 $ ipserver --port=8443 --mode=SSL --forwarding=tcp://wikipedia.org:80
-$ ipserver  --forwarding=ssl://wikipedia.org:443
-$ ipserver  --forwarding=wikipedia.org:80 --dumpfile
+$ ipserver --forwarding=ssl://wikipedia.org:443
+$ ipserver --forwarding=wikipedia.org:80 --dumpfile
 ```
 
 ```bash
@@ -189,54 +192,54 @@ $ curl https://localhost/path -v
 **View File and directory**
 
 ```bash
-$ ipserver  --mode=HTTP
-$ ipserver  --mode=HTTP --http_opt=FILE
-$ ipserver  --mode=HTTP --http_opt=FILE --http_path="../"
+$ ipserver --mode=HTTP
+$ ipserver --mode=HTTP --http_opt=FILE
+$ ipserver --mode=HTTP --http_opt=FILE --http_path="../"
 
 $ ipserver --port=8443 --mode=HTTPS
 $ ipserver --port=8443 --mode=HTTPS --http_path="../"
 
 # Shortcut
-$ ipserver  --http_file=1
-$ ipserver  --http_file="../"
+$ ipserver --http_file=1
+$ ipserver --http_file="../"
 ```
 
 **Enable file upload**
 
 ```bash
-$ ipserver  --mode=HTTP --http_opt=FILE --enable_file_upload=1
-$ ipserver  --mode=HTTPS --http_path="../" --enable_file_upload=2
+$ ipserver --mode=HTTP --http_opt=FILE --enable_file_upload=1
+$ ipserver --mode=HTTPS --http_path="../" --enable_file_upload=2
 
 # Shortcut
-$ ipserver  --http_file_upload=1
-$ ipserver  --http_file_upload="../"
+$ ipserver --http_file_upload=1
+$ ipserver --http_file_upload="../"
 ```
 
 **Application**
 
 ```bash
-$ ipserver  --mode=HTTP --http_opt=APP
-$ ipserver  --mode=HTTPS--http_opt=APP --http_path="../"
+$ ipserver --mode=HTTP --http_opt=APP
+$ ipserver --mode=HTTPS--http_opt=APP --http_path="../"
 
 # Shortcut
-$ ipserver  --http_app=1
-$ ipserver  --http_app="./app/"
+$ ipserver --http_app=1
+$ ipserver --http_app="./app/"
 ```
 
 **Display info**
 
 ```bash
-$ ipserver  --mode=HTTP --http_opt=INFO
+$ ipserver --mode=HTTP --http_opt=INFO
 ```
 
 **HTTP Forwarding**
 
 ```bash
-$ ipserver  --mode=HTTP --http_opt=FORWARDING --forwarding="https://www.reddit.com/"
+$ ipserver --mode=HTTP --http_opt=FORWARDING --forwarding="https://www.reddit.com/"
 
 # Shortcut
-$ ipserver  --http_forwarding="https://www.reddit.com/"
-$ ipserver  --mode=HTTPS --http_forwarding="https://www.wikipedia.org/"
+$ ipserver --http_forwarding="https://www.reddit.com/"
+$ ipserver --mode=HTTPS --http_forwarding="https://www.wikipedia.org/"
 ```
 
 **HTTP/HTTPS test**
@@ -253,8 +256,8 @@ $ curl https://localhost:8443 -k -v
 ## HTTP Digest authentication
 
 ```bash
-$ ipserver  --mode=HTTP --http_digest_auth="admin:123456"
-$ ipserver  --mode=HTTP --http_digest_auth="admin:d71fa85bc0ded05215b28dfd8ca14112" --http_file_upload=1
+$ ipserver --mode=HTTP --http_digest_auth="admin:123456"
+$ ipserver --mode=HTTP --http_digest_auth="admin:d71fa85bc0ded05215b28dfd8ca14112" --http_file_upload=1
 
 $ ipserver --port=8001 --http_app="./app/" --http_digest_auth=".htdigest"
 $ ipserver --port=8443 --mode=HTTPS --http_app="./app/" --http_digest_auth=".htdigest"
@@ -265,19 +268,19 @@ $ ipserver --port=8443 --mode=HTTPS --http_app="./app/" --http_digest_auth=".htd
 **HTTP file-upload + IP restriction**
 
 ```
-$ ipserver  --http_file_upload="../" --restrict_allow="192.168.2.10;192.168.10.0/24"
+$ ipserver --http_file_upload="../" --restrict_allow="192.168.2.10;192.168.10.0/24"
 ```
 
 **HTTP application + Digest auth**
 
 ```
-$ ipserver  --http_app="./app/" --http_digest_auth="admin:123456"
+$ ipserver --http_app="./app/" --http_digest_auth="admin:123456"
 ```
 
 **HTTPS + info + dump**
 
 ```
-$ ipserver  --mode=HTTPS --http_opt=INFO --dumpfile
+$ ipserver --mode=HTTPS --http_opt=INFO --dumpfile
 ```
 
 
@@ -348,18 +351,18 @@ usage: ipserver [-h] [--verbose {0,1,2,3}] [--debug] [--info]
                    [--input {TEXT,BINARY,HEX,BASE64}]
                    [--output {NONE,TEXT,BINARY,HEX,BASE64}]
                    [--output_target {ALL,SEND,RECEIVE}] [--output_max]
-                   [--bind {string}] [--port {int}] [--timeout {float}]
-                   [--dumpfile]
-                   [--restrict_allow {string}]
-                   [--restrict_deny {string}]
+                   [--dumpfile] [--bind {string}] [--port {int}]
+                   [--timeout {float}] [--connection_max {int}]
+                   [--restrict_allow {string}] [--restrict_deny {string}]
                    [--ssl_context {SSLV3,TLS1.0,TLS1.1,TLS1.2,TLS1.3}]
                    [--ssl_keypath {string}] [--ssl_certfile {string}]
                    [--ssl_keyfile {string}] [--forwarding {string}]
                    [--http_opt {INTERACTIVE,FILE,PASS,APP,INFO,FORWARDING}]
-                   [--http_path {string}] [--http_digest_auth {string}]
-                   [--enable_file_upload {int}] [--http_app {string}]
-                   [--http_file {string}] [--http_file_upload {string}]
-                   [--http_forwarding {string}] [--version]
+                   [--http_path {string}] [--http_forwarding_convert_host]
+                   [--http_digest_auth {string}] [--enable_file_upload {int}]
+                   [--http_app {string}] [--http_file {string}]
+                   [--http_file_upload {string}] [--http_forwarding {string}]
+                   [--version]
 ```
 
 ## Path summary

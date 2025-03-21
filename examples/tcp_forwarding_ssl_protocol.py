@@ -12,7 +12,7 @@ The forwarding protocol is SSL, however the listening protocol is not SSL. So yo
 
 
 class MyPipeline(Pipeline):
-    def pre_configure(self, args, conf_args):
+    def pre_configure(self, args):
         args.output_target = 'ALL'
         args.forwarding = 'ssl://wikipedia.org:443'
 

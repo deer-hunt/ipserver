@@ -54,7 +54,8 @@ Verbose mode. `Level - 1:TRACE_ERROR, 2:INFO, 3:DEBUG.`
 
 ### `--log`
 
-Verbose log filename.
+Enable logging. Set Log filename. Verbose data is written.
+If `--verbose` is 0, `--verbose` is changed to 2 automatically. 
 
 - **Type:** `str`
 - **Default:** `None`
@@ -80,7 +81,8 @@ Stop to output message. And Enable logging.
 
 ### `--conf`
 
-Load arguments from conf file by JSON. e.g. ipserver.json
+Load arguments from conf file by JSON. e.g. ipserver_conf.json
+JSON data is shown in `--info, --verbose=2` log.
 
 - **Type:** `str`
 - **Default:** `None`
@@ -88,7 +90,7 @@ Load arguments from conf file by JSON. e.g. ipserver.json
 - **Example:**
 
 ```
---conf=ipserver.json
+# ipserver --conf=ipserver_conf.json
 ```
 
 ## Main Arguments
@@ -269,6 +271,21 @@ Timeout. Default: 30.0
 --timeout=60.0
 ```
 
+### `--connection_max`
+
+Max connections. If the limit is reached, waiting until there is availability.
+
+- **Type:** `int`
+- **Default:** `20`
+
+- **Example:**
+
+```
+--connection_max=20
+```
+
+
+
 ### `--restrict_allow`
 
 Restrict except for allowed IP. e.g. 192.168.10.101;192.168.10.0/24
@@ -431,7 +448,7 @@ Convert hostname of content to `/` in HTTP forwarding. This feature provide that
 
 ```
 <img src="https://www.github.com/hello">, <img src="http://github.com/hello">
-↓
+ ↓
 <img src="/hello">
 ```
 

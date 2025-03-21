@@ -59,21 +59,21 @@ There are several example programs of how to customize. Please refer to the comm
 
 | Program                          | Description                                      |
 |----------------------------------|--------------------------------------------------|
-| ./public-sample/            | Sample public files.                      |
+| ./public-sample/            | Sample public files. There are various sample files, including a sample .htdigest file fro HTTP mode test.                 |
 | config_customize.py           | Customizing config.                      |
 | pipeline_customize.py            | Customizing Pipeline class.                      |
 | original_protocol.py             | Implementing a custom protocol for calculations. |
 | inject_original_class.py         | Injecting original class object.                 |
 | tcp_raw_http_response.py           | Response HTTP by raw data.            |
-| tcp_forwarding_change_data.py        | TCP forwarding. Changing transmission data.         |
+| tcp_forwarding_change_data.py        | TCP forwarding. Changing transmission data.        |
 | tcp_forwarding_ssl_protocol.py        | The forwarding protocol is SSL, however the listening protocol is not SSL. So you can debug the transmission data in detail.         
-| benchmark_download_speed.py        | Benchmark download speed by downloading dummy image. e.g. `http://develop-server:8002/bench?mb=250`         |
-| http_url_routing.py              | Implementing URL routing.                        |
-| http_upload_filtering.py         | Filtering file uploads.                          |
+| benchmark_download_speed.py        | Benchmark transfer speed by downloading dummy image. e.g. `http://develop-server:8002/bench?mb=250`         |
+| http_url_routing.py              | Implementing URL routing in HTTP mode.                |
+| http_upload_filtering.py         | Filtering file uploads and set filename.                    |
 | http_response_customize.py       | Customizing HTTP responses.                      |
-| http_opt_by_path.py              | Setting HTTP options based on the request path.   |
-| http_forwarding_change_header.py | Changing request header in HTTP forwarding. Set random Accept-Language. Forwarding-request is HTTPS request, But the protocol listened on  HTTP, So you can change HTTP header.|
-| http_forwarding_html_append.py   | Appending HTML content in HTTP forwarding.   |
+| http_opt_by_path.py              | Setting `http_opt` by path. Changing the behavior.  |
+| http_forwarding_change_header.py | Changing request header in HTTP forwarding. Set random Accept-Language. Forwarding-request is HTTPS request, But the protocol listened on HTTP, So you can change HTTP header.|
+| http_forwarding_html_append.py   | Appending HTML content in HTTP forwarding. `Content-length` is changed automatically in HTTP mode. |
 | customize_http_handler.py        | Customizing the HTTP handler.                    |
 
 

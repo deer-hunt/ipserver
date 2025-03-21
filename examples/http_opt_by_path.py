@@ -5,7 +5,7 @@ from datetime import datetime
 from ipserver.configs import Constant
 
 '''
-HTTP opt by path.
+Setting `http_opt` by path. Changing the behavior.
 
 Command:
 # python3 http_opt_by_path.py --port=8002
@@ -18,7 +18,7 @@ http://develop-server:8002/public-sample/hello.py
 
 
 class MyPipeline(Pipeline):
-    def pre_configure(self, args, conf_args):
+    def pre_configure(self, args):
         args.mode = 'HTTP'
         args.http_path = '../'
 

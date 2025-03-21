@@ -14,7 +14,7 @@ http://develop-server:8000/
 
 
 class MyPipeline(Pipeline):
-    def pre_configure(self, args, conf_args):
+    def pre_configure(self, args):
         args.mode = 'HTTP'
         args.http_opt = 'PASS'
 

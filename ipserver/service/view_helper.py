@@ -31,7 +31,7 @@ class ViewHelper:
         self.output_max = args.output_max
 
     def show_help(self):
-        width = 16
+        width = 18
 
         self.line('[Command help]')
         self.line('send:'.ljust(width) + 'Begin input to send. Send by a Line-break. The shortcut is `s`.')
@@ -48,11 +48,11 @@ class ViewHelper:
 
     def show_head(self, args):
         if not args.quiet:
-            width = 16
+            width = 18
 
             self.line('Mode: '.ljust(width) + args.mode)
 
-            self.line('Listen:'.ljust(width) + str(args.bind))
+            self.line('Bind:'.ljust(width) + str(args.bind))
             self.line('Port:'.ljust(width) + str(args.port))
 
             if args.mode in Constant.HTTP_MODES:
@@ -66,6 +66,7 @@ class ViewHelper:
             self.line('Output target:'.ljust(width) + str(args.output_target))
 
             self.line('Timeout:'.ljust(width) + str(args.timeout))
+            self.line('Max connection:'.ljust(width) + str(args.connection_max))
 
             self.line('Dumpfile:'.ljust(width) + str(args.dumpfile))
 
@@ -192,7 +193,8 @@ class ViewHelper:
             Output.warn(v)
 
     def print(self, v):
-        Output.line(v)
+        if self.quiet != 2:
+            Output.line(v)
 
     def output_line(self, msg, prefix_nl=True):
         if prefix_nl:

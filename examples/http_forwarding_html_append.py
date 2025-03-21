@@ -14,7 +14,7 @@ http://develop-server:8000/
 
 
 class MyPipeline(Pipeline):
-    def pre_configure(self, args, conf_args):
+    def pre_configure(self, args):
         args.http_forwarding = 'https://www.wikipedia.org/'
 
     def pre_http_forwarding_request(self, httpio, forwarding_url, req_headers):

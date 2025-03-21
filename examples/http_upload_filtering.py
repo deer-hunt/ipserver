@@ -15,7 +15,7 @@ Command:
 
 
 class MyPipeline(Pipeline):
-    def pre_configure(self, args, conf_args):
+    def pre_configure(self, args):
         args.http_file_upload = 1
 
     def is_enable_file_upload(self, httpio, request_path):

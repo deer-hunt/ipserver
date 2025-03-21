@@ -15,7 +15,7 @@ http://develop-server:8002/
 
 
 class MyPipeline(Pipeline):
-    def pre_configure(self, args, conf_args):
+    def pre_configure(self, args):
         args.http_forwarding = 'https://support.google.com/youtube/'
 
     def pre_http_forwarding_request(self, httpio, forwarding_url, req_headers):

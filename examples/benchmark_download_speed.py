@@ -21,13 +21,13 @@ class MyPipeline(Pipeline):
         super().__init__()
 
         self.total_byte = 0
-        self.begin_tm = None
 
-    def pre_configure(self, args, conf_args):
-        args.quiet = True
+    def pre_configure(self, args):
+        args.quiet = 2
 
     def start_listen(self, socket_server, conn_bucket):
-        Output.warn('[SPEED TEST]')
+        Output.warn('[BENCHMARK - Transfer speed]\n')
+        Output.line('You can test by `http://your-host:8002/bench`.\n')
         Output.warn('Waiting for request from client... ')
 
     def _parse_path(self, data):
@@ -86,11 +86,11 @@ Content-Length: 0
         data = self._create_http_header()
         conn_sock.send_queue(data)
 
-        Output.warn('\nStart TEST... ')
+        Output.warn('\nStarting BENCHMARK... ')
 
         conn_sock.send_queue(b'TEST_START\n')
 
-        self.begin_tm = datetime.now()
+        conn_sock.data['begin_tm'] = datetime.now()
 
         for i in range(mb_size):
             data = self._create_mbyte_data(conn_sock)
@@ -125,11 +125,11 @@ Content-Length: {}
 
                 end_tm = datetime.now()
 
-                tm_diff = end_tm - self.begin_tm
+                tm_diff = end_tm - conn_sock.data['begin_tm']
                 sending_time = round(tm_diff.total_seconds(), 3)
 
                 Output.line('')
-                Output.line('* Result '.ljust(80, '*'))
+                Output.line('* RESULT '.ljust(80, '*'))
                 Output.line('')
 
                 total_mb = round(self.total_byte / (1024 * 1024), 1)
@@ -139,15 +139,15 @@ Content-Length: {}
                 Output.line('Sending time: {} s'.format(sending_time))
                 Output.line('')
 
-                Output.line('Download speed:')
+                Output.line('[Transfer speed]')
 
                 byte_s = round(conn_sock.data['sent_byte'] / sending_time, 1)
                 kb_s = round(byte_s / 1024, 1)
-                mb_s = round(byte_s / 1024, 1)
+                mb_s = round(kb_s / 1024, 1)
 
                 bps = round(byte_s * 8, 1)
                 m_bps = round(bps / (1000 * 1000), 1)
-                g_bps = round(m_bps / 1000, 1)
+                g_bps = round(m_bps / 1000, 2)
 
                 Output.line('{} Byte/s'.format(byte_s))
                 Output.line('{} KB/s'.format(kb_s))

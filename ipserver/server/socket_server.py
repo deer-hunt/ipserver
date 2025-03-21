@@ -130,10 +130,15 @@ class ConnBucket:
 
         self.max_conn_id = max_conn_id
 
-    def refresh_connections(self):
+    def get_conn_length(self):
+        return len(self.conn_socks)
+
+    def refresh_connections(self, reset_id=False):
         self.verify_connections()
         self.refresh()
-        self.reset_id()
+
+        if reset_id:
+            self.reset_id()
 
 
 class SendQueue(queue.Queue):
@@ -152,7 +157,7 @@ class ConnSock(ABC):
         self.queue = SendQueue()
         self.sequence = 0
         self.cur = 0
-        self.data = {}
+        self.data = {}  # For original program.
 
     def set_conn_id(self, conn_id):
         self.conn_id = conn_id
@@ -173,7 +178,7 @@ class ConnSock(ABC):
         self.add_sequence(Constant.DIRECTION_RECEIVE)
 
     def complete_receive(self, binary):
-        pass
+        return None
 
     def add_sequence(self, cur):
         if self.cur != cur:

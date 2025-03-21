@@ -15,7 +15,7 @@ Command:
 
 
 class MyPipeline(Pipeline):
-    def pre_configure(self, args, conf_args):
+    def pre_configure(self, args):
         args.http_app = '../public-sample/'
 
     def get_http_app_path(self, httpio, root_path, request_path, translate_path):

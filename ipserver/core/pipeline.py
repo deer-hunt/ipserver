@@ -18,21 +18,17 @@ class Pipeline(ABC):
         """
         pass
 
-    def pre_configure(self, args, conf_args):
+    def pre_configure(self, args):
         """
         :param args:
         :type args: argparse.Namespace
-        :param conf_args:
-        :type conf_args: dict
         """
         pass
 
-    def post_configure(self, args, conf_args):
+    def post_configure(self, args):
         """
         :param args:
         :type args: argparse.Namespace
-        :param conf_args:
-        :type conf_args: dict
         """
         pass
 
@@ -65,8 +61,8 @@ class Pipeline(ABC):
     def post_receive(self, conn_sock, binary):
         return binary
 
-    def complete_receive(self, conn_sock, binary):
-        return binary
+    def complete_receive(self, conn_sock, receive_binary, send_binary=None):
+        return send_binary
 
     def pre_send(self, conn_sock, binary):
         return binary

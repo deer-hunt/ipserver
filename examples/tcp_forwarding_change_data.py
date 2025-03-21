@@ -16,7 +16,7 @@ http://www.columbia.edu/~fdc/sample.html
 
 
 class MyPipeline(Pipeline):
-    def pre_configure(self, args, conf_args):
+    def pre_configure(self, args):
         args.forwarding = 'tcp://www.columbia.edu:80'
 
     def pre_forwarding_send(self, conn_sock, binary):

@@ -1,12 +1,12 @@
 import ipaddress
-import logging
 import threading
+import time
 
 from ipserver.configs import Constant
 from ipserver.core.pipeline import Pipeline
 from ipserver.server.socket_server import SocketCloseError
-from ipserver.service.view_helper import ViewHelper
 from ipserver.service.dumpfile import DumpFile
+from ipserver.service.view_helper import ViewHelper
 
 
 class ConnSockListener(threading.Thread):
@@ -38,6 +38,9 @@ class ConnSockListener(threading.Thread):
             self.pipeline.start_listen(self.socket_server, self.conn_bucket)
 
             while (True):
+                if self.args.connection_max > 0:
+                    self._wait_connectable()
+
                 conn_sock = self.socket_server.accept()
 
                 if not conn_sock:
@@ -74,6 +77,11 @@ class ConnSockListener(threading.Thread):
             prefix = self.view.create_message('', conn_sock) if conn_sock else ''
 
             self.view.output_error(e, prefix=prefix)
+
+    def _wait_connectable(self):
+        while self.conn_bucket.get_conn_length() >= self.args.connection_max:
+            self.conn_bucket.refresh_connections(False)
+            time.sleep(0.2)
 
     def _initialize_forwarding(self, conn_sock):
         forwarding_socket = None
@@ -150,9 +158,12 @@ class ConnSockReceiver(threading.Thread):
 
                     self.view.receive(binary, self.conn_sock)
 
-                    self.conn_sock.complete_receive(binary)
+                    send_binary = self.conn_sock.complete_receive(binary)
 
-                    binary = self.pipeline.complete_receive(self.conn_sock, binary)
+                    send_binary = self.pipeline.complete_receive(self.conn_sock, binary, send_binary)
+
+                    if send_binary is not None:
+                        self.conn_sock.queue.send(send_binary)
 
                 if self.forwarding_socket:
                     binary = self.pipeline.pre_forwarding_send(self.conn_sock, binary)

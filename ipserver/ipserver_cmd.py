@@ -121,7 +121,7 @@ class IpServerCmd:
         if not args.quiet:
             self._listen_input(args)
         else:
-            self._listen_quiet()
+            self._listen_quiet(args)
 
     def _listen_input(self, args):
         self.view.show_help()
@@ -186,7 +186,7 @@ class IpServerCmd:
                     conn_sock.close()
                     self.view.output_message('The connection is closed.', conn_sock)
             elif line == 'refresh':
-                self.conn_bucket.refresh_connections()
+                self.conn_bucket.refresh_connections(True)
                 self.view.output_info('The connections were refreshed.')
             elif line == 'exit':
                 self.socket_server.close()
@@ -212,12 +212,12 @@ class IpServerCmd:
 
         return conn_sock
 
-    def _listen_quiet(self):
-        self.view.print('Starting ipserver in quiet mode...')
+    def _listen_quiet(self, args):
+        self.view.print(Constant.QUIET_STARTING_MSG)
 
         while True:
             self.pipeline.kick_quiet()
-            self.conn_bucket.refresh_connections()
+            self.conn_bucket.refresh_connections(True)
 
             time.sleep(Constant.QUIET_INTERVAL)
 
