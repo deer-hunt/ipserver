@@ -43,6 +43,12 @@ class SocketServer(ABC):
         return error
 
     def initialize(self, conn_bucket, timeout):
+        """
+        :param conn_bucket:
+        :type conn_bucket: ConnBucket
+        :param timeout:
+        :type timeout: float
+        """
         self.conn_bucket = conn_bucket
         self.timeout = timeout
 
@@ -83,6 +89,10 @@ class ConnBucket:
         self.max_conn_id = 0
 
     def add_conn(self, conn_sock):
+        """
+        :param conn_sock:
+        :type conn_sock: ConnSock
+        """
         conn_sock.set_conn_id(self.get_new_conn_id())
 
         self.conn_socks.append(conn_sock)
@@ -237,7 +247,9 @@ class TCPSocketServer(SocketServer):
 
     def accept(self, add_conn=True):
         sock, addr = self.sock.accept()
-        sock.settimeout(self.timeout)
+
+        if self.timeout > 0:
+            sock.settimeout(self.timeout)
 
         conn_sock = TCPConnSock(sock, addr)
 
@@ -350,7 +362,9 @@ class SSLSocketServer(SocketServer):
 
         try:
             sock, addr = self.sock.accept()
-            sock.settimeout(self.timeout)
+
+            if self.timeout > 0:
+                sock.settimeout(self.timeout)
 
             getLogger(__name__).info('SSL_VERSION: ' + sock.version())
 

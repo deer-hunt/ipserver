@@ -5,8 +5,8 @@ Require to change permission.
 
 $ chmod a+x shell-sample.sh
 
-$ ipserver --port=8001 --http_app=./examples/ipserver-sample/
-URL: http://your-host:8001/examples/ipserver/program-execute
+$ ipserver --port=8001 --http_app=./examples/public-sample/
+URL: http://your-host:8001/examples/public-sample/program-execute
 '''
 
 import subprocess

@@ -8,9 +8,9 @@ import random
 HTTP forwarding, Change request header. Set random Accept-Language.
 
 Command:
-# python3 http_forwarding_change_header.py --port=8002
+# python3 http_forwarding_change_header.py --port=8000
 
-http://develop-server:8002/
+http://develop-server:8000/
 '''
 
 

@@ -1,8 +1,8 @@
 '''
 [Python execute sample]
 
-$ ipserver --port=8001 --http_app=./examples/ipserver-sample/
-URL: http://your-host:8001/examples/ipserver/basic.py?abc=1234
+$ ipserver --port=8001 --http_app=./examples/public-sample/
+URL: http://your-host:8001/examples/public-sample/basic.py?abc=1234
 '''
 
 import time

@@ -27,7 +27,9 @@ class ArgsBuilder:
 
         self.pipeline.init_configure(arguments, conf_args)
 
-        parser = self._create_parser(arguments, conf_args)
+        parser = self._create_parser()
+
+        self._add_arguments(parser, arguments, conf_args)
 
         args = parser.parse_args()
 
@@ -40,6 +42,9 @@ class ArgsBuilder:
         self.pipeline.post_configure(args)
 
         return (args, parser)
+
+    def _add_arguments(self, parser, arguments, conf_args):
+        ArgsHelper.add_arguments(parser, arguments, conf_args, group_names=self.config.ARGUMENTS_GROUP_NAMES)
 
     def _load_conf(self, conf):
         if ArgsHelper.is_bool(conf):
@@ -57,10 +62,8 @@ class ArgsBuilder:
 
         return conf_args
 
-    def _create_parser(self, arguments, conf_args):
+    def _create_parser(self):
         parser = argparse.ArgumentParser(add_help=False, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-
-        ArgsHelper.add_arguments(parser, arguments, conf_args, group_names=self.config.ARGUMENTS_GROUP_NAMES)
 
         desc = self._create_bottom_desc()
 

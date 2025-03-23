@@ -24,7 +24,7 @@ class Constant:
   ipserver --http_file_upload=1 --port=8002
 
   ipserver --mode=HTTP --http_opt=APP --port=8002
-  ipserver --http_app=./examples/ipserver/ --port=8002
+  ipserver --http_app=./examples/public-sample/ --port=8002
   ipserver --http_app=1 --port=8002
 
   ipserver --mode=HTTP --http_opt=INFO --port=8002
@@ -52,7 +52,7 @@ documents:
     CONF_FILE = 'ipserver.json'
     LOG_FILE = 'ipserver.log'
 
-    QUIET_INTERVAL = 60
+    QUIET_INTERVAL = 30
     QUIET_STARTING_MSG = 'Starting IpServer in quiet mode...'
 
     RECV_BUF_SIZE = 65565
@@ -140,7 +140,7 @@ class Config:
         'bind': {'default': '0.0.0.0', 'type': str, 'help': 'Bind IP. e.g. 127.0.0.1, localhost, 0.0.0.0', 'metavar': '{string}'},
         'port': {'default': 8000, 'type': int, 'help': 'Listen port.', 'metavar': '{int}'},
         'timeout': {'default': 30.0, 'type': float, 'help': 'Timeout. Default: 30.0', 'metavar': '{float}'},
-        'connection_max': {'default': 20, 'type': int, 'help': 'Max connection', 'metavar': '{int}'},
+        'max_connections': {'default': 20, 'type': int, 'help': 'Max connections', 'metavar': '{int}'},
 
         'restrict_allow': {'default': None, 'type': str, 'help': 'Restrict except for allowed IP. e.g. 192.168.10.101;192.168.10.0/24', 'metavar': '{string}'},
         'restrict_deny': {'default': None, 'type': str, 'help': 'Restrict specified IP. e.g. 192.168.10.101;192.168.10.0/24', 'metavar': '{string}'},

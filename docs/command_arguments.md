@@ -63,7 +63,7 @@ If `--verbose` is 0, `--verbose` is changed to 2 automatically.
 - **Example:**
 
 ```
---log=logfile.txt
+--log=logfile.log
 ```
 
 ### `--quiet`
@@ -90,7 +90,13 @@ JSON data is shown in `--info, --verbose=2` log.
 - **Example:**
 
 ```
-# ipserver --conf=ipserver_conf.json
+# ipserver --conf=ipserver.conf
+```
+
+**ipserver.conf**
+
+```
+{"verbose": 2 , "mode": "HTTP", "http_opt": "FILE", "http_digest_auth": "admin:12345678"}
 ```
 
 ## Main Arguments
@@ -175,8 +181,8 @@ Output target. Default: RECEIVE
 
 | Value  | Description |
 |--------|-------------|
-| ALL   | Both directions.            |
-| SEND   | Only send. |
+| ALL   | Both directions.    |
+| SEND   | Only send.  |
 | RECEIVE | Only receive. |
 
 - **Example:**
@@ -260,7 +266,7 @@ Listen port.
 
 ### `--timeout`
 
-Timeout. Default: 30.0
+Timeout. If timeout is 0 or less, Timeout is disabled.
 
 - **Type:** `float`
 - **Default:** `30.0`
@@ -269,9 +275,10 @@ Timeout. Default: 30.0
 
 ```
 --timeout=60.0
+--timeout=-1
 ```
 
-### `--connection_max`
+### `--max_connections`
 
 Max connections. If the limit is reached, waiting until there is availability.
 
@@ -281,7 +288,7 @@ Max connections. If the limit is reached, waiting until there is availability.
 - **Example:**
 
 ```
---connection_max=20
+--max_connections=20
 ```
 
 
@@ -296,8 +303,9 @@ Restrict except for allowed IP. e.g. 192.168.10.101;192.168.10.0/24
 - **Example:**
 
 ```
---restrict_allow="192.168.2.10;192.168.10.0/24"
+ipserver --restrict_allow="192.168.2.10;192.168.10.0/24"
 ```
+
 
 ### `--restrict_deny`
 
@@ -362,7 +370,9 @@ SSL context. [SSLv3, TLS1.0, TLS1.1, TLS1.2, TLS1.3]
 
 ### `--ssl_keypath`
 
-SSL key path.
+SSL key path. If `--ssl_keypath` is not specified, "SSL self-signed certificate" is used with SSL connection.
+
+> Some browsers could limit access for security reasons by using "SSL self-signed certificate" connection. "Firefox" tends to be relatively easier to access.
 
 - **Type:** `str`
 - **Default:** ``
@@ -377,6 +387,8 @@ SSL key path.
 
 SSL certificate file.
 
+> Refer to description of `--ssl_keypath`.
+
 - **Type:** `str`
 - **Default:** ``
 
@@ -389,6 +401,8 @@ SSL certificate file.
 ### `--ssl_keyfile`
 
 SSL key file.
+
+> Refer to description of `--ssl_keypath`.
 
 - **Type:** `str`
 - **Default:** ``
@@ -480,8 +494,8 @@ c. "User/MD5": "admin2:d71fab~~~~dfca14112"
 - **Example:**
 
 ```
---http_digest_auth="admin:123456"
---http_digest_auth=".htdigest"
+ipserver --mode=HTTP --http_digest_auth="admin:123456"
+ipserver --http_app=1 --http_digest_auth=".htdigest"
 ```
 
 **How to create .htdigest file**
@@ -503,10 +517,9 @@ Enable file-upload in FILE mode. 1: Overwrite 2: New create only
 - **Example:**
 
 ```
---enable_file_upload=1
---enable_file_upload=2
+ipserver --mode=HTTP --enable_file_upload=1
+ipserver --http_file=1 --enable_file_upload=2
 ```
-
 
 ### `--version`
 
@@ -514,6 +527,8 @@ Show version information.
 
 - **Type:** `bool`
 - **Default:** `False`
+
+
 
 ## Shortcut options
 
@@ -528,7 +543,7 @@ Show version information.
 
 ```
 --http_app=1 # Current directory
---http_app=./examples/ipserver/
+--http_app=./examples/public-sample/
 ```
 
 ### `--http_file`

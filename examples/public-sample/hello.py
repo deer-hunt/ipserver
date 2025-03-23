@@ -1,7 +1,7 @@
 '''
 [Python execute sample]
 
-$ ipserver --port=8001 --http_app=./examples/ipserver-sample/
+$ ipserver --port=8001 --http_app=./examples/public-sample/
 '''
 
 html = '''<html><head>

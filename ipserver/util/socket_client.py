@@ -36,7 +36,8 @@ class SocketClient:
     def create_tcp_socket(self, hostname, port):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-        sock.settimeout(self.timeout)
+        if self.timeout > 0:
+            sock.settimeout(self.timeout)
 
         sock.connect((hostname, port))
 
@@ -53,7 +54,8 @@ class SocketClient:
     def create_udp_socket(self):
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-        sock.settimeout(self.timeout)
+        if self.timeout > 0:
+            sock.settimeout(self.timeout)
 
         return sock
 

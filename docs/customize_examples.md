@@ -53,28 +53,30 @@ $ ipserver --http_file=1 --http_digest_auth="/path/to/examples/public-sample/.ht
 ## Example programs of Server
 
 There are several example programs of how to customize. Please refer to the comments in each program for more details.
+You can analyze and change transmission data in each phase.
 
 **Path:** [``./examples/``](https://github.com/deer-hunt/ipserver/tree/main/examples)
 
 
 | Program                          | Description                                      |
 |----------------------------------|--------------------------------------------------|
-| ./public-sample/            | Sample public files. There are various sample files, including a sample .htdigest file fro HTTP mode test.                 |
+| ./public-sample/            | Sample public files. There are various sample files, including a sample .htdigest file fro HTTP mode test.        |
 | config_customize.py           | Customizing config.                      |
 | pipeline_customize.py            | Customizing Pipeline class.                      |
 | original_protocol.py             | Implementing a custom protocol for calculations. |
 | inject_original_class.py         | Injecting original class object.                 |
 | tcp_raw_http_response.py           | Response HTTP by raw data.            |
 | tcp_forwarding_change_data.py        | TCP forwarding. Changing transmission data.        |
-| tcp_forwarding_ssl_protocol.py        | The forwarding protocol is SSL, however the listening protocol is not SSL. So you can debug the transmission data in detail.         
+| tcp_forwarding_ssl_protocol.py        | The forwarding protocol is SSL, however the listening protocol is not SSL. So you can debug the transmission data in detail.   |
+| tcp_keep_connection_simulation.py  | Keep connection & Particle simulation. Run command to Particle simulation via TCP protocol.  |
 | benchmark_download_speed.py        | Benchmark transfer speed by downloading dummy image. e.g. `http://develop-server:8002/bench?mb=250`         |
 | http_url_routing.py              | Implementing URL routing in HTTP mode.                |
 | http_upload_filtering.py         | Filtering file uploads and set filename.                    |
 | http_response_customize.py       | Customizing HTTP responses.                      |
 | http_opt_by_path.py              | Setting `http_opt` by path. Changing the behavior.  |
-| http_forwarding_change_header.py | Changing request header in HTTP forwarding. Set random Accept-Language. Forwarding-request is HTTPS request, But the protocol listened on HTTP, So you can change HTTP header.|
-| http_forwarding_html_append.py   | Appending HTML content in HTTP forwarding. `Content-length` is changed automatically in HTTP mode. |
-| customize_http_handler.py        | Customizing the HTTP handler.                    |
+| http_forwarding_change_header.py | Changing request header in HTTP forwarding. Set random Accept-Language. Forwarding-request is HTTPS request, But the protocol listened on HTTP, So you can change HTTP header.    |
+| http_forwarding_html_append.py   | Appending HTML content in HTTP forwarding. `Content-length` is changed automatically in HTTP mode.   |
+| customize_http_handler.py        | Customizing the HTTP handler.                 |
 
 
 ## Execution examples
@@ -144,4 +146,51 @@ This is Hello World sample! - HTTP response customize
 PATH: /
 USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36
 REMOTE_IP: 192.168.10.5
+```
+
+
+### tcp_keep_connection_simulation.py
+
+**Server**
+
+```bash
+$ python http_response_customize.py --port=8001
+
+Keep connection & simple protocol.
+
+GETPOS;(40, 317)
+PLAYPOS;COMPLETE
+DATE;2025-03-23 15:30:09.746659
+~~~~
+```
+
+**Client**
+
+```
+$ telnet localhost 8001
+
+--
+Keep connection & simple protocol.
+
+PING;1742711367
+GETPOS;id=1
+(40, 317)
+PLAYPOS;id=1
+(349, 321)
+(374, 322)
+(394, 322)
+(419, 322)
+(444, 322)
+(464, 323)
+(479, 323)
+(504, 323)
+(529, 323)
+(554, 324)
+PING;1742711397
+COMPLETE
+DATE
+2025-03-23 15:30:09.746659
+PING;1742711427
+PING;1742711457
+PING;1742711487
 ```

@@ -38,7 +38,9 @@ class HTTPSocketServer(TCPSocketServer):
 
     def accept(self, add_conn=True):
         conn, addr = self.sock.accept()
-        conn.settimeout(self.timeout)
+
+        if self.timeout > 0:
+            conn.settimeout(self.timeout)
 
         conn_sock = HTTPConnSock(conn, addr)
 
@@ -66,7 +68,9 @@ class HTTPSSocketServer(SSLSocketServer):
 
         try:
             sock, addr = self.sock.accept()
-            sock.settimeout(self.timeout)
+
+            if self.timeout > 0:
+                sock.settimeout(self.timeout)
 
             getLogger(__name__).info('SSL_VERSION: ' + sock.version())
 
@@ -204,6 +208,18 @@ class BufferedReader(io.BufferedReader):
 
 class HTTPHandler(SimpleHTTPRequestHandler):
     def __init__(self, conn_sock, port, pipeline, args, shared_object):
+        """
+        :param conn_sock:
+        :type conn_sock: ConnSock
+        :param port:
+        :type port: int
+        :param pipeline:
+        :type pipeline: ipserver.core.pipeline.Pipeline
+        :param args:
+        :type args: Object
+        :param shared_object:
+        :type shared_object: dict
+        """
         self.request = None
         self.pipeline = pipeline
         self.port = port
@@ -225,7 +241,7 @@ class HTTPHandler(SimpleHTTPRequestHandler):
         self.protocol_version = 'HTTP/1.1'
         self.close_connection = False
         self.default_charset = 'utf-8'
-        self.headers = {}
+        self.headers = None
         self.translated_path = None
         self.logger = getLogger('queue')
 
@@ -239,6 +255,10 @@ class HTTPHandler(SimpleHTTPRequestHandler):
             conn_sock.set_interactive_queue(self.interactive_queue)
 
     def create_http_digest_auth(self, httpio):
+        """
+        :param httpio:
+        :type httpio: HttpIo
+        """
         return HTTPDigestAuth(httpio, self.command, self.path, self.pipeline)
 
     def create_http_file_uploader(self):
@@ -298,6 +318,10 @@ class HTTPHandler(SimpleHTTPRequestHandler):
         return gets
 
     def _read_post_parameters(self, environ):
+        """
+        :param environ:
+        :type environ: dict
+        """
         post_data = None
         posts = None
 
@@ -312,11 +336,19 @@ class HTTPHandler(SimpleHTTPRequestHandler):
         return posts, post_data
 
     def _is_multipart(self, environ):
+        """
+        :param environ:
+        :type environ: dict
+        """
         content_type = environ.get('CONTENT_TYPE')
 
         return content_type.split(';', 1)[0].strip().lower() == 'multipart/form-data'
 
     def _parse_multipart(self, environ):
+        """
+        :param environ:
+        :type environ: dict
+        """
         environ = {**environ, **{'wsgi.input': self.rfile}}
 
         forms, files = parse_form_data(environ)
@@ -337,6 +369,10 @@ class HTTPHandler(SimpleHTTPRequestHandler):
         return posts
 
     def _get_directory_path(self, environ):
+        """
+        :param environ:
+        :type environ: dict
+        """
         translated_path = environ['PATH_TRANSLATED']
 
         is_directory = False
@@ -419,6 +455,10 @@ class HTTPHandler(SimpleHTTPRequestHandler):
         return HttpIo(self.command, self.path, environ, self.headers, gets, posts, post_data)
 
     def _process_digest_auth(self, httpio):
+        """
+        :param httpio:
+        :type httpio: HttpIo
+        """
         digest_auth = self.create_http_digest_auth(httpio)
 
         digest_auth.load(self.http_digest_auth)

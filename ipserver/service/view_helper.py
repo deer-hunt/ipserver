@@ -66,7 +66,7 @@ class ViewHelper:
             self.line('Output target:'.ljust(width) + str(args.output_target))
 
             self.line('Timeout:'.ljust(width) + str(args.timeout))
-            self.line('Max connection:'.ljust(width) + str(args.connection_max))
+            self.line('Max connections:'.ljust(width) + str(args.max_connections))
 
             self.line('Dumpfile:'.ljust(width) + str(args.dumpfile))
 

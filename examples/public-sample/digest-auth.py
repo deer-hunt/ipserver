@@ -1,8 +1,8 @@
 '''
 [Python execute sample]
 
-$ ipserver --port=8001 --http_app=./examples/ipserver-sample/
-URL: http://your-host:8001/examples/ipserver/digest-auth
+$ ipserver --port=8001 --http_app=./examples/public-sample/
+URL: http://your-host:8001/examples/public-sample/digest-auth
 '''
 
 import time
@@ -54,7 +54,7 @@ html = """
 <br>
 <div>
     <h2>Digest authentication Options:</h2>
-    --http_digest_auth=./examples/ipserver-sample/.htdigest<br>
+    --http_digest_auth=./examples/public-sample/.htdigest<br>
     <br>
     --http_digest_auth=.htdigest<br>
     --http_digest_auth="admin:123456"<br>

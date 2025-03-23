@@ -18,7 +18,7 @@
 <div>
 <img width="80" height="80" src="https://raw.githubusercontent.com/deer-hunt/ipserver/main/docs/images/ipsurv-logo.png" align="left" />
 
-"ipserver" is a simple server that supports TCP, UDP, SSL, HTTP, and HTTPS protocols for various uses such as testing, debugging, or network investigation. It features also an interactive mode and forwarding capabilities. Additionally, you can customize its behavior using Python.
+"IpServer" is a simple server that supports TCP, UDP, SSL, HTTP, and HTTPS protocols for various uses such as testing, debugging, or network investigation. It features also an interactive mode and forwarding capabilities. Additionally, you can customize its behavior using Python.
 
 </div>
 
@@ -51,21 +51,21 @@ Coming soon..
 
 ## Documentation site
 
-Coming soon...
+[https://deer-hunt.github.io/ipserver/](https://deer-hunt.github.io/ipserver/)
 
 
 ## Features
 
 - Simple TCP / UDP server.
-- Support SSL.
+- Support SSL connection. SSL server.
 - HTTP / HTTPS server.
 - IP restriction - Allow / Deny.
 - Interactive sending.
 - TCP Forwarding. Bypassing the data transmission is available.
 - Display received data or sent data in various format(TEXT, BINARY, BASE64, HEX...).
-- HTTP -> FORWARDING: Forwarding HTTP communication. e.g. HTTP <-> HTTPS
 - HTTP -> FILE: Viewing file and directory and uploading file.
-- HTTP -> APP: Running python application. And Running CGI via python.
+- HTTP -> FORWARDING: Forwarding HTTP transmission. e.g. HTTP <-> HTTPS
+- HTTP -> APP: Running python application. And running CGI via python.
 - HTTP -> INFO: Show request headers from client. 
 - Support HTTP digest authentication.
 - Logging / Debug log.
@@ -86,7 +86,7 @@ Input:            TEXT
 Output:           NONE
 Output target:    RECEIVE
 Timeout:          30.0
-Max connection:   20
+Max connections:   20
 Dumpfile:         False
 
 [Command help]
@@ -265,6 +265,8 @@ $ ipserver --port=8443 --mode=HTTPS --http_app="./app/" --http_digest_auth=".htd
 
 ## Mixed options
 
+You can investigate the detailed behavior of HTTP/HTTPS by mixed options.
+
 **HTTP file-upload + IP restriction**
 
 ```
@@ -277,7 +279,13 @@ $ ipserver --http_file_upload="../" --restrict_allow="192.168.2.10;192.168.10.0/
 $ ipserver --http_app="./app/" --http_digest_auth="admin:123456"
 ```
 
-**HTTPS + info + dump**
+**HTTPS + Output Send/Receive data**
+
+```
+$ ipserver --mode=HTTPS --output_target=ALL --output=BINARY
+```
+
+**HTTPS + Dumpfile**
 
 ```
 $ ipserver --mode=HTTPS --http_opt=INFO --dumpfile
@@ -342,7 +350,7 @@ Client port: 54722
 
 ### Command options
 
-```ipserver``` have many options. Please read [Command arguments(.md) reference](https://github.com/deer-hunt/ipserver/blob/main/docs/command_arguments.md).
+```ipserver``` have many options. Please read [Command arguments(.md) reference](https://deer-hunt.github.io/ipserver/pages/command_arguments.html).
 
 ```
 usage: ipserver [-h] [--verbose {0,1,2,3}] [--debug] [--info]
@@ -352,7 +360,7 @@ usage: ipserver [-h] [--verbose {0,1,2,3}] [--debug] [--info]
                    [--output {NONE,TEXT,BINARY,HEX,BASE64}]
                    [--output_target {ALL,SEND,RECEIVE}] [--output_max]
                    [--dumpfile] [--bind {string}] [--port {int}]
-                   [--timeout {float}] [--connection_max {int}]
+                   [--timeout {float}] [--max_connections {int}]
                    [--restrict_allow {string}] [--restrict_deny {string}]
                    [--ssl_context {SSLV3,TLS1.0,TLS1.1,TLS1.2,TLS1.3}]
                    [--ssl_keypath {string}] [--ssl_certfile {string}]
@@ -363,6 +371,24 @@ usage: ipserver [-h] [--verbose {0,1,2,3}] [--debug] [--info]
                    [--http_app {string}] [--http_file {string}]
                    [--http_file_upload {string}] [--http_forwarding {string}]
                    [--version]
+```
+
+## Customize examples
+
+IpServer is extensible program.  There are some examples in [here](https://github.com/deer-hunt/ipserver/tree/main/examples).
+
+```
+# HTTP customize response.
+$ python3 http_response_customize.py --info 
+
+# HTTP forwarding, Change request header. Set random Accept-Language.
+$ python3 http_forwarding_change_header.py --port=8000
+
+# The forwarding protocol is SSL, however the listening protocol is not SSL.
+$ python3 tcp_forwarding_ssl_protocol.py --port=8000
+
+--
+http://develop-server:8000/
 ```
 
 ## Path summary
@@ -382,10 +408,10 @@ The following documents exist in `ipserver`. You can read documents in [Document
 
 | Title                       | Path                                                                                                                             |
 |-------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| **Command arguments**    | [command_arguments.md](https://deer-hunt.github.io/ipserver/pages/command_arguments.html)                       |
+| **Command arguments**    | [command_arguments.md](https://deer-hunt.github.io/ipserver/pages/command_arguments.html)               |
 | **Customizing and Examples**       | [customize_examples.md](https://deer-hunt.github.io/ipserver/pages/customize_examples.html)                     |
-| **Development and Architecture**    | [development_architecture.md](https://github.com/deer-hunt/ipserver/blob/main/docs/development_architecture.md)      |
-| **ipserver's Major Modules and Classes** | Coming soon.                                 |
+| **Development and Architecture**    | [development_architecture.md](https://deer-hunt.github.io/ipserver/pages/development_architecture.html)      |
+| **IpServer's Major Modules and Classes** | [github.io / Modules and Classes reference](https://deer-hunt.github.io/ipserver/py-modindex.html)        |
 
 
 ## Debugging

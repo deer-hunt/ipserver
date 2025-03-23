@@ -48,6 +48,7 @@ class MyPipeline(Pipeline):
         }
         h1 {
             font-size: 4em;
+            font-weight: 500;
             animation: colorChange 3s infinite;
         }
         @keyframes colorChange {
@@ -58,9 +59,10 @@ class MyPipeline(Pipeline):
             100% { color: blue; }
         }
         h2 {
-            font-size: 2em;
+            font-size: 1.5em;
             margin-top: 10px;
             color: #333;
+            font-weight: normal;
         }
         .confetti {
             position: absolute;

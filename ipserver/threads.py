@@ -4,13 +4,27 @@ import time
 
 from ipserver.configs import Constant
 from ipserver.core.pipeline import Pipeline
-from ipserver.server.socket_server import SocketCloseError
+from ipserver.server.socket_server import SocketCloseError, SocketServer, ConnBucket, ConnSock
 from ipserver.service.dumpfile import DumpFile
 from ipserver.service.view_helper import ViewHelper
 
 
 class ConnSockListener(threading.Thread):
     def __init__(self, socket_server, conn_bucket, args, factory, pipeline, view):
+        """
+        :param socket_server:
+        :type socket_server: SocketServer
+        :param conn_bucket:
+        :type conn_bucket: ConnBucket
+        :param args:
+        :type args: Object
+        :param factory:
+        :type factory: ipserver.core.object_factory.ObjectFactory
+        :param pipeline:
+        :type pipeline: Pipeline
+        :param view:
+        :type view: ViewHelper
+        """
         super().__init__()
 
         self.daemon = True
@@ -24,7 +38,7 @@ class ConnSockListener(threading.Thread):
         self.view = view  # type: ViewHelper
         self.dumpfile = None
 
-    def _initialize(self):
+    def initialize(self):
         if self.args.dumpfile:
             self.dumpfile = self.factory.create_dumpfile(self.pipeline)
             self.dumpfile.initialize(Constant.DUMPFILE_DIR)
@@ -33,12 +47,12 @@ class ConnSockListener(threading.Thread):
         conn_sock = None
 
         try:
-            self._initialize()
+            self.initialize()
 
             self.pipeline.start_listen(self.socket_server, self.conn_bucket)
 
             while (True):
-                if self.args.connection_max > 0:
+                if self.args.max_connections > 0:
                     self._wait_connectable()
 
                 conn_sock = self.socket_server.accept()
@@ -61,11 +75,11 @@ class ConnSockListener(threading.Thread):
                 elif self.args.http_opt == Constant.HTTP_INTERACTIVE:
                     self.view.output_message('Running in interactive behavior. You must send server\'s response manually.\n', conn_sock, warn=False)
 
-                conn_sock_receiver = self.factory.create_conn_sock_receiver(forwarding_socket, self.view)
-                conn_sock_receiver.initialize(self.conn_bucket, conn_sock, self.pipeline, self.dumpfile)
+                conn_sock_receiver = self.factory.create_conn_sock_receiver(forwarding_socket, self.pipeline, self.view, self.dumpfile)
+                conn_sock_receiver.initialize(self.conn_bucket, conn_sock)
 
-                conn_sock_sender = self.factory.create_conn_sock_sender(forwarding_socket, self.view)
-                conn_sock_sender.initialize(self.conn_bucket, conn_sock, self.pipeline, self.dumpfile)
+                conn_sock_sender = self.factory.create_conn_sock_sender(forwarding_socket, self.pipeline, self.view, self.dumpfile)
+                conn_sock_sender.initialize(self.conn_bucket, conn_sock)
 
                 conn_sock_receiver.start()
                 conn_sock_sender.start()
@@ -73,13 +87,14 @@ class ConnSockListener(threading.Thread):
                 conn_sock = None
         except Exception as e:
             self.socket_server.close()
+            self.pipeline.closed_socket_server(self.socket_server)
 
             prefix = self.view.create_message('', conn_sock) if conn_sock else ''
 
             self.view.output_error(e, prefix=prefix)
 
     def _wait_connectable(self):
-        while self.conn_bucket.get_conn_length() >= self.args.connection_max:
+        while self.conn_bucket.get_conn_length() >= self.args.max_connections:
             self.conn_bucket.refresh_connections(False)
             time.sleep(0.2)
 
@@ -112,6 +127,8 @@ class ConnSockListener(threading.Thread):
         if len(restrict_deny) > 0 and self._ip_in_range(ip, restrict_deny):
             allow = False
 
+        allow = self.pipeline.verify_restriction(conn_sock, allow)
+
         return allow
 
     def _ip_in_range(self, ip, ip_networks):
@@ -130,20 +147,35 @@ class ConnSockListener(threading.Thread):
 
 
 class ConnSockReceiver(threading.Thread):
-    def __init__(self, forwarding_socket, view):
+    def __init__(self, forwarding_socket, pipeline, view, dumpfile):
+        """
+        :param forwarding_socket:
+        :type forwarding_socket: ipserver.service.forwarding_socket.ForwardingSocket
+        :param pipeline:
+        :type pipeline: Pipeline
+        :param view:
+        :type view: ViewHelper
+        :param dumpfile:
+        :type dumpfile: DumpFile
+        """
         super().__init__()
 
         self.conn_bucket = None
         self.conn_sock = None
         self.forwarding_socket = forwarding_socket
+        self.pipeline = pipeline
         self.view = view
-        self.dumpfile = None
+        self.dumpfile = dumpfile  # type: DumpFile
 
-    def initialize(self, conn_bucket, conn_sock, pipeline, dumpfile):
+    def initialize(self, conn_bucket, conn_sock):
+        """
+        :param conn_bucket:
+        :type conn_bucket: ConnBucket
+        :param conn_sock:
+        :type conn_sock: ConnSock
+        """
         self.conn_bucket = conn_bucket
         self.conn_sock = conn_sock
-        self.pipeline = pipeline
-        self.dumpfile = dumpfile  # type: DumpFile
 
     def run(self):
         try:
@@ -195,20 +227,35 @@ class ConnSockReceiver(threading.Thread):
 
 
 class ConnSockSender(threading.Thread):
-    def __init__(self, forwarding_socket, view):
+    def __init__(self, forwarding_socket, pipeline, view, dumpfile):
+        """
+        :param forwarding_socket:
+        :type forwarding_socket: ipserver.service.forwarding_socket.ForwardingSocket
+        :param pipeline:
+        :type pipeline: Pipeline
+        :param view:
+        :type view: ViewHelper
+        :param dumpfile:
+        :type dumpfile: DumpFile
+        """
         super().__init__()
 
         self.conn_bucket = None
         self.conn_sock = None
         self.forwarding_socket = forwarding_socket
+        self.pipeline = pipeline
         self.view = view
-        self.dumpfile = None
+        self.dumpfile = dumpfile
 
-    def initialize(self, conn_bucket, conn_sock, pipeline, dumpfile):
+    def initialize(self, conn_bucket, conn_sock):
+        """
+        :param conn_bucket:
+        :type conn_bucket: ConnBucket
+        :param conn_sock:
+        :type conn_sock: ConnSock
+        """
         self.conn_bucket = conn_bucket
         self.conn_sock = conn_sock
-        self.pipeline = pipeline
-        self.dumpfile = dumpfile
 
     def run(self):
         try:

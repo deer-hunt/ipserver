@@ -38,7 +38,7 @@ It's available to very fine data control.
 
 | Attribute    | Value             |
 |----------------------|--------------------------------------------------|
-| **Class**     | [Pipeline](http://deer-hunt.github.io/ipserver/modules/ipserver.core.pipeline.html)   |
+| **Class**     | [Pipeline](https://deer-hunt.github.io/ipserver/modules/ipserver.core.pipeline.html)   |
 | **Path**     | ./core/pipeline.py      |
 | **Example**    | pipeline_customize.py                  |
 
@@ -59,7 +59,7 @@ When Pipeline's methods are dispatched:
 | `create_socket`              | Creating a socket.                                          | Customizing socket creation.              |
 | `connected`                  | When a socket is connected.                                 | Handling socket connection.               |
 | `interactive_input`          | Handling interactive input.                                 | Processing interactive commands.          |
-| `kick_quiet`                 | When quiet mode is enabled.                                 | Handling quiet mode operations.           |
+| `kick_quiet_interval`                 | When quiet mode is enabled. Call by interval timing.     | Handling quiet mode operations.           |
 | `start_listen`               | Starting to listen on a socket.                             | Customizing listening behavior.           |
 | `post_accept`                | After accepting a connection.                               | Handling post-accept operations.          |
 | `post_receive`               | After receiving data.                                       | Processing received data.                 |
@@ -69,18 +69,20 @@ When Pipeline's methods are dispatched:
 | `complete_send`              | Completing the send process.                                | Finalizing sent data.                     |
 | `pre_forwarding_send`        | Before forwarding data.                                     | Customizing data before forwarding.       |
 | `post_forwarding_receive`    | After receiving forwarded data.                             | Processing forwarded data.                |
+| `verify_restriction`         | Verifying connection restrictions.                          | Customizing connection restrictions.      |
 | `deny_socket`                | When a socket is denied.                                    | Handling denied socket connections.       |
+| `closed_socket_server`       | When a socket server is closed.                             | Handling closed socket server operations.   |
 | `closed_socket`              | When a socket is closed.                                    | Handling closed socket connections.       |
 | `digest_auth_load`           | Loading digest authentication users.                        | Customizing digest auth user loading.     |
 | `digest_auth_verify`         | Verifying digest authentication.                            | Customizing digest auth verification.     |
 | `pre_http_process`           | Before processing an HTTP request.                          | Customizing HTTP request processing.      |
 | `get_http_app_path`          | Getting the HTTP app path.                                  | Customizing HTTP app path resolution.     |
 | `is_enable_file_upload`      | Checking if file upload is enabled.                         | Customizing file upload enablement.       |
-| `pre_http_forwarding_request`| Before forwarding an HTTP request.                          | Customizing HTTP forwarding request.      |
-| `post_http_forwarding_request`| After forwarding an HTTP request.                          | Processing forwarded HTTP request.        |
-| `pre_http_file_upload`       | Before uploading an file in HTTP mode.                              | Customizing HTTP file upload.             |
-| `post_http_file_upload`      | After uploading an file in HTTP mode.                               | Handling post-upload operations.          |
-| `pre_http_respond`           | Before responding to an HTTP request.                       | Customizing HTTP response.                |
+| `pre_http_forwarding_request`| Before forwarding an HTTP request.                  | Customizing HTTP forwarding request.      |
+| `post_http_forwarding_request`| After forwarding an HTTP request.                    | Processing forwarded HTTP request.        |
+| `pre_http_file_upload`       | Before uploading an file in HTTP mode.                  | Customizing HTTP file upload.             |
+| `post_http_file_upload`      | After uploading an file in HTTP mode.                    | Handling post-upload operations.          |
+| `pre_http_respond`           | Before responding to an HTTP request.                   | Customizing HTTP response.                |
 | `get_filename`               | Getting the filename for a connection.                      | Customizing filename resolution.          |
 | `pre_dump_write`              | Before writing to a file.                                   | Customizing file write operations.        |
 | `complete`                   | After completing all processes.                             | Final processing.                         |
@@ -106,7 +108,7 @@ This description is description of development and debugging related `ipserver`.
 
 | **Item**          | **Description**            |
 |-------------------|-----------------------|
-| **Python version**| 3.0 or later. * |
+| **Python version**| 3.6 or later. * |
 | **Dependencies**   | multipart              |
 
 

@@ -1,7 +1,7 @@
 '''
 [Image output example]
 
-$ ipserver --port=8001 --http_app=./examples/ipserver-sample/
+$ ipserver --port=8001 --http_app=./examples/public-sample/
 URL: http://your-host:8001/image-output
 '''
 

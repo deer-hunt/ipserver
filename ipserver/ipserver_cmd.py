@@ -190,6 +190,7 @@ class IpServerCmd:
                 self.view.output_info('The connections were refreshed.')
             elif line == 'exit':
                 self.socket_server.close()
+                self.pipeline.closed_socket_server(self.socket_server)
                 self.view.output_warn('Exit by user.')
                 return
             elif line == 'help':
@@ -216,8 +217,8 @@ class IpServerCmd:
         self.view.print(Constant.QUIET_STARTING_MSG)
 
         while True:
-            self.pipeline.kick_quiet()
             self.conn_bucket.refresh_connections(True)
+            self.pipeline.kick_quiet_interval(self.conn_bucket)
 
             time.sleep(Constant.QUIET_INTERVAL)
 
