@@ -1,1 +1,1 @@
-`IpServer's Module Index </py-modindex.html>`_
+`IpServer's Module Index </ipserver/py-modindex.html>`_
