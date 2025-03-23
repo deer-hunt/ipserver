@@ -1,0 +1,20 @@
+ipserver.http_server package
+=======================
+
+.. include:: top.rst
+
+ipserver.server.http\_server module
+-----------------------------------
+
+.. automodule:: ipserver.server.http_server
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ipserver.server.http\_server\_module module
+-------------------------------------------
+
+.. automodule:: ipserver.server.http_server_module
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -14,7 +14,7 @@ The following is description of Configure and Constant.
 
 | Class            | Filename           | Description       |
 |------------------|-------------------|-------------------|
-| [`Config`](https://deer-hunt.github.io/ipserver/modules/ipserver.config.html)         | config.py         | Configure class. There are various configure variables. Example: config_customize.py     |
+| [`Config`](https://deer-hunt.github.io/ipserver/modules/ipserver.html#ipserver.configs.Configl)         | config.py         | Configure class. There are various configure variables. Example: config_customize.py     |
 | `Constant`       | config.py         | Constant class.     |
 
 
@@ -25,7 +25,7 @@ If you'd like to create original factory class , extending `ObjectFactory`. And 
 
 | Attribute    | Value             |
 |----------------------|--------------------------------------------------|
-| **Class**     | [ObjectFactory](https://deer-hunt.github.io/ipserver/modules/ipserver.core.object_factory.html)   |
+| **Class**     | [ObjectFactory](https://deer-hunt.github.io/ipserver/modules/ipserver.core.html#ipserver.core.object_factory.ObjectFactory)   |
 | **Path**     | ./core/object_factory.py   |
 | **Example**  | object_factory_original_headers.py   |
 
@@ -38,7 +38,7 @@ It's available to very fine data control.
 
 | Attribute    | Value             |
 |----------------------|--------------------------------------------------|
-| **Class**     | [Pipeline](http://deer-hunt.github.io/ipserver/modules/ipserver.core.pipeline.html)   |
+| **Class**     | [Pipeline](https://deer-hunt.github.io/ipserver/modules/ipserver.core.html#ipserver.core.pipeline.Pipeline)   |
 | **Path**     | ./core/pipeline.py      |
 | **Example**    | pipeline_customize.py                  |
 
@@ -108,7 +108,7 @@ This description is description of development and debugging related `ipserver`.
 
 | **Item**          | **Description**            |
 |-------------------|-----------------------|
-| **Python version**| 3.0 or later. * |
+| **Python version**| 3.6 or later. * |
 | **Dependencies**   | multipart              |
 
 

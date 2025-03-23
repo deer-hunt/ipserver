@@ -3,26 +3,10 @@ ipserver package
 
 .. include:: top.rst
 
-ipserver.configs module
------------------------
-
-.. automodule:: ipserver.configs
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 ipserver.ipserver\_cmd module
 -----------------------------
 
 .. automodule:: ipserver.ipserver_cmd
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-ipserver.threads module
------------------------
-
-.. automodule:: ipserver.threads
    :members:
    :undoc-members:
    :show-inheritance:

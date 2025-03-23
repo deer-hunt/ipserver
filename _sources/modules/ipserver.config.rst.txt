@@ -1,0 +1,17 @@
+ipserver.configs module
+==============
+
+.. include:: top.rst
+
+.. automodule:: ipserver.configs
+
+.. autoclass:: ipserver.configs.Constant
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. autoclass:: ipserver.configs.Config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

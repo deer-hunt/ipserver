@@ -46,151 +46,31 @@
   <div class="section" id="ipserver-core-package">
 <h1>ipserver.core package<a class="headerlink" href="#ipserver-core-package" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="/py-modindex.html">IpServer’s Module Index</a></p>
-<div class="section" id="module-ipserver.core.object_factory">
-<span id="ipserver-core-object-factory-module"></span><h2>ipserver.core.object_factory module<a class="headerlink" href="#module-ipserver.core.object_factory" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ObjectFactory</span></span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_args_builder">
-<span class="sig-name descname"><span class="pre">create_args_builder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_args_builder" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>config</strong> (<a class="reference internal" href="ipserver.html#ipserver.configs.Config" title="ipserver.configs.Config"><em>Config</em></a>) – </p></li>
-<li><p><strong>pipeline</strong> (<a class="reference internal" href="#ipserver.core.pipeline.Pipeline" title="ipserver.core.pipeline.Pipeline"><em>Pipeline</em></a>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="ipserver.service.html#ipserver.service.args_builder.ArgsBuilder" title="ipserver.service.args_builder.ArgsBuilder">ArgsBuilder</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_conn_bucket">
-<span class="sig-name descname"><span class="pre">create_conn_bucket</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_conn_bucket" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_conn_sock_listener">
-<span class="sig-name descname"><span class="pre">create_conn_sock_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket_server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_conn_sock_listener" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_conn_sock_receiver">
-<span class="sig-name descname"><span class="pre">create_conn_sock_receiver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forwarding_socket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_conn_sock_receiver" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_conn_sock_sender">
-<span class="sig-name descname"><span class="pre">create_conn_sock_sender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forwarding_socket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_conn_sock_sender" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_data_input">
-<span class="sig-name descname"><span class="pre">create_data_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_data_input" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_data_output">
-<span class="sig-name descname"><span class="pre">create_data_output</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_data_output" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_dumpfile">
-<span class="sig-name descname"><span class="pre">create_dumpfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_dumpfile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_forwarding_requester">
-<span class="sig-name descname"><span class="pre">create_forwarding_requester</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_forwarding_requester" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_forwarding_socket">
-<span class="sig-name descname"><span class="pre">create_forwarding_socket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_forwarding_socket" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_http_handler">
-<span class="sig-name descname"><span class="pre">create_http_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shared_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_http_handler" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_http_socket_server">
-<span class="sig-name descname"><span class="pre">create_http_socket_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_http_socket_server" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_https_socket_server">
-<span class="sig-name descname"><span class="pre">create_https_socket_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_https_socket_server" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_interactive_input">
-<span class="sig-name descname"><span class="pre">create_interactive_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_interactive_input" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_pipeline">
-<span class="sig-name descname"><span class="pre">create_pipeline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_pipeline" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#ipserver.core.pipeline.Pipeline" title="ipserver.core.pipeline.Pipeline">Pipeline</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_ssl_socket_server">
-<span class="sig-name descname"><span class="pre">create_ssl_socket_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_ssl_socket_server" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_tcp_socket_server">
-<span class="sig-name descname"><span class="pre">create_tcp_socket_server</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_tcp_socket_server" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_udp_socket_server">
-<span class="sig-name descname"><span class="pre">create_udp_socket_server</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_udp_socket_server" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.create_view_helper">
-<span class="sig-name descname"><span class="pre">create_view_helper</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.create_view_helper" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ipserver.core.object_factory.ObjectFactory.get_config">
-<span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.object_factory.ObjectFactory.get_config" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="ipserver.html#ipserver.configs.Config" title="ipserver.configs.Config">Config</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-ipserver.core.pipeline">
-<span id="ipserver-core-pipeline-module"></span><h2>ipserver.core.pipeline module<a class="headerlink" href="#module-ipserver.core.pipeline" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
+<div class="section" id="ipserver-core-pipeline-module">
+<h2>ipserver.core.pipeline module<a class="headerlink" href="#ipserver-core-pipeline-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-ipserver.core.pipeline"></span><dl class="py class">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Pipeline</span></span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.closed_socket">
 <span class="sig-name descname"><span class="pre">closed_socket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.closed_socket" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.closed_socket_server">
 <span class="sig-name descname"><span class="pre">closed_socket_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket_server</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.closed_socket_server" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>socket_server</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.SocketServer" title="ipserver.server.socket_server.SocketServer"><em>SocketServer</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.complete">
@@ -200,54 +80,123 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.complete_receive">
 <span class="sig-name descname"><span class="pre">complete_receive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receive_binary</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">send_binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.complete_receive" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p></li>
+<li><p><strong>receive_binary</strong> (<em>bytes</em>) – </p></li>
+<li><p><strong>send_binary</strong> (<em>bytes</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.complete_send">
 <span class="sig-name descname"><span class="pre">complete_send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.complete_send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p></li>
+<li><p><strong>binary</strong> (<em>bytes</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.connected">
 <span class="sig-name descname"><span class="pre">connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.connected" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>socket</strong> (<em>socket</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.create_socket">
 <span class="sig-name descname"><span class="pre">create_socket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket_server</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.create_socket" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>socket_server</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.SocketServer" title="ipserver.server.socket_server.SocketServer"><em>SocketServer</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.deny_socket">
 <span class="sig-name descname"><span class="pre">deny_socket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.deny_socket" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.digest_auth_load">
 <span class="sig-name descname"><span class="pre">digest_auth_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">users</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.digest_auth_load" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>users</strong> (<em>dict</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.digest_auth_veirfy">
 <span class="sig-name descname"><span class="pre">digest_auth_veirfy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auth_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">users</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.digest_auth_veirfy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>httpio</strong> (<a class="reference internal" href="ipserver.http_server.html#ipserver.server.http_server.HttpIo" title="ipserver.server.http_server.HttpIo"><em>HttpIo</em></a>) – </p></li>
+<li><p><strong>username</strong> (<em>str</em>) – </p></li>
+<li><p><strong>auth_data</strong> (<em>dict</em>) – </p></li>
+<li><p><strong>users</strong> (<em>dict</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.get_filename">
 <span class="sig-name descname"><span class="pre">get_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.get_filename" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p></li>
+<li><p><strong>direction</strong> (<em>int</em>) – </p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.get_http_app_path">
 <span class="sig-name descname"><span class="pre">get_http_app_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translate_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.get_http_app_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>httpio</strong> (<a class="reference internal" href="ipserver.http_server.html#ipserver.server.http_server.HttpIo" title="ipserver.server.http_server.HttpIo"><em>HttpIo</em></a>) – </p></li>
+<li><p><strong>root_path</strong> – </p></li>
+<li><p><strong>request_path</strong> (<em>str</em>) – </p></li>
+<li><p><strong>translate_path</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.init_configure">
 <span class="sig-name descname"><span class="pre">init_configure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_ags</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.init_configure" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>arguments</strong> (<em>dict</em>) – </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arguments</strong> (<em>dict</em>) – </p></li>
+<li><p><strong>conf_ags</strong> – </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -257,7 +206,10 @@
 <span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_server</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.initialize" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="ipserver.html#ipserver.configs.Config" title="ipserver.configs.Config"><em>Config</em></a>) – </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<a class="reference internal" href="ipserver.config.html#ipserver.configs.Config" title="ipserver.configs.Config"><em>Config</em></a>) – </p></li>
+<li><p><strong>socket_server</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.SocketServer" title="ipserver.server.socket_server.SocketServer"><em>SocketServer</em></a>) – </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -265,22 +217,53 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.interactive_input">
 <span class="sig-name descname"><span class="pre">interactive_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_bucket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.interactive_input" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>action</strong> (<em>str</em>) – </p></li>
+<li><p><strong>line</strong> (<em>str</em>) – </p></li>
+<li><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p></li>
+<li><p><strong>conn_bucket</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnBucket" title="ipserver.server.socket_server.ConnBucket"><em>ConnBucket</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.is_enable_file_upload">
 <span class="sig-name descname"><span class="pre">is_enable_file_upload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.is_enable_file_upload" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>httpio</strong> (<a class="reference internal" href="ipserver.http_server.html#ipserver.server.http_server.HttpIo" title="ipserver.server.http_server.HttpIo"><em>HttpIo</em></a>) – </p></li>
+<li><p><strong>request_path</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.kick_quiet_interval">
 <span class="sig-name descname"><span class="pre">kick_quiet_interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_bucket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.kick_quiet_interval" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>conn_bucket</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnBucket" title="ipserver.server.socket_server.ConnBucket"><em>ConnBucket</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.post_accept">
 <span class="sig-name descname"><span class="pre">post_accept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_bucket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.post_accept" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p></li>
+<li><p><strong>conn_bucket</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnBucket" title="ipserver.server.socket_server.ConnBucket"><em>ConnBucket</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.post_configure">
@@ -295,27 +278,67 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.post_forwarding_receive">
 <span class="sig-name descname"><span class="pre">post_forwarding_receive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.post_forwarding_receive" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p></li>
+<li><p><strong>binary</strong> (<em>bytes</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.post_http_file_upload">
 <span class="sig-name descname"><span class="pre">post_http_file_upload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mpart</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.post_http_file_upload" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>httpio</strong> (<a class="reference internal" href="ipserver.http_server.html#ipserver.server.http_server.HttpIo" title="ipserver.server.http_server.HttpIo"><em>HttpIo</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.post_http_forwarding_request">
 <span class="sig-name descname"><span class="pre">post_http_forwarding_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forwarding_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">req_headers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">res_headers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.post_http_forwarding_request" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>httpio</strong> (<a class="reference internal" href="ipserver.http_server.html#ipserver.server.http_server.HttpIo" title="ipserver.server.http_server.HttpIo"><em>HttpIo</em></a>) – </p></li>
+<li><p><strong>forwarding_url</strong> (<em>str</em>) – </p></li>
+<li><p><strong>req_headers</strong> (<em>HTTPMessage</em>) – </p></li>
+<li><p><strong>res_headers</strong> (<em>HTTPMessage</em>) – </p></li>
+<li><p><strong>binary</strong> (<em>bytes</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.post_receive">
 <span class="sig-name descname"><span class="pre">post_receive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.post_receive" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p></li>
+<li><p><strong>binary</strong> (<em>bytes</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.post_send">
 <span class="sig-name descname"><span class="pre">post_send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.post_send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p></li>
+<li><p><strong>binary</strong> (<em>bytes</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.pre_configure">
@@ -330,47 +353,118 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.pre_dump_write">
 <span class="sig-name descname"><span class="pre">pre_dump_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.pre_dump_write" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<em>File</em>) – </p></li>
+<li><p><strong>binary</strong> (<em>bytes</em>) – </p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – </p></li>
+<li><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p></li>
+<li><p><strong>direction</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.pre_forwarding_send">
 <span class="sig-name descname"><span class="pre">pre_forwarding_send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.pre_forwarding_send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p></li>
+<li><p><strong>binary</strong> (<em>bytes</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.pre_http_file_upload">
 <span class="sig-name descname"><span class="pre">pre_http_file_upload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mpart</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.pre_http_file_upload" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>httpio</strong> (<a class="reference internal" href="ipserver.http_server.html#ipserver.server.http_server.HttpIo" title="ipserver.server.http_server.HttpIo"><em>HttpIo</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.pre_http_forwarding_request">
 <span class="sig-name descname"><span class="pre">pre_http_forwarding_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forwarding_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">req_headers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.pre_http_forwarding_request" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>httpio</strong> (<a class="reference internal" href="ipserver.http_server.html#ipserver.server.http_server.HttpIo" title="ipserver.server.http_server.HttpIo"><em>HttpIo</em></a>) – </p></li>
+<li><p><strong>forwarding_url</strong> (<em>str</em>) – </p></li>
+<li><p><strong>req_headers</strong> (<em>HTTPMessage</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.pre_http_process">
 <span class="sig-name descname"><span class="pre">pre_http_process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_opt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.pre_http_process" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>http_opt</strong> (<em>str</em>) – </p></li>
+<li><p><strong>path</strong> (<em>str</em>) – </p></li>
+<li><p><strong>httpio</strong> (<a class="reference internal" href="ipserver.http_server.html#ipserver.server.http_server.HttpIo" title="ipserver.server.http_server.HttpIo"><em>HttpIo</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.pre_http_respond">
 <span class="sig-name descname"><span class="pre">pre_http_respond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.pre_http_respond" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>httpio</strong> (<a class="reference internal" href="ipserver.http_server.html#ipserver.server.http_server.HttpIo" title="ipserver.server.http_server.HttpIo"><em>HttpIo</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.pre_send">
 <span class="sig-name descname"><span class="pre">pre_send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.pre_send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p></li>
+<li><p><strong>binary</strong> (<em>bytes</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.start_listen">
 <span class="sig-name descname"><span class="pre">start_listen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket_server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_bucket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.start_listen" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>socket_server</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.SocketServer" title="ipserver.server.socket_server.SocketServer"><em>SocketServer</em></a>) – </p></li>
+<li><p><strong>conn_bucket</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnBucket" title="ipserver.server.socket_server.ConnBucket"><em>ConnBucket</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ipserver.core.pipeline.Pipeline.verify_restriction">
 <span class="sig-name descname"><span class="pre">verify_restriction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.core.pipeline.Pipeline.verify_restriction" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conn_sock</strong> (<a class="reference internal" href="ipserver.socket_server.html#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><em>ConnSock</em></a>) – </p></li>
+<li><p><strong>allow</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

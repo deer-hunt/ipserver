@@ -12,7 +12,7 @@ Welcome to IpServer's documentation! "IpServer" is a simple server that supports
    :align: center
 
 Github
---------------------------
+---------------------------------------
 
 The latest version and documentation may be found on GitHub. The Github URL is the following.
 
@@ -48,7 +48,7 @@ It’s best to refer to the help to recognize the functions.
 
 
 Installation
---------------------------
+---------------------------------------
 
 **PyPI**
 
@@ -68,7 +68,7 @@ Installation
 
 
 Requirements
---------------------------
+---------------------------------------
 
 .. code-block:: shell
 
@@ -77,7 +77,7 @@ Requirements
 
 
 Features
---------------------------
+---------------------------------------
 
 - Simple TCP / UDP server.
 - Support SSL connection. SSL server.
@@ -98,7 +98,7 @@ Features
 
 
 Running example
---------------------------
+---------------------------------------
 
 .. code-block:: shell
 
@@ -141,7 +141,7 @@ Running example
 
 
 Description of Mode
---------------------------
+---------------------------------------
 
 TCP Server
 ~~~~~~~~~~~~~~
@@ -295,7 +295,7 @@ You can test by web-browser or command.
 
 
 HTTP Digest authentication
---------------------------
+---------------------------------------
 
 .. code-block:: shell
 
@@ -307,7 +307,7 @@ HTTP Digest authentication
 
 
 Mixed options
---------------------------
+---------------------------------------
 
 You can investigate the detailed behavior of HTTP/HTTPS by mixed options.
 
@@ -339,7 +339,7 @@ You can investigate the detailed behavior of HTTP/HTTPS by mixed options.
 
 
 Description of Interactive command
---------------------------
+---------------------------------------
 
 .. code-block:: shell
 
@@ -397,10 +397,10 @@ Description of Interactive command
 
 
 "ipserver" command
---------------------------
+---------------------------------------
 
 Introduction
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 2
@@ -473,7 +473,7 @@ Introduction
 
 
 ipserver's documents
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 1
@@ -485,14 +485,14 @@ ipserver's documents
 
 
 Related OSS
---------------------------
+---------------------------------------
 
 - `IpSurv <https://github.com/deer-hunt/ipsurv/>`_
 
 
 
 Modules and Classes reference
---------------------------
+---------------------------------------
 
 The following is the documentation for the module and class. `Github source <https://github.com/deer-hunt/ipserver/tree/main/ipserver>`_
 

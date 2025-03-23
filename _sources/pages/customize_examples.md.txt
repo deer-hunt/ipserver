@@ -147,3 +147,50 @@ PATH: /
 USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36
 REMOTE_IP: 192.168.10.5
 ```
+
+
+### tcp_keep_connection_simulation.py
+
+**Server**
+
+```bash
+$ python http_response_customize.py --port=8001
+
+Keep connection & simple protocol.
+
+GETPOS;(40, 317)
+PLAYPOS;COMPLETE
+DATE;2025-03-23 15:30:09.746659
+~~~~
+```
+
+**Client**
+
+```
+$ telnet localhost 8001
+
+--
+Keep connection & simple protocol.
+
+PING;1742711367
+GETPOS;id=1
+(40, 317)
+PLAYPOS;id=1
+(349, 321)
+(374, 322)
+(394, 322)
+(419, 322)
+(444, 322)
+(464, 323)
+(479, 323)
+(504, 323)
+(529, 323)
+(554, 324)
+PING;1742711397
+COMPLETE
+DATE
+2025-03-23 15:30:09.746659
+PING;1742711427
+PING;1742711457
+PING;1742711487
+```

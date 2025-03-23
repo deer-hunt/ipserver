@@ -218,6 +218,49 @@ REMOTE_IP: 192.168.10.5
 </pre></div>
 </div>
 </div>
+<div class="section" id="tcp-keep-connection-simulation-py">
+<h3>tcp_keep_connection_simulation.py<a class="headerlink" href="#tcp-keep-connection-simulation-py" title="Permalink to this headline">¶</a></h3>
+<p><strong>Server</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>http_response_customize.py<span class="w"> </span>--port<span class="o">=</span><span class="m">8001</span>
+
+Keep<span class="w"> </span>connection<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>simple<span class="w"> </span>protocol.
+
+GETPOS<span class="p">;</span><span class="o">(</span><span class="m">40</span>,<span class="w"> </span><span class="m">317</span><span class="o">)</span>
+PLAYPOS<span class="p">;</span>COMPLETE
+DATE<span class="p">;</span><span class="m">2025</span>-03-23<span class="w"> </span><span class="m">15</span>:30:09.746659
+~~~~
+</pre></div>
+</div>
+<p><strong>Client</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ telnet localhost 8001
+
+--
+Keep connection &amp; simple protocol.
+
+PING;1742711367
+GETPOS;id=1
+(40, 317)
+PLAYPOS;id=1
+(349, 321)
+(374, 322)
+(394, 322)
+(419, 322)
+(444, 322)
+(464, 323)
+(479, 323)
+(504, 323)
+(529, 323)
+(554, 324)
+PING;1742711397
+COMPLETE
+DATE
+2025-03-23 15:30:09.746659
+PING;1742711427
+PING;1742711457
+PING;1742711487
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

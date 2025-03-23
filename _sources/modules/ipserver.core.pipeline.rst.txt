@@ -1,0 +1,14 @@
+ipserver.core package
+===================
+
+.. include:: top.rst
+
+ipserver.core.pipeline module
+---------------------------
+
+.. automodule:: ipserver.core.pipeline
+
+.. autoclass:: ipserver.core.pipeline.Pipeline
+   :members:
+   :undoc-members:
+   :show-inheritance:
