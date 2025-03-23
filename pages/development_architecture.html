@@ -1,0 +1,422 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program architecture and Classes &#8212; ipserver  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Customizing and Examples" href="customize_examples.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="customize_examples.html" title="Customizing and Examples"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ipserver  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Program architecture and Classes</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="program-architecture-and-classes">
+<h1>Program architecture and Classes<a class="headerlink" href="#program-architecture-and-classes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="modules-and-classes-and-methods-docs">
+<h2>Modules and Classes and Methods docs.<a class="headerlink" href="#modules-and-classes-and-methods-docs" title="Permalink to this headline">¶</a></h2>
+<p>The following are the documentation for Modules, Classes, and Methods.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://deer-hunt.github.io/ipserver/py-modindex.html">Module Index</a></p></li>
+<li><p><a class="reference external" href="https://deer-hunt.github.io/ipserver/genindex.html">Classes and Methods docs</a></p></li>
+</ul>
+</div>
+<div class="section" id="configure-and-constant">
+<h2>Configure and Constant<a class="headerlink" href="#configure-and-constant" title="Permalink to this headline">¶</a></h2>
+<p>The following is description of Configure and Constant.</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Class</p></th>
+<th class="head"><p>Filename</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://deer-hunt.github.io/ipserver/modules/ipserver.config.html"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></p></td>
+<td><p>config.py</p></td>
+<td><p>Configure class. There are various configure variables. Example: config_customize.py</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Constant</span></code></p></td>
+<td><p>config.py</p></td>
+<td><p>Constant class.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="objectfactory">
+<h2>ObjectFactory<a class="headerlink" href="#objectfactory" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ObjectFactory</span></code> class provide customizing classes and creating original classes. Important classes are generated in <code class="docutils literal notranslate"><span class="pre">ObjectFactory</span></code>.
+If you’d like to create original factory class , extending <code class="docutils literal notranslate"><span class="pre">ObjectFactory</span></code>. And injecting to <code class="docutils literal notranslate"><span class="pre">IpServerCmd</span></code> class.</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Class</strong></p></td>
+<td><p><a class="reference external" href="https://deer-hunt.github.io/ipserver/modules/ipserver.core.object_factory.html">ObjectFactory</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Path</strong></p></td>
+<td><p>./core/object_factory.py</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Example</strong></p></td>
+<td><p>object_factory_original_headers.py</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pipeline">
+<h2>Pipeline<a class="headerlink" href="#pipeline" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> class provide catching and customizing the data in each processing. <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> class allows for modifying process behaviors or adding specifications without a lot of class extensions or changing the structure.
+It’s available to very fine data control.</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Class</strong></p></td>
+<td><p><a class="reference external" href="http://deer-hunt.github.io/ipserver/modules/ipserver.core.pipeline.html">Pipeline</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Path</strong></p></td>
+<td><p>./core/pipeline.py</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Example</strong></p></td>
+<td><p>pipeline_customize.py</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pipeline’s methods</strong></p>
+<p>When Pipeline’s methods are dispatched:</p>
+<p><strong>Pipeline’s methods</strong></p>
+<p>When Pipeline’s methods are dispatched:</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Methods</p></th>
+<th class="head"><p>When it dispatch</p></th>
+<th class="head"><p>Processing e.g.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">init_configure</span></code></p></td>
+<td><p>Initializing arguments values.</p></td>
+<td><p>Customizing arguments and env.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pre_configure</span></code></p></td>
+<td><p>Before configuring arguments.</p></td>
+<td><p>Customizing arguments before configuring.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">post_configure</span></code></p></td>
+<td><p>After configuring arguments.</p></td>
+<td><p>Customizing arguments after configuring.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initialize</span></code></p></td>
+<td><p>Initializing with config and socket server.</p></td>
+<td><p>Setting up initial configurations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">create_socket</span></code></p></td>
+<td><p>Creating a socket.</p></td>
+<td><p>Customizing socket creation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">connected</span></code></p></td>
+<td><p>When a socket is connected.</p></td>
+<td><p>Handling socket connection.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">interactive_input</span></code></p></td>
+<td><p>Handling interactive input.</p></td>
+<td><p>Processing interactive commands.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">kick_quiet_interval</span></code></p></td>
+<td><p>When quiet mode is enabled. Call by interval timing.</p></td>
+<td><p>Handling quiet mode operations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">start_listen</span></code></p></td>
+<td><p>Starting to listen on a socket.</p></td>
+<td><p>Customizing listening behavior.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">post_accept</span></code></p></td>
+<td><p>After accepting a connection.</p></td>
+<td><p>Handling post-accept operations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">post_receive</span></code></p></td>
+<td><p>After receiving data.</p></td>
+<td><p>Processing received data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">complete_receive</span></code></p></td>
+<td><p>Completing the receive process.</p></td>
+<td><p>Finalizing received data.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pre_send</span></code></p></td>
+<td><p>Before sending data.</p></td>
+<td><p>Customizing data before sending.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">post_send</span></code></p></td>
+<td><p>After sending data.</p></td>
+<td><p>Handling post-send operations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">complete_send</span></code></p></td>
+<td><p>Completing the send process.</p></td>
+<td><p>Finalizing sent data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pre_forwarding_send</span></code></p></td>
+<td><p>Before forwarding data.</p></td>
+<td><p>Customizing data before forwarding.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">post_forwarding_receive</span></code></p></td>
+<td><p>After receiving forwarded data.</p></td>
+<td><p>Processing forwarded data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">verify_restriction</span></code></p></td>
+<td><p>Verifying connection restrictions.</p></td>
+<td><p>Customizing connection restrictions.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">deny_socket</span></code></p></td>
+<td><p>When a socket is denied.</p></td>
+<td><p>Handling denied socket connections.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">closed_socket_server</span></code></p></td>
+<td><p>When a socket server is closed.</p></td>
+<td><p>Handling closed socket server operations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">closed_socket</span></code></p></td>
+<td><p>When a socket is closed.</p></td>
+<td><p>Handling closed socket connections.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">digest_auth_load</span></code></p></td>
+<td><p>Loading digest authentication users.</p></td>
+<td><p>Customizing digest auth user loading.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">digest_auth_verify</span></code></p></td>
+<td><p>Verifying digest authentication.</p></td>
+<td><p>Customizing digest auth verification.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pre_http_process</span></code></p></td>
+<td><p>Before processing an HTTP request.</p></td>
+<td><p>Customizing HTTP request processing.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">get_http_app_path</span></code></p></td>
+<td><p>Getting the HTTP app path.</p></td>
+<td><p>Customizing HTTP app path resolution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">is_enable_file_upload</span></code></p></td>
+<td><p>Checking if file upload is enabled.</p></td>
+<td><p>Customizing file upload enablement.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pre_http_forwarding_request</span></code></p></td>
+<td><p>Before forwarding an HTTP request.</p></td>
+<td><p>Customizing HTTP forwarding request.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">post_http_forwarding_request</span></code></p></td>
+<td><p>After forwarding an HTTP request.</p></td>
+<td><p>Processing forwarded HTTP request.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pre_http_file_upload</span></code></p></td>
+<td><p>Before uploading an file in HTTP mode.</p></td>
+<td><p>Customizing HTTP file upload.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">post_http_file_upload</span></code></p></td>
+<td><p>After uploading an file in HTTP mode.</p></td>
+<td><p>Handling post-upload operations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pre_http_respond</span></code></p></td>
+<td><p>Before responding to an HTTP request.</p></td>
+<td><p>Customizing HTTP response.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">get_filename</span></code></p></td>
+<td><p>Getting the filename for a connection.</p></td>
+<td><p>Customizing filename resolution.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pre_dump_write</span></code></p></td>
+<td><p>Before writing to a file.</p></td>
+<td><p>Customizing file write operations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">complete</span></code></p></td>
+<td><p>After completing all processes.</p></td>
+<td><p>Final processing.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="utils">
+<h2>Utils<a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
+<p>In <code class="docutils literal notranslate"><span class="pre">./util</span></code>, there are some util classes. Those are used in various places.</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Path</p></th>
+<th class="head"><p>Classes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>./util/args_util.py</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ArgValidator</span></code>, <code class="docutils literal notranslate"><span class="pre">StdinLoader</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>./util/requester.py</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Requester</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>./util/socket_client.py</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SocketClient</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>./util/urlparser.py</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">URLParser</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<p>This description is description of development and debugging related <code class="docutils literal notranslate"><span class="pre">ipserver</span></code>.</p>
+</div>
+<div class="section" id="program-specification">
+<h2>Program specification<a class="headerlink" href="#program-specification" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Item</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Python version</strong></p></td>
+<td><p>3.0 or later. *</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dependencies</strong></p></td>
+<td><p>multipart</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id1">
+<h2>Debugging<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>You can see detailed debug information by specifying <code class="docutils literal notranslate"><span class="pre">--verbose=3</span></code> or <code class="docutils literal notranslate"><span class="pre">--debug</span></code>. In detail, please read <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> option.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>*****<span class="w"> </span>--verbose<span class="o">=</span><span class="m">2</span><span class="w">    </span><span class="c1">#INFO</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>*****<span class="w"> </span>--verbose<span class="o">=</span><span class="m">3</span><span class="w">    </span><span class="c1">#DEBUG</span>
+
+$<span class="w"> </span>ipserver<span class="w"> </span>*****<span class="w"> </span>--info<span class="w">     </span><span class="c1">#INFO  This option is equivalent to &quot;--verbose=2&quot;</span>
+
+$<span class="w"> </span>ipserver<span class="w"> </span>*****<span class="w"> </span>--debug<span class="w">     </span><span class="c1">#DEBUG  This option is equivalent to &quot;--verbose=3&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="log-sample-and-description">
+<h3>Log sample and description<a class="headerlink" href="#log-sample-and-description" title="Permalink to this headline">¶</a></h3>
+<p>The following is debugging log with each comments.</p>
+</div>
+</div>
+<div class="section" id="customize-examples">
+<h2>Customize Examples<a class="headerlink" href="#customize-examples" title="Permalink to this headline">¶</a></h2>
+<p>There are examples of program customization. Please refer to <a class="reference internal" href="customize_examples.html"><span class="doc std std-doc">here</span></a>.</p>
+</div>
+<div class="section" id="not-support-python-2-7">
+<h2>Not support Python 2.7 ?<a class="headerlink" href="#not-support-python-2-7" title="Permalink to this headline">¶</a></h2>
+<p>“ipserver” doesn’t support Python 2.7. However “ipserver” has been developed to avoid using the latest Python specifications as much as possible, So you can refactor to Python 2.7 code easily.</p>
+<p><strong>Refactoring points</strong></p>
+<ul class="simple">
+<li><p>ABC module</p></li>
+<li><p>http.client module</p></li>
+<li><p>urllib module</p></li>
+</ul>
+<blockquote>
+<div><p>And any other few modules.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="command_arguments.html">Command arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customize_examples.html">Customizing and Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Program architecture and Classes</a></li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="customize_examples.html"
+                          title="previous chapter">Customizing and Examples</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><div class="custom-sidebar">
+	<h3>Others</h3>
+	<ul>
+		<li><a href="https://deer-hunt.github.io/ipserver/py-modindex.html">Module Index</a></li>
+		<li><a href="https://deer-hunt.github.io/ipserver/genindex.html">Classes and Methods docs</a></li>
+		<li>&nbsp;</li>
+		<li><a href="https://github.com/deer-hunt/ipserver" target="_blank">GitHub</a></li>
+	</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="customize_examples.html" title="Customizing and Examples"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ipserver  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Program architecture and Classes</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, deer-hunt.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

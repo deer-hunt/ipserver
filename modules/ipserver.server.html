@@ -1,0 +1,824 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ipserver.server package &#8212; ipserver  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ipserver  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ipserver.server package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ipserver-server-package">
+<h1>ipserver.server package<a class="headerlink" href="#ipserver-server-package" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="/py-modindex.html">IpServer’s Module Index</a></p>
+<div class="section" id="module-ipserver.server.http_server">
+<span id="ipserver-server-http-server-module"></span><h2>ipserver.server.http_server module<a class="headerlink" href="#module-ipserver.server.http_server" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.http_server.BufferedReader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BufferedReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket_io</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.BufferedReader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_io.BufferedReader</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.BufferedReader.pull_data">
+<span class="sig-name descname"><span class="pre">pull_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.BufferedReader.pull_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.BufferedReader.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.BufferedReader.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read and return up to n bytes.</p>
+<p>If the argument is omitted, None, or negative, reads and
+returns all data until EOF.</p>
+<p>If the argument is positive, and the underlying raw stream is
+not ‘interactive’, multiple raw reads may be issued to satisfy
+the byte count (unless EOF is reached first).  But for
+interactive raw streams (as well as sockets and pipes), at most
+one raw read will be issued, and a short result does not imply
+that EOF is imminent.</p>
+<p>Returns an empty bytes object on EOF.</p>
+<p>Returns None if the underlying raw stream was open in non-blocking
+mode and no data is available at the moment.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.BufferedReader.readline">
+<span class="sig-name descname"><span class="pre">readline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.BufferedReader.readline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read and return a line from the stream.</p>
+<p>If size is specified, at most size bytes will be read.</p>
+<p>The line terminator is always b’n’ for binary files; for text
+files, the newlines argument to open can be used to select the line
+terminator(s) recognized.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.BufferedReader.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.BufferedReader.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPConnSock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HTTPConnSock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPConnSock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><code class="xref py py-class docutils literal notranslate"><span class="pre">ipserver.server.socket_server.ConnSock</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPConnSock.complete_receive">
+<span class="sig-name descname"><span class="pre">complete_receive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPConnSock.complete_receive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPConnSock.post_send">
+<span class="sig-name descname"><span class="pre">post_send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPConnSock.post_send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPConnSock.receive">
+<span class="sig-name descname"><span class="pre">receive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPConnSock.receive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPConnSock.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPConnSock.send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPConnSock.send_queue">
+<span class="sig-name descname"><span class="pre">send_queue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPConnSock.send_queue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPConnSock.set_interactive_queue">
+<span class="sig-name descname"><span class="pre">set_interactive_queue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interactive_queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPConnSock.set_interactive_queue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HTTPHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shared_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">http.server.SimpleHTTPRequestHandler</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.create_http_digest_auth">
+<span class="sig-name descname"><span class="pre">create_http_digest_auth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.create_http_digest_auth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.create_http_file_uploader">
+<span class="sig-name descname"><span class="pre">create_http_file_uploader</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.create_http_file_uploader" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.create_httpio">
+<span class="sig-name descname"><span class="pre">create_httpio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">environ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">posts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.create_httpio" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.do_GET">
+<span class="sig-name descname"><span class="pre">do_GET</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.do_GET" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serve a GET request.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.do_HEAD">
+<span class="sig-name descname"><span class="pre">do_HEAD</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.do_HEAD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serve a HEAD request.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.do_POST">
+<span class="sig-name descname"><span class="pre">do_POST</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.do_POST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.guess_type">
+<span class="sig-name descname"><span class="pre">guess_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.guess_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guess the type of a file.</p>
+<p>Argument is a PATH (a filename).</p>
+<p>Return value is a string of the form type/subtype,
+usable for a MIME Content-type header.</p>
+<p>The default implementation looks the file’s extension
+up in the table self.extensions_map, using application/octet-stream
+as a default; however it would be permissible (if
+slow) to look inside the data to make a better guess.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.list_directory">
+<span class="sig-name descname"><span class="pre">list_directory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.list_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper to produce a directory listing (absent index.html).</p>
+<p>Return value is either a file object, or None (indicating an
+error).  In either case, the headers are sent, making the
+interface the same as for send_head().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.log_message">
+<span class="sig-name descname"><span class="pre">log_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.log_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log an arbitrary message.</p>
+<p>This is used by all other logging functions.  Override
+it if you have specific logging wishes.</p>
+<p>The first argument, FORMAT, is a format string for the
+message to be logged.  If the format string contains
+any % escapes requiring parameters, they should be
+specified as subsequent arguments (it’s just like
+printf!).</p>
+<p>The client ip and current date/time are prefixed to
+every message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.parse_request">
+<span class="sig-name descname"><span class="pre">parse_request</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.parse_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a request (internal).</p>
+<p>The request should be stored in self.raw_requestline; the results
+are in self.command, self.path, self.request_version and
+self.headers.</p>
+<p>Return True for success, False for failure; on failure, an
+error is sent back.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.receive">
+<span class="sig-name descname"><span class="pre">receive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.receive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.send_error">
+<span class="sig-name descname"><span class="pre">send_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">explain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.send_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send and log an error reply.</p>
+<p>Arguments are
+* code:    an HTTP error code</p>
+<blockquote>
+<div><p>3 digits</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>message: a simple optional 1 line reason phrase.</dt><dd><p><a href="#id1"><span class="problematic" id="id2">*</span></a>( HTAB / SP / VCHAR / %x80-FF )
+defaults to short entry matching the response code</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>explain: a detailed message defaults to the long entry</dt><dd><p>matching the response code.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>This sends an error response (so it must be called before any
+output has been generated), logs the error, and finally sends
+a piece of HTML explaining the error to the user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.send_head">
+<span class="sig-name descname"><span class="pre">send_head</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.send_head" title="Permalink to this definition">¶</a></dt>
+<dd><p>Common code for GET and HEAD commands.</p>
+<p>This sends the response code and MIME headers.</p>
+<p>Return value is either a file object (which has to be copied
+to the outputfile by the caller unless the command was HEAD,
+and must be closed by the caller under all circumstances), or
+None, in which case the caller has nothing further to do.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.set_forwarding_requester">
+<span class="sig-name descname"><span class="pre">set_forwarding_requester</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forwarding_requester</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.set_forwarding_requester" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.translate_path">
+<span class="sig-name descname"><span class="pre">translate_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.translate_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate a /-separated PATH to the local filename syntax.</p>
+<p>Components that mean special things to the local file system
+(e.g. drive or directory names) are ignored.  (XXX They should
+probably be diagnosed.)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPHandler.version_string">
+<span class="sig-name descname"><span class="pre">version_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPHandler.version_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the server software version string.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPSSocketServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HTTPSSocketServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPSSocketServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ipserver.server.socket_server.SSLSocketServer" title="ipserver.server.socket_server.SSLSocketServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ipserver.server.socket_server.SSLSocketServer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPSSocketServer.accept">
+<span class="sig-name descname"><span class="pre">accept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add_conn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPSSocketServer.accept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPSocketServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HTTPSocketServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPSocketServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ipserver.server.socket_server.TCPSocketServer" title="ipserver.server.socket_server.TCPSocketServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ipserver.server.socket_server.TCPSocketServer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HTTPSocketServer.accept">
+<span class="sig-name descname"><span class="pre">accept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add_conn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HTTPSocketServer.accept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HttpIo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HttpIo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">environ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">req_headers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">posts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HttpIo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HttpIo.add_header">
+<span class="sig-name descname"><span class="pre">add_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HttpIo.add_header" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HttpIo.print">
+<span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HttpIo.print" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HttpIo.print_byte">
+<span class="sig-name descname"><span class="pre">print_byte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HttpIo.print_byte" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server.HttpIo.set_dir">
+<span class="sig-name descname"><span class="pre">set_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server.HttpIo.set_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ipserver.server.http_server_module">
+<span id="ipserver-server-http-server-module-module"></span><h2>ipserver.server.http_server_module module<a class="headerlink" href="#module-ipserver.server.http_server_module" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HTTPDigestAuth">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HTTPDigestAuth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HTTPDigestAuth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HTTPDigestAuth.authenticate">
+<span class="sig-name descname"><span class="pre">authenticate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HTTPDigestAuth.authenticate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HTTPDigestAuth.create_md5_hash">
+<span class="sig-name descname"><span class="pre">create_md5_hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HTTPDigestAuth.create_md5_hash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HTTPDigestAuth.is_md5">
+<span class="sig-name descname"><span class="pre">is_md5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HTTPDigestAuth.is_md5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HTTPDigestAuth.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_digest_auth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HTTPDigestAuth.load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HTTPDigestAuth.load_from_file">
+<span class="sig-name descname"><span class="pre">load_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HTTPDigestAuth.load_from_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HTTPDigestAuth.parse_auth_header">
+<span class="sig-name descname"><span class="pre">parse_auth_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">headers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HTTPDigestAuth.parse_auth_header" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HTTPDigestAuth.verify_authed">
+<span class="sig-name descname"><span class="pre">verify_authed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">headers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HTTPDigestAuth.verify_authed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HTTPDigestAuth.verify_user">
+<span class="sig-name descname"><span class="pre">verify_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">auth_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HTTPDigestAuth.verify_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HttpFileUploader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HttpFileUploader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HttpFileUploader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HttpFileUploader.create_md5">
+<span class="sig-name descname"><span class="pre">create_md5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HttpFileUploader.create_md5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HttpFileUploader.create_token">
+<span class="sig-name descname"><span class="pre">create_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HttpFileUploader.create_token" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HttpFileUploader.dispatch">
+<span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HttpFileUploader.dispatch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HttpFileUploader.get_directory_files">
+<span class="sig-name descname"><span class="pre">get_directory_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HttpFileUploader.get_directory_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HttpFileUploader.get_upload_path">
+<span class="sig-name descname"><span class="pre">get_upload_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HttpFileUploader.get_upload_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HttpFileUploader.is_valid_filename">
+<span class="sig-name descname"><span class="pre">is_valid_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HttpFileUploader.is_valid_filename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HttpFileUploader.save_file">
+<span class="sig-name descname"><span class="pre">save_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HttpFileUploader.save_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HttpFileUploader.show_foot">
+<span class="sig-name descname"><span class="pre">show_foot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HttpFileUploader.show_foot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HttpFileUploader.show_form">
+<span class="sig-name descname"><span class="pre">show_form</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HttpFileUploader.show_form" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HttpFileUploader.show_head">
+<span class="sig-name descname"><span class="pre">show_head</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HttpFileUploader.show_head" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.HttpFileUploader.verify_token">
+<span class="sig-name descname"><span class="pre">verify_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">httpio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.HttpFileUploader.verify_token" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.QueueLogger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">QueueLogger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'queue'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.QueueLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.QueueLogger.flush">
+<span class="sig-name descname"><span class="pre">flush</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.QueueLogger.flush" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.QueueLogger.get_instance">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'queue'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.QueueLogger.get_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.http_server_module.QueueLogger.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.http_server_module.QueueLogger.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ipserver.server.socket_server">
+<span id="ipserver-server-socket-server-module"></span><h2>ipserver.server.socket_server module<a class="headerlink" href="#module-ipserver.server.socket_server" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnBucket">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConnBucket</span></span><a class="headerlink" href="#ipserver.server.socket_server.ConnBucket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnBucket.add_conn">
+<span class="sig-name descname"><span class="pre">add_conn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnBucket.add_conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnBucket.get_conn">
+<span class="sig-name descname"><span class="pre">get_conn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnBucket.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnBucket.get_conn_length">
+<span class="sig-name descname"><span class="pre">get_conn_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnBucket.get_conn_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnBucket.get_conns">
+<span class="sig-name descname"><span class="pre">get_conns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnBucket.get_conns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnBucket.get_max_conn_sock">
+<span class="sig-name descname"><span class="pre">get_max_conn_sock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnBucket.get_max_conn_sock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnBucket.get_new_conn_id">
+<span class="sig-name descname"><span class="pre">get_new_conn_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnBucket.get_new_conn_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnBucket.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnBucket.refresh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnBucket.refresh_connections">
+<span class="sig-name descname"><span class="pre">refresh_connections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reset_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnBucket.refresh_connections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnBucket.reset_id">
+<span class="sig-name descname"><span class="pre">reset_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnBucket.reset_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnBucket.verify_connections">
+<span class="sig-name descname"><span class="pre">verify_connections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnBucket.verify_connections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnSock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConnSock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnSock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnSock.add_sequence">
+<span class="sig-name descname"><span class="pre">add_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cur</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnSock.add_sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnSock.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnSock.close" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnSock.close_socket">
+<span class="sig-name descname"><span class="pre">close_socket</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnSock.close_socket" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnSock.complete_receive">
+<span class="sig-name descname"><span class="pre">complete_receive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnSock.complete_receive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnSock.complete_send">
+<span class="sig-name descname"><span class="pre">complete_send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnSock.complete_send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnSock.get_queue">
+<span class="sig-name descname"><span class="pre">get_queue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnSock.get_queue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnSock.is_connected">
+<span class="sig-name descname"><span class="pre">is_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verify_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnSock.is_connected" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnSock.receive">
+<span class="sig-name descname"><span class="pre">receive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnSock.receive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnSock.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnSock.send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnSock.send_queue">
+<span class="sig-name descname"><span class="pre">send_queue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnSock.send_queue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnSock.set_conn_id">
+<span class="sig-name descname"><span class="pre">set_conn_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnSock.set_conn_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.ConnSock.verify_connection">
+<span class="sig-name descname"><span class="pre">verify_connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verify_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.ConnSock.verify_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SSLConnSock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SSLConnSock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SSLConnSock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><code class="xref py py-class docutils literal notranslate"><span class="pre">ipserver.server.socket_server.ConnSock</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SSLConnSock.receive">
+<span class="sig-name descname"><span class="pre">receive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SSLConnSock.receive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SSLConnSock.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SSLConnSock.send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SSLSocketServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SSLSocketServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SSLSocketServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ipserver.server.socket_server.SocketServer" title="ipserver.server.socket_server.SocketServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ipserver.server.socket_server.SocketServer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SSLSocketServer.accept">
+<span class="sig-name descname"><span class="pre">accept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add_conn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SSLSocketServer.accept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SSLSocketServer.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind_ip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SSLSocketServer.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SSLSocketServer.create_self_signed_cert">
+<span class="sig-name descname"><span class="pre">create_self_signed_cert</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SSLSocketServer.create_self_signed_cert" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SSLSocketServer.get_ssl_key_path">
+<span class="sig-name descname"><span class="pre">get_ssl_key_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SSLSocketServer.get_ssl_key_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SSLSocketServer.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SSLSocketServer.listen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SSLSocketServer.set_ssl_context">
+<span class="sig-name descname"><span class="pre">set_ssl_context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ssl_context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SSLSocketServer.set_ssl_context" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SendQueue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SendQueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maxsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SendQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">queue.Queue</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SendQueue.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SendQueue.close" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SendQueue.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SendQueue.send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SocketCloseError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SocketCloseError</span></span><a class="headerlink" href="#ipserver.server.socket_server.SocketCloseError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">OSError</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SocketServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SocketServer</span></span><a class="headerlink" href="#ipserver.server.socket_server.SocketServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SocketServer.accept">
+<span class="sig-name descname"><span class="pre">accept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add_conn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SocketServer.accept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SocketServer.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SocketServer.close" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SocketServer.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind_ip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SocketServer.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SocketServer.get_error">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SocketServer.get_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SocketServer.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SocketServer.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.SocketServer.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.SocketServer.listen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.TCPConnSock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TCPConnSock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.TCPConnSock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><code class="xref py py-class docutils literal notranslate"><span class="pre">ipserver.server.socket_server.ConnSock</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.TCPConnSock.receive">
+<span class="sig-name descname"><span class="pre">receive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.TCPConnSock.receive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.TCPConnSock.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.TCPConnSock.send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.TCPSocketServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TCPSocketServer</span></span><a class="headerlink" href="#ipserver.server.socket_server.TCPSocketServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ipserver.server.socket_server.SocketServer" title="ipserver.server.socket_server.SocketServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ipserver.server.socket_server.SocketServer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.TCPSocketServer.accept">
+<span class="sig-name descname"><span class="pre">accept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add_conn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.TCPSocketServer.accept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.TCPSocketServer.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind_ip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.TCPSocketServer.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.TCPSocketServer.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.TCPSocketServer.listen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.UDPConnSock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UDPConnSock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.UDPConnSock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ipserver.server.socket_server.ConnSock" title="ipserver.server.socket_server.ConnSock"><code class="xref py py-class docutils literal notranslate"><span class="pre">ipserver.server.socket_server.ConnSock</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.UDPConnSock.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.UDPConnSock.listen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.UDPConnSock.receive">
+<span class="sig-name descname"><span class="pre">receive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.UDPConnSock.receive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.UDPConnSock.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.UDPConnSock.send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.UDPSocketServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UDPSocketServer</span></span><a class="headerlink" href="#ipserver.server.socket_server.UDPSocketServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ipserver.server.socket_server.SocketServer" title="ipserver.server.socket_server.SocketServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ipserver.server.socket_server.SocketServer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.UDPSocketServer.accept">
+<span class="sig-name descname"><span class="pre">accept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add_conn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.UDPSocketServer.accept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.server.socket_server.UDPSocketServer.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind_ip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.server.socket_server.UDPSocketServer.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pages/command_arguments.html">Command arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/customize_examples.html">Customizing and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/development_architecture.html">Program architecture and Classes</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><div class="custom-sidebar">
+	<h3>Others</h3>
+	<ul>
+		<li><a href="https://deer-hunt.github.io/ipserver/py-modindex.html">Module Index</a></li>
+		<li><a href="https://deer-hunt.github.io/ipserver/genindex.html">Classes and Methods docs</a></li>
+		<li>&nbsp;</li>
+		<li><a href="https://github.com/deer-hunt/ipserver" target="_blank">GitHub</a></li>
+	</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ipserver  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ipserver.server package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, deer-hunt.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

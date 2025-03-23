@@ -1,0 +1,294 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customizing and Examples &#8212; ipserver  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Program architecture and Classes" href="development_architecture.html" />
+    <link rel="prev" title="Command arguments" href="command_arguments.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="development_architecture.html" title="Program architecture and Classes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="command_arguments.html" title="Command arguments"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ipserver  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Customizing and Examples</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="customizing-and-examples">
+<h1>Customizing and Examples<a class="headerlink" href="#customizing-and-examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ipserver</span></code> is implemented as customizable program architecture. It provide extending features and several classes.</p>
+</div>
+<div class="section" id="http-public-sample-files">
+<h2>HTTP public sample files<a class="headerlink" href="#http-public-sample-files" title="Permalink to this headline">¶</a></h2>
+<p>There are some sample files for HTTP mode.</p>
+<p>Path: <span class="xref myst">../examples/public-sample</span></p>
+<p><strong>Run application</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ipserver --http_app=&quot;/path/to/examples/public-sample/&quot;
+</pre></div>
+</div>
+<p><strong>Result by browser</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>This is Sample Index
+
+Static
+   Hello world!
+   SVG sample
+
+Application
+  hello.py
+  basic.py
+  digest-auth.py
+  image-output.py
+  file-upload.py
+  cgi-execute.py
+  program-execute.py
+    programs/
+</pre></div>
+</div>
+<p><strong>Display file and directory</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ipserver --http_file=&quot;/path/to/examples/public-sample/&quot;
+</pre></div>
+</div>
+<p><strong>Use Digest auth</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ipserver --http_file=1 --http_digest_auth=&quot;admin:12345678&quot;
+$ ipserver --http_file=1 --http_digest_auth=&quot;/path/to/examples/public-sample/.htdigest&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-programs-of-server">
+<h2>Example programs of Server<a class="headerlink" href="#example-programs-of-server" title="Permalink to this headline">¶</a></h2>
+<p>There are several example programs of how to customize. Please refer to the comments in each program for more details.
+You can analyze and change transmission data in each phase.</p>
+<p><strong>Path:</strong> <a class="reference external" href="https://github.com/deer-hunt/ipserver/tree/main/examples"><code class="docutils literal notranslate"><span class="pre">./examples/</span></code></a></p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Program</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>./public-sample/</p></td>
+<td><p>Sample public files. There are various sample files, including a sample .htdigest file fro HTTP mode test.</p></td>
+</tr>
+<tr class="row-odd"><td><p>config_customize.py</p></td>
+<td><p>Customizing config.</p></td>
+</tr>
+<tr class="row-even"><td><p>pipeline_customize.py</p></td>
+<td><p>Customizing Pipeline class.</p></td>
+</tr>
+<tr class="row-odd"><td><p>original_protocol.py</p></td>
+<td><p>Implementing a custom protocol for calculations.</p></td>
+</tr>
+<tr class="row-even"><td><p>inject_original_class.py</p></td>
+<td><p>Injecting original class object.</p></td>
+</tr>
+<tr class="row-odd"><td><p>tcp_raw_http_response.py</p></td>
+<td><p>Response HTTP by raw data.</p></td>
+</tr>
+<tr class="row-even"><td><p>tcp_forwarding_change_data.py</p></td>
+<td><p>TCP forwarding. Changing transmission data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>tcp_forwarding_ssl_protocol.py</p></td>
+<td><p>The forwarding protocol is SSL, however the listening protocol is not SSL. So you can debug the transmission data in detail.</p></td>
+</tr>
+<tr class="row-even"><td><p>tcp_keep_connection_simulation.py</p></td>
+<td><p>Keep connection &amp; Particle simulation. Run command to Particle simulation via TCP protocol.</p></td>
+</tr>
+<tr class="row-odd"><td><p>benchmark_download_speed.py</p></td>
+<td><p>Benchmark transfer speed by downloading dummy image. e.g. <code class="docutils literal notranslate"><span class="pre">http://develop-server:8002/bench?mb=250</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>http_url_routing.py</p></td>
+<td><p>Implementing URL routing in HTTP mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p>http_upload_filtering.py</p></td>
+<td><p>Filtering file uploads and set filename.</p></td>
+</tr>
+<tr class="row-even"><td><p>http_response_customize.py</p></td>
+<td><p>Customizing HTTP responses.</p></td>
+</tr>
+<tr class="row-odd"><td><p>http_opt_by_path.py</p></td>
+<td><p>Setting <code class="docutils literal notranslate"><span class="pre">http_opt</span></code> by path. Changing the behavior.</p></td>
+</tr>
+<tr class="row-even"><td><p>http_forwarding_change_header.py</p></td>
+<td><p>Changing request header in HTTP forwarding. Set random Accept-Language. Forwarding-request is HTTPS request, But the protocol listened on HTTP, So you can change HTTP header.</p></td>
+</tr>
+<tr class="row-odd"><td><p>http_forwarding_html_append.py</p></td>
+<td><p>Appending HTML content in HTTP forwarding. <code class="docutils literal notranslate"><span class="pre">Content-length</span></code> is changed automatically in HTTP mode.</p></td>
+</tr>
+<tr class="row-even"><td><p>customize_http_handler.py</p></td>
+<td><p>Customizing the HTTP handler.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="execution-examples">
+<h2>Execution examples<a class="headerlink" href="#execution-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="original-protocol-py">
+<h3>original_protocol.py<a class="headerlink" href="#original-protocol-py" title="Permalink to this headline">¶</a></h3>
+<p><strong>Server</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>original_protocol.py<span class="w"> </span>--port<span class="o">=</span><span class="m">8001</span>
+
+~~~~~~
+
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Accepted<span class="w"> </span>from<span class="w"> </span><span class="m">127</span>.0.0.1:40662
+
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Send<span class="w"> </span><span class="m">35</span><span class="w"> </span>bytes<span class="w"> </span>to<span class="w"> </span><span class="m">127</span>.0.0.1:40662
+
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Receive<span class="w"> </span><span class="m">5</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">127</span>.0.0.1:40662
+<span class="m">1</span>+3
+
+
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Send<span class="w"> </span><span class="m">11</span><span class="w"> </span>bytes<span class="w"> </span>to<span class="w"> </span><span class="m">127</span>.0.0.1:40662
+
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Receive<span class="w"> </span><span class="m">7</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">127</span>.0.0.1:40662
+<span class="m">8</span>*9*2
+</pre></div>
+</div>
+<p><strong>Client</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-bash-4.2$<span class="w"> </span>telnet<span class="w"> </span>localhost<span class="w"> </span><span class="m">8001</span>
+Trying<span class="w"> </span><span class="m">127</span>.0.0.1...
+Connected<span class="w"> </span>to<span class="w"> </span>localhost.
+Escape<span class="w"> </span>character<span class="w"> </span>is<span class="w"> </span><span class="s1">&#39;^]&#39;</span>.
+
+Welcome<span class="w"> </span>to<span class="w"> </span>Calculation<span class="w"> </span>protocol.
+
+<span class="m">1</span>+3
+ANSWER:<span class="w"> </span><span class="m">4</span>
+
+<span class="m">8</span>*9*2
+ANSWER:<span class="w"> </span><span class="m">144</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="http-response-customize-py">
+<h3>http_response_customize.py<a class="headerlink" href="#http-response-customize-py" title="Permalink to this headline">¶</a></h3>
+<p><strong>Server</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>http_response_customize.py<span class="w"> </span>--port<span class="o">=</span><span class="m">8001</span>
+
+~~~~
+</pre></div>
+</div>
+<p><strong>Browser</strong></p>
+<p>URL http://192.168.10.100:8001/</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello World!
+
+This is Hello World sample! - HTTP response customize
+
+PATH: /
+USER_AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36
+REMOTE_IP: 192.168.10.5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="command_arguments.html">Command arguments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Customizing and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_architecture.html">Program architecture and Classes</a></li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="command_arguments.html"
+                          title="previous chapter">Command arguments</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="development_architecture.html"
+                          title="next chapter">Program architecture and Classes</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><div class="custom-sidebar">
+	<h3>Others</h3>
+	<ul>
+		<li><a href="https://deer-hunt.github.io/ipserver/py-modindex.html">Module Index</a></li>
+		<li><a href="https://deer-hunt.github.io/ipserver/genindex.html">Classes and Methods docs</a></li>
+		<li>&nbsp;</li>
+		<li><a href="https://github.com/deer-hunt/ipserver" target="_blank">GitHub</a></li>
+	</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="development_architecture.html" title="Program architecture and Classes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="command_arguments.html" title="Command arguments"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ipserver  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Customizing and Examples</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, deer-hunt.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

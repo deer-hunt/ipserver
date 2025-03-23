@@ -1,0 +1,430 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ipserver package &#8212; ipserver  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ipserver  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ipserver package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ipserver-package">
+<h1>ipserver package<a class="headerlink" href="#ipserver-package" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="/py-modindex.html">IpServer’s Module Index</a></p>
+<div class="section" id="module-ipserver.configs">
+<span id="ipserver-configs-module"></span><h2>ipserver.configs module<a class="headerlink" href="#module-ipserver.configs" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.configs.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#ipserver.configs.Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Config.ARGUMENTS">
+<span class="sig-name descname"><span class="pre">ARGUMENTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'bind':</span> <span class="pre">{'default':</span> <span class="pre">'0.0.0.0',</span> <span class="pre">'help':</span> <span class="pre">'Bind</span> <span class="pre">IP.</span> <span class="pre">e.g.</span> <span class="pre">127.0.0.1,</span> <span class="pre">localhost,</span> <span class="pre">0.0.0.0',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'conf':</span> <span class="pre">{'default':</span> <span class="pre">None,</span> <span class="pre">'help':</span> <span class="pre">'Load</span> <span class="pre">arguments</span> <span class="pre">from</span> <span class="pre">conf</span> <span class="pre">file</span> <span class="pre">by</span> <span class="pre">JSON.</span> <span class="pre">e.g.:</span> <span class="pre">ipserver.json</span> <span class="pre">',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'debug':</span> <span class="pre">{'action':</span> <span class="pre">'store_true',</span> <span class="pre">'default':</span> <span class="pre">False,</span> <span class="pre">'help':</span> <span class="pre">'`--debug`</span> <span class="pre">is</span> <span class="pre">equivalent</span> <span class="pre">to</span> <span class="pre">`--verbose=3`.'},</span> <span class="pre">'dumpfile':</span> <span class="pre">{'action':</span> <span class="pre">'store_true',</span> <span class="pre">'default':</span> <span class="pre">False,</span> <span class="pre">'help':</span> <span class="pre">'Dump</span> <span class="pre">response</span> <span class="pre">data</span> <span class="pre">to</span> <span class="pre">files.</span> <span class="pre">Dir:</span> <span class="pre">`./dumpfiles/`'},</span> <span class="pre">'enable_file_upload':</span> <span class="pre">{'default':</span> <span class="pre">0,</span> <span class="pre">'help':</span> <span class="pre">'Enable</span> <span class="pre">file-upload</span> <span class="pre">in</span> <span class="pre">FILE</span> <span class="pre">mode.</span> <span class="pre">1:</span> <span class="pre">Overwrite</span> <span class="pre">2:</span> <span class="pre">New</span> <span class="pre">create</span> <span class="pre">only',</span> <span class="pre">'metavar':</span> <span class="pre">'{int}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;},</span> <span class="pre">'forwarding':</span> <span class="pre">{'default':</span> <span class="pre">None,</span> <span class="pre">'help':</span> <span class="pre">'Forward.</span> <span class="pre">e.g.</span> <span class="pre">Forward</span> <span class="pre">proxy.',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'http_app':</span> <span class="pre">{'default':</span> <span class="pre">None,</span> <span class="pre">'group':</span> <span class="pre">'shortcut',</span> <span class="pre">'help':</span> <span class="pre">'`--http_app`</span> <span class="pre">is</span> <span class="pre">equivalent</span> <span class="pre">to</span> <span class="pre">`--mode=HTTP</span> <span class="pre">and</span> <span class="pre">--http_opt=APP`.',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'http_digest_auth':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'help':</span> <span class="pre">'Enable</span> <span class="pre">digest</span> <span class="pre">authentication.</span> <span class="pre">Set</span> <span class="pre">authentication</span> <span class="pre">setting.\nFile:</span> <span class="pre">.htdigest\n&quot;User/Raw:</span> <span class="pre">admin2:123456&quot;\n&quot;User/MD5:</span> <span class="pre">admin2:d71fab~~~~dfca14112&quot;',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'http_file':</span> <span class="pre">{'default':</span> <span class="pre">None,</span> <span class="pre">'group':</span> <span class="pre">'shortcut',</span> <span class="pre">'help':</span> <span class="pre">'`--http_file`</span> <span class="pre">is</span> <span class="pre">equivalent</span> <span class="pre">to</span> <span class="pre">`--mode=HTTP</span> <span class="pre">and</span> <span class="pre">--http_opt=FILE`.',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'http_file_upload':</span> <span class="pre">{'default':</span> <span class="pre">None,</span> <span class="pre">'group':</span> <span class="pre">'shortcut',</span> <span class="pre">'help':</span> <span class="pre">'`--http_file_upload`</span> <span class="pre">is</span> <span class="pre">equivalent</span> <span class="pre">to</span> <span class="pre">`--mode=HTTP</span> <span class="pre">and</span> <span class="pre">--http_opt=FILE</span> <span class="pre">and</span> <span class="pre">--enable_file_upload=1`.',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'http_forwarding':</span> <span class="pre">{'default':</span> <span class="pre">None,</span> <span class="pre">'group':</span> <span class="pre">'shortcut',</span> <span class="pre">'help':</span> <span class="pre">'`--mode=HTTP</span> <span class="pre">and</span> <span class="pre">--http_opt=FORWARDING`.',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'http_forwarding_convert_host':</span> <span class="pre">{'action':</span> <span class="pre">'store_true',</span> <span class="pre">'default':</span> <span class="pre">False,</span> <span class="pre">'help':</span> <span class="pre">'Convert</span> <span class="pre">hostname</span> <span class="pre">of</span> <span class="pre">content</span> <span class="pre">to</span> <span class="pre">`/`</span> <span class="pre">in</span> <span class="pre">HTTP</span> <span class="pre">forwarding.'},</span> <span class="pre">'http_opt':</span> <span class="pre">{'choices':</span> <span class="pre">['INTERACTIVE',</span> <span class="pre">'FILE',</span> <span class="pre">'PASS',</span> <span class="pre">'APP',</span> <span class="pre">'INFO',</span> <span class="pre">'FORWARDING'],</span> <span class="pre">'default':</span> <span class="pre">'FILE',</span> <span class="pre">'help':</span> <span class="pre">'Behaviors</span> <span class="pre">in</span> <span class="pre">HTTP</span> <span class="pre">option.',</span> <span class="pre">'type':</span> <span class="pre">&lt;method</span> <span class="pre">'upper'</span> <span class="pre">of</span> <span class="pre">'str'</span> <span class="pre">objects&gt;},</span> <span class="pre">'http_path':</span> <span class="pre">{'default':</span> <span class="pre">'./',</span> <span class="pre">'help':</span> <span class="pre">'HTTP</span> <span class="pre">public</span> <span class="pre">directory.',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'info':</span> <span class="pre">{'action':</span> <span class="pre">'store_true',</span> <span class="pre">'default':</span> <span class="pre">False,</span> <span class="pre">'help':</span> <span class="pre">'`--info`</span> <span class="pre">is</span> <span class="pre">equivalent</span> <span class="pre">to</span> <span class="pre">`--verbose=2`.'},</span> <span class="pre">'input':</span> <span class="pre">{'choices':</span> <span class="pre">['TEXT',</span> <span class="pre">'BINARY',</span> <span class="pre">'HEX',</span> <span class="pre">'BASE64'],</span> <span class="pre">'default':</span> <span class="pre">'TEXT',</span> <span class="pre">'help':</span> <span class="pre">'Input</span> <span class="pre">format</span> <span class="pre">in</span> <span class="pre">interactive</span> <span class="pre">input.</span> <span class="pre">Default:</span> <span class="pre">TEXT',</span> <span class="pre">'type':</span> <span class="pre">&lt;method</span> <span class="pre">'upper'</span> <span class="pre">of</span> <span class="pre">'str'</span> <span class="pre">objects&gt;},</span> <span class="pre">'log':</span> <span class="pre">{'default':</span> <span class="pre">None,</span> <span class="pre">'help':</span> <span class="pre">'Verbose</span> <span class="pre">log</span> <span class="pre">filename.',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'max_connections':</span> <span class="pre">{'default':</span> <span class="pre">20,</span> <span class="pre">'help':</span> <span class="pre">'Max</span> <span class="pre">connections',</span> <span class="pre">'metavar':</span> <span class="pre">'{int}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;},</span> <span class="pre">'mode':</span> <span class="pre">{'choices':</span> <span class="pre">['TCP',</span> <span class="pre">'UDP',</span> <span class="pre">'SSL',</span> <span class="pre">'HTTP',</span> <span class="pre">'HTTPS'],</span> <span class="pre">'default':</span> <span class="pre">'TCP',</span> <span class="pre">'help':</span> <span class="pre">'Listening</span> <span class="pre">mode.</span> <span class="pre">Default:</span> <span class="pre">TCP',</span> <span class="pre">'type':</span> <span class="pre">&lt;method</span> <span class="pre">'upper'</span> <span class="pre">of</span> <span class="pre">'str'</span> <span class="pre">objects&gt;},</span> <span class="pre">'output':</span> <span class="pre">{'choices':</span> <span class="pre">['NONE',</span> <span class="pre">'TEXT',</span> <span class="pre">'BINARY',</span> <span class="pre">'HEX',</span> <span class="pre">'BASE64'],</span> <span class="pre">'default':</span> <span class="pre">'TEXT',</span> <span class="pre">'help':</span> <span class="pre">'Output</span> <span class="pre">format.</span> <span class="pre">Default:</span> <span class="pre">TEXT',</span> <span class="pre">'type':</span> <span class="pre">&lt;method</span> <span class="pre">'upper'</span> <span class="pre">of</span> <span class="pre">'str'</span> <span class="pre">objects&gt;},</span> <span class="pre">'output_max':</span> <span class="pre">{'default':</span> <span class="pre">2048,</span> <span class="pre">'help':</span> <span class="pre">'Max</span> <span class="pre">output</span> <span class="pre">bytes.',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;},</span> <span class="pre">'output_target':</span> <span class="pre">{'choices':</span> <span class="pre">['ALL',</span> <span class="pre">'SEND',</span> <span class="pre">'RECEIVE'],</span> <span class="pre">'default':</span> <span class="pre">'RECEIVE',</span> <span class="pre">'help':</span> <span class="pre">'Output</span> <span class="pre">target.',</span> <span class="pre">'type':</span> <span class="pre">&lt;method</span> <span class="pre">'upper'</span> <span class="pre">of</span> <span class="pre">'str'</span> <span class="pre">objects&gt;},</span> <span class="pre">'port':</span> <span class="pre">{'default':</span> <span class="pre">8000,</span> <span class="pre">'help':</span> <span class="pre">'Listen</span> <span class="pre">port.',</span> <span class="pre">'metavar':</span> <span class="pre">'{int}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;},</span> <span class="pre">'quiet':</span> <span class="pre">{'action':</span> <span class="pre">'store_true',</span> <span class="pre">'default':</span> <span class="pre">0,</span> <span class="pre">'help':</span> <span class="pre">'Hide</span> <span class="pre">to</span> <span class="pre">output</span> <span class="pre">message.'},</span> <span class="pre">'restrict_allow':</span> <span class="pre">{'default':</span> <span class="pre">None,</span> <span class="pre">'help':</span> <span class="pre">'Restrict</span> <span class="pre">except</span> <span class="pre">for</span> <span class="pre">allowed</span> <span class="pre">IP.</span> <span class="pre">e.g.</span> <span class="pre">192.168.10.101;192.168.10.0/24',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'restrict_deny':</span> <span class="pre">{'default':</span> <span class="pre">None,</span> <span class="pre">'help':</span> <span class="pre">'Restrict</span> <span class="pre">specified</span> <span class="pre">IP.</span> <span class="pre">e.g.</span> <span class="pre">192.168.10.101;192.168.10.0/24',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'ssl_certfile':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'help':</span> <span class="pre">'SSL</span> <span class="pre">certfile</span> <span class="pre">name.',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'ssl_context':</span> <span class="pre">{'choices':</span> <span class="pre">['SSLV3',</span> <span class="pre">'TLS1.0',</span> <span class="pre">'TLS1.1',</span> <span class="pre">'TLS1.2',</span> <span class="pre">'TLS1.3'],</span> <span class="pre">'default':</span> <span class="pre">None,</span> <span class="pre">'help':</span> <span class="pre">'SSL</span> <span class="pre">context.</span> <span class="pre">[SSLv3,</span> <span class="pre">TLS1.0,</span> <span class="pre">TLS1.1,</span> <span class="pre">TLS1.2,</span> <span class="pre">TLS1.3]',</span> <span class="pre">'type':</span> <span class="pre">&lt;method</span> <span class="pre">'upper'</span> <span class="pre">of</span> <span class="pre">'str'</span> <span class="pre">objects&gt;},</span> <span class="pre">'ssl_keyfile':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'help':</span> <span class="pre">'SSL</span> <span class="pre">keyfile</span> <span class="pre">name.',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'ssl_keypath':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'help':</span> <span class="pre">'Directory</span> <span class="pre">path</span> <span class="pre">for</span> <span class="pre">SSL</span> <span class="pre">key.',</span> <span class="pre">'metavar':</span> <span class="pre">'{string}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;},</span> <span class="pre">'timeout':</span> <span class="pre">{'default':</span> <span class="pre">30.0,</span> <span class="pre">'help':</span> <span class="pre">'Timeout.</span> <span class="pre">Default:</span> <span class="pre">30.0',</span> <span class="pre">'metavar':</span> <span class="pre">'{float}',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;},</span> <span class="pre">'verbose':</span> <span class="pre">{'choices':</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3],</span> <span class="pre">'default':</span> <span class="pre">0,</span> <span class="pre">'help':</span> <span class="pre">'Verbose</span> <span class="pre">mode.</span> <span class="pre">[Level</span> <span class="pre">-</span> <span class="pre">1:TRACE_ERROR,</span> <span class="pre">2:INFO,</span> <span class="pre">3:DEBUG]',</span> <span class="pre">'type':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;},</span> <span class="pre">'version':</span> <span class="pre">{'action':</span> <span class="pre">'store_true',</span> <span class="pre">'default':</span> <span class="pre">False,</span> <span class="pre">'help':</span> <span class="pre">'Show</span> <span class="pre">version</span> <span class="pre">information.'}}</span></em><a class="headerlink" href="#ipserver.configs.Config.ARGUMENTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Config.ARGUMENTS_GROUP_NAMES">
+<span class="sig-name descname"><span class="pre">ARGUMENTS_GROUP_NAMES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'shortcut':</span> <span class="pre">'Shortcut'}</span></em><a class="headerlink" href="#ipserver.configs.Config.ARGUMENTS_GROUP_NAMES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.configs.Constant">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Constant</span></span><a class="headerlink" href="#ipserver.configs.Constant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.APP_BOTTOM_DESC">
+<span class="sig-name descname"><span class="pre">APP_BOTTOM_DESC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'command</span> <span class="pre">examples:\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--mode=TCP</span> <span class="pre">--port=8001\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--mode=SSL</span> <span class="pre">--port=8443\n\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8002</span> <span class="pre">--forwarding=google.com:80\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8002</span> <span class="pre">--forwarding=tcp://google.com:80\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8002</span> <span class="pre">--forwarding=ssl://google.com:443\n\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8002</span> <span class="pre">--restrict_allow=&quot;192.168.2.10;192.168.10.0/24&quot;\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8002</span> <span class="pre">--restrict_deny=&quot;192.168.10.101;192.168.10.102&quot;\n\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8001</span> <span class="pre">--mode=HTTP\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8002</span> <span class="pre">--mode=HTTP</span> <span class="pre">--http_opt=INTERACTIVE\n\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8002</span> <span class="pre">--mode=HTTP</span> <span class="pre">--http_opt=FILE\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--http_file=./</span> <span class="pre">--port=8002\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--http_file=1</span> <span class="pre">--port=8002\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--http_file_upload=1</span> <span class="pre">--port=8002\n\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--mode=HTTP</span> <span class="pre">--http_opt=APP</span> <span class="pre">--port=8002\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--http_app=./examples/ipserver/</span> <span class="pre">--port=8002\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--http_app=1</span> <span class="pre">--port=8002\n\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--mode=HTTP</span> <span class="pre">--http_opt=INFO</span> <span class="pre">--port=8002\n\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--mode=HTTP</span> <span class="pre">--http_opt=FORWARDING</span> <span class="pre">--forwarding=https://www.amazon.com</span> <span class="pre">--port=8002\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--http_forwarding=https://www.amazon.com</span> <span class="pre">--port=8002\n\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8002</span> <span class="pre">--http_file=./</span> <span class="pre">--http_digest_auth=.htdigest\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8002</span> <span class="pre">--http_file_upload=./</span> <span class="pre">--http_digest_auth=&quot;admin:123456&quot;\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8002</span> <span class="pre">--http_app=1</span> <span class="pre">--http_digest_auth=&quot;admin:d71fa85bc0ded05215b28dfd8ca14112&quot;\n\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8001</span> <span class="pre">--quiet\n\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--conf=ipserver.json\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--conf=ipserver.json</span> <span class="pre">--quiet\n\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8001</span> <span class="pre">--verbose=2\n</span>&#160; <span class="pre">ipserver</span> <span class="pre">--port=8001</span> <span class="pre">--debug\n\ndocuments:\n</span>&#160; <span class="pre">Documentation</span> <span class="pre">site:</span> <span class="pre">https://deer-hunt.github.io/ipserver/\n</span>&#160; <span class="pre">PyPI:</span> <span class="pre">https://pypi.org/project/ipserver/\n</span>&#160; <span class="pre">Github:</span> <span class="pre">https://github.com/deer-hunt/ipserver/\n'</span></em><a class="headerlink" href="#ipserver.configs.Constant.APP_BOTTOM_DESC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.APP_DESCRIPTION">
+<span class="sig-name descname"><span class="pre">APP_DESCRIPTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'`ipserver`</span> <span class="pre">is</span> <span class="pre">simple</span> <span class="pre">server</span> <span class="pre">on</span> <span class="pre">&quot;TCP,</span> <span class="pre">UDP,</span> <span class="pre">SSL,</span> <span class="pre">HTTP,</span> <span class="pre">HTTPS&quot;</span> <span class="pre">for</span> <span class="pre">debugging</span> <span class="pre">or</span> <span class="pre">network</span> <span class="pre">investigation.</span> <span class="pre">It</span> <span class="pre">supports</span> <span class="pre">interactive</span> <span class="pre">mode</span> <span class="pre">and</span> <span class="pre">forwarding,</span> <span class="pre">and</span> <span class="pre">can</span> <span class="pre">run</span> <span class="pre">Python</span> <span class="pre">program</span> <span class="pre">over</span> <span class="pre">HTTP</span> <span class="pre">or</span> <span class="pre">any</span> <span class="pre">other</span> <span class="pre">protocol.'</span></em><a class="headerlink" href="#ipserver.configs.Constant.APP_DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.APP_NAME">
+<span class="sig-name descname"><span class="pre">APP_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ipserver'</span></em><a class="headerlink" href="#ipserver.configs.Constant.APP_NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.CONF_FILE">
+<span class="sig-name descname"><span class="pre">CONF_FILE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ipserver.json'</span></em><a class="headerlink" href="#ipserver.configs.Constant.CONF_FILE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.DIRECTION_RECEIVE">
+<span class="sig-name descname"><span class="pre">DIRECTION_RECEIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#ipserver.configs.Constant.DIRECTION_RECEIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.DIRECTION_SEND">
+<span class="sig-name descname"><span class="pre">DIRECTION_SEND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#ipserver.configs.Constant.DIRECTION_SEND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.DUMPFILE_DIR">
+<span class="sig-name descname"><span class="pre">DUMPFILE_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dumpfiles'</span></em><a class="headerlink" href="#ipserver.configs.Constant.DUMPFILE_DIR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_APP">
+<span class="sig-name descname"><span class="pre">HTTP_APP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'APP'</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_APP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_DIGEST_REALM">
+<span class="sig-name descname"><span class="pre">HTTP_DIGEST_REALM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'digest'</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_DIGEST_REALM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_FILE">
+<span class="sig-name descname"><span class="pre">HTTP_FILE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILE'</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_FILE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_FILE_CMD">
+<span class="sig-name descname"><span class="pre">HTTP_FILE_CMD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ipcmd'</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_FILE_CMD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_FILE_MIMES">
+<span class="sig-name descname"><span class="pre">HTTP_FILE_MIMES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'':</span> <span class="pre">'text/plain',</span> <span class="pre">'.sh':</span> <span class="pre">'text/plain'}</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_FILE_MIMES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_FILE_UPLOAD">
+<span class="sig-name descname"><span class="pre">HTTP_FILE_UPLOAD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'file-upload'</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_FILE_UPLOAD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_FORWARDING">
+<span class="sig-name descname"><span class="pre">HTTP_FORWARDING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FORWARDING'</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_FORWARDING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_INFO">
+<span class="sig-name descname"><span class="pre">HTTP_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'INFO'</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_INFO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_INTERACTIVE">
+<span class="sig-name descname"><span class="pre">HTTP_INTERACTIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'INTERACTIVE'</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_INTERACTIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_MD5_SALT">
+<span class="sig-name descname"><span class="pre">HTTP_MD5_SALT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ipsalt'</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_MD5_SALT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_MODES">
+<span class="sig-name descname"><span class="pre">HTTP_MODES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['HTTP',</span> <span class="pre">'HTTPS']</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_MODES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_OPTIONS">
+<span class="sig-name descname"><span class="pre">HTTP_OPTIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['http_path',</span> <span class="pre">'http_digest_auth',</span> <span class="pre">'enable_file_upload']</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_OPTIONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_PASS">
+<span class="sig-name descname"><span class="pre">HTTP_PASS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PASS'</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_PASS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.HTTP_STATIC_FILES">
+<span class="sig-name descname"><span class="pre">HTTP_STATIC_FILES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\\.(html?|css|js|jpe?g|png|gif|svg|webp|woff2?|ttf|otf|ico|xml|json|txt|md|pdf|mp4|mp3|webm|avi|mov|docx?|xlsx?|pptx?)$'</span></em><a class="headerlink" href="#ipserver.configs.Constant.HTTP_STATIC_FILES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.INPUT_BASE64">
+<span class="sig-name descname"><span class="pre">INPUT_BASE64</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BASE64'</span></em><a class="headerlink" href="#ipserver.configs.Constant.INPUT_BASE64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.INPUT_BINARY">
+<span class="sig-name descname"><span class="pre">INPUT_BINARY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BINARY'</span></em><a class="headerlink" href="#ipserver.configs.Constant.INPUT_BINARY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.INPUT_HEX">
+<span class="sig-name descname"><span class="pre">INPUT_HEX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HEX'</span></em><a class="headerlink" href="#ipserver.configs.Constant.INPUT_HEX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.INPUT_NONE">
+<span class="sig-name descname"><span class="pre">INPUT_NONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NONE'</span></em><a class="headerlink" href="#ipserver.configs.Constant.INPUT_NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.INPUT_TEXT">
+<span class="sig-name descname"><span class="pre">INPUT_TEXT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TEXT'</span></em><a class="headerlink" href="#ipserver.configs.Constant.INPUT_TEXT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.LOG_FILE">
+<span class="sig-name descname"><span class="pre">LOG_FILE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ipserver.log'</span></em><a class="headerlink" href="#ipserver.configs.Constant.LOG_FILE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.MODE_HTTP">
+<span class="sig-name descname"><span class="pre">MODE_HTTP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HTTP'</span></em><a class="headerlink" href="#ipserver.configs.Constant.MODE_HTTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.MODE_HTTPS">
+<span class="sig-name descname"><span class="pre">MODE_HTTPS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HTTPS'</span></em><a class="headerlink" href="#ipserver.configs.Constant.MODE_HTTPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.MODE_SSL">
+<span class="sig-name descname"><span class="pre">MODE_SSL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SSL'</span></em><a class="headerlink" href="#ipserver.configs.Constant.MODE_SSL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.MODE_TCP">
+<span class="sig-name descname"><span class="pre">MODE_TCP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TCP'</span></em><a class="headerlink" href="#ipserver.configs.Constant.MODE_TCP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.MODE_UDP">
+<span class="sig-name descname"><span class="pre">MODE_UDP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'UDP'</span></em><a class="headerlink" href="#ipserver.configs.Constant.MODE_UDP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.OUTPUT_BASE64">
+<span class="sig-name descname"><span class="pre">OUTPUT_BASE64</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BASE64'</span></em><a class="headerlink" href="#ipserver.configs.Constant.OUTPUT_BASE64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.OUTPUT_BINARY">
+<span class="sig-name descname"><span class="pre">OUTPUT_BINARY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BINARY'</span></em><a class="headerlink" href="#ipserver.configs.Constant.OUTPUT_BINARY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.OUTPUT_HEX">
+<span class="sig-name descname"><span class="pre">OUTPUT_HEX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HEX'</span></em><a class="headerlink" href="#ipserver.configs.Constant.OUTPUT_HEX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.OUTPUT_NONE">
+<span class="sig-name descname"><span class="pre">OUTPUT_NONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NONE'</span></em><a class="headerlink" href="#ipserver.configs.Constant.OUTPUT_NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.OUTPUT_TEXT">
+<span class="sig-name descname"><span class="pre">OUTPUT_TEXT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TEXT'</span></em><a class="headerlink" href="#ipserver.configs.Constant.OUTPUT_TEXT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.PYPI_NAME">
+<span class="sig-name descname"><span class="pre">PYPI_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ipserver'</span></em><a class="headerlink" href="#ipserver.configs.Constant.PYPI_NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.QUIET_INTERVAL">
+<span class="sig-name descname"><span class="pre">QUIET_INTERVAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#ipserver.configs.Constant.QUIET_INTERVAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.QUIET_STARTING_MSG">
+<span class="sig-name descname"><span class="pre">QUIET_STARTING_MSG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Starting</span> <span class="pre">IpServer</span> <span class="pre">in</span> <span class="pre">quiet</span> <span class="pre">mode...'</span></em><a class="headerlink" href="#ipserver.configs.Constant.QUIET_STARTING_MSG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.RECV_BUF_SIZE">
+<span class="sig-name descname"><span class="pre">RECV_BUF_SIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">65565</span></em><a class="headerlink" href="#ipserver.configs.Constant.RECV_BUF_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.SSL_CONTEXTS">
+<span class="sig-name descname"><span class="pre">SSL_CONTEXTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'sslv3':</span> <span class="pre">'PROTOCOL_SSLv3',</span> <span class="pre">'tls1.0':</span> <span class="pre">'PROTOCOL_TLSv1',</span> <span class="pre">'tls1.1':</span> <span class="pre">'PROTOCOL_TLSv1_1',</span> <span class="pre">'tls1.2':</span> <span class="pre">'PROTOCOL_TLSv1_2',</span> <span class="pre">'tls1.3':</span> <span class="pre">'PROTOCOL_TLSv1_3'}</span></em><a class="headerlink" href="#ipserver.configs.Constant.SSL_CONTEXTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ipserver.configs.Constant.SSL_OPTIONS">
+<span class="sig-name descname"><span class="pre">SSL_OPTIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['ssl_context',</span> <span class="pre">'ssl_keypath',</span> <span class="pre">'ssl_certfile',</span> <span class="pre">'ssl_keyfile']</span></em><a class="headerlink" href="#ipserver.configs.Constant.SSL_OPTIONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ipserver.ipserver_cmd">
+<span id="ipserver-ipserver-cmd-module"></span><h2>ipserver.ipserver_cmd module<a class="headerlink" href="#module-ipserver.ipserver_cmd" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.ipserver_cmd.IpServerCmd">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IpServerCmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.ipserver_cmd.IpServerCmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.ipserver_cmd.IpServerCmd.dispatch">
+<span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.ipserver_cmd.IpServerCmd.dispatch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.ipserver_cmd.IpServerCmd.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.ipserver_cmd.IpServerCmd.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.ipserver_cmd.IpServerCmd.signal_stop">
+<span class="sig-name descname"><span class="pre">signal_stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.ipserver_cmd.IpServerCmd.signal_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ipserver.threads">
+<span id="ipserver-threads-module"></span><h2>ipserver.threads module<a class="headerlink" href="#module-ipserver.threads" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.threads.ConnSockListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConnSockListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket_server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.threads.ConnSockListener" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.threads.ConnSockListener.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.threads.ConnSockListener.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.threads.ConnSockReceiver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConnSockReceiver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forwarding_socket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.threads.ConnSockReceiver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.threads.ConnSockReceiver.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dumpfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.threads.ConnSockReceiver.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.threads.ConnSockReceiver.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.threads.ConnSockReceiver.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ipserver.threads.ConnSockSender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConnSockSender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forwarding_socket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.threads.ConnSockSender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.threads.ConnSockSender.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dumpfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.threads.ConnSockSender.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ipserver.threads.ConnSockSender.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipserver.threads.ConnSockSender.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pages/command_arguments.html">Command arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/customize_examples.html">Customizing and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/development_architecture.html">Program architecture and Classes</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><div class="custom-sidebar">
+	<h3>Others</h3>
+	<ul>
+		<li><a href="https://deer-hunt.github.io/ipserver/py-modindex.html">Module Index</a></li>
+		<li><a href="https://deer-hunt.github.io/ipserver/genindex.html">Classes and Methods docs</a></li>
+		<li>&nbsp;</li>
+		<li><a href="https://github.com/deer-hunt/ipserver" target="_blank">GitHub</a></li>
+	</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ipserver  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ipserver package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, deer-hunt.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

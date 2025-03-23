@@ -1,0 +1,515 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to IpServer &#8212; ipserver  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Command arguments" href="pages/command_arguments.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pages/command_arguments.html" title="Command arguments"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">ipserver  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to IpServer</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-ipserver">
+<h1>Welcome to IpServer<a class="headerlink" href="#welcome-to-ipserver" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to IpServer’s documentation! “IpServer” is a simple server that supports TCP, UDP, SSL, HTTP, and HTTPS protocols for various uses such as testing, debugging, or network investigation. It features also an interactive mode and forwarding capabilities. Additionally, you can customize its behavior using Python.</p>
+<img alt="IpServer" class="align-center" src="_images/ipserver-thumbs.png" />
+<div class="section" id="github">
+<h2>Github<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h2>
+<p>The latest version and documentation may be found on GitHub. The Github URL is the following.</p>
+<p><a class="reference external" href="https://github.com/deer-hunt/ipserver/">https://github.com/deer-hunt/ipserver/</a></p>
+<div style="display:flex;line-height:1.5rem;">
+<div style="margin-right: 10px;"><img width="100" height="100" src="./_images/ipsurv-logo.png" align="left" /></div>
+<div style="width: 80%;">
+   <a href="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests.yml"><img alt="CI - Test" src="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests.yml/badge.svg"></a>
+   <a href="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests-windows.yml"><img alt="CI - Test" src="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests-windows.yml/badge.svg"></a>
+   <a href="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests-macos.yml"><img alt="CI - Test" src="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests-macos.yml/badge.svg"></a>
+   <img alt="PyPI - Status" src="https://img.shields.io/pypi/status/ipserver">
+   <a href="https://github.com/deer-hunt/ipserver/blob/main/LICENSE.md"><img alt="License - MIT" src="https://img.shields.io/pypi/l/ipserver.svg"></a>
+   <a href="https://pypi.org/project/ipserver/"><img alt="Newest PyPI version" src="https://img.shields.io/pypi/v/ipserver.svg"></a>
+   <a href="https://pypi.org/project/ipserver/"><img alt="Number of PyPI downloads" src="https://img.shields.io/pypi/dm/ipserver.svg"></a>
+   <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/deer-hunt/ipserver">
+   <a href="https://pypi.org/project/ipserver"><img alt="Supported Versions" src="https://img.shields.io/pypi/pyversions/ipserver.svg"></a>
+   <a href="https://deer-hunt.github.io/ipserver/" alt="ipserver's documentation site"><img src="https://img.shields.io/badge/stable%20docs-github.io-brightgreen?style=flat&color=%2373DC8C&label=Docs"/></a>
+</div>
+</div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>It’s best to refer to the help to recognize the functions.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--help
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p><strong>PyPI</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>ipserver
+or
+$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>ipserver
+</pre></div>
+</div>
+<p><strong>Conda</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>conda-forge::ipserver
+</pre></div>
+</div>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;python&quot;</span><span class="w"> </span>and<span class="w"> </span><span class="s2">&quot;pip&quot;</span><span class="w"> </span><span class="nb">command</span>
+Python<span class="w"> </span><span class="m">3</span>.6<span class="w"> </span>or<span class="w"> </span>later<span class="w"> </span>version.
+</pre></div>
+</div>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Simple TCP / UDP server.</p></li>
+<li><p>Support SSL connection. SSL server.</p></li>
+<li><p>HTTP / HTTPS server.</p></li>
+<li><p>IP restriction - Allow / Deny.</p></li>
+<li><p>Interactive sending.</p></li>
+<li><p>TCP Forwarding. Bypassing the data transmission is available.</p></li>
+<li><p>Display received data or sent data in various format(TEXT, BINARY, BASE64, HEX…).</p></li>
+<li><p>HTTP -&gt; FILE: Viewing file and directory and uploading file.</p></li>
+<li><p>HTTP -&gt; FORWARDING: Forwarding HTTP transmission. e.g. HTTP &lt;-&gt; HTTPS</p></li>
+<li><p>HTTP -&gt; APP: Running python application. And running CGI via python.</p></li>
+<li><p>HTTP -&gt; INFO: Show request headers from client.</p></li>
+<li><p>Support HTTP digest authentication.</p></li>
+<li><p>Logging / Debug log.</p></li>
+<li><p>Dump transmission data to file.</p></li>
+<li><p>Configure by JSON file.</p></li>
+<li><p>Customize by Python code. e.g. You can convert transmission data or develop original protocol server.</p></li>
+</ul>
+</div>
+<div class="section" id="running-example">
+<h2>Running example<a class="headerlink" href="#running-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP
+Mode:<span class="w">             </span>HTTP
+Bind:<span class="w">             </span><span class="m">0</span>.0.0.0
+Port:<span class="w">             </span><span class="m">8000</span>
+HTTP<span class="w"> </span>opt:<span class="w">         </span>FILE
+Input:<span class="w">            </span>TEXT
+Output:<span class="w">           </span>NONE
+Output<span class="w"> </span>target:<span class="w">    </span>RECEIVE
+Timeout:<span class="w">          </span><span class="m">30</span>.0
+Max<span class="w"> </span>connections:<span class="w">   </span><span class="m">20</span>
+Dumpfile:<span class="w">         </span>False
+
+<span class="o">[</span>Command<span class="w"> </span>help<span class="o">]</span>
+send:<span class="w">             </span>Begin<span class="w"> </span>input<span class="w"> </span>to<span class="w"> </span>send.<span class="w"> </span>Send<span class="w"> </span>by<span class="w"> </span>a<span class="w"> </span>Line-break.<span class="w"> </span>The<span class="w"> </span>shortcut<span class="w"> </span>is<span class="w"> </span><span class="sb">`</span>s<span class="sb">`</span>.
+bulk:<span class="w">             </span>Begin<span class="w"> </span>bulk<span class="w"> </span>input<span class="w"> </span>to<span class="w"> </span>send.<span class="w"> </span>Send<span class="w"> </span>by<span class="w"> </span>Ctrl-key.<span class="w"> </span>The<span class="w"> </span>shortcut<span class="w"> </span>is<span class="w"> </span><span class="sb">`</span>b<span class="sb">`</span>.
+<span class="s2">&quot;1,2,3,..&quot;</span>:<span class="w">       </span>Switch<span class="w"> </span>the<span class="w"> </span>connection.
+current:<span class="w">          </span>Show<span class="w"> </span>current<span class="w"> </span>connection.
+latest:<span class="w">           </span>Switch<span class="w"> </span>latest<span class="w"> </span>connection.
+list:<span class="w">             </span>List<span class="w"> </span>the<span class="w"> </span>connections.
+close:<span class="w">            </span>Close<span class="w"> </span>current<span class="w"> </span>connection.
+refresh:<span class="w">          </span>Refresh<span class="w"> </span>connections.
+exit:<span class="w">             </span>Exit.
+help:<span class="w">             </span>Show<span class="w"> </span>help.
+
+:
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Accepted<span class="w"> </span>from<span class="w"> </span><span class="m">192</span>.168.10.1:52322
+
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Closed<span class="w"> </span>from<span class="w"> </span><span class="m">192</span>.168.10.1:52322
+
+<span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Accepted<span class="w"> </span>from<span class="w"> </span><span class="m">192</span>.168.10.1:52329
+
+<span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Receive<span class="w"> </span><span class="m">600</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span><span class="m">192</span>.168.10.1:52329
+
+<span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Send<span class="w"> </span><span class="m">421</span><span class="w"> </span>bytes<span class="w"> </span>to<span class="w"> </span><span class="m">192</span>.168.10.1:52329
+
+<span class="o">[</span><span class="m">3</span><span class="o">]</span><span class="w"> </span>Accepted<span class="w"> </span>from<span class="w"> </span><span class="m">192</span>.168.10.1:52330
+</pre></div>
+</div>
+</div>
+<div class="section" id="description-of-mode">
+<h2>Description of Mode<a class="headerlink" href="#description-of-mode" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tcp-server">
+<h3>TCP Server<a class="headerlink" href="#tcp-server" title="Permalink to this headline">¶</a></h3>
+<p><strong>Simple server</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>TCP<span class="w"> </span>--bind<span class="o">=</span><span class="m">127</span>.0.0.1
+$<span class="w"> </span>ipserver<span class="w"> </span>--timeout<span class="o">=</span><span class="m">120</span>
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--info
+$<span class="w"> </span>ipserver<span class="w"> </span>--debug
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--log<span class="o">=</span>app.log
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--quiet
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># TEST</span>
+$<span class="w"> </span>telnet<span class="w"> </span>localhost<span class="w"> </span><span class="m">8000</span>
+$<span class="w"> </span>telnet<span class="w"> </span>localhost<span class="w"> </span><span class="m">8002</span>
+</pre></div>
+</div>
+<p><strong>SSL server</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8443</span><span class="w"> </span>--mode<span class="o">=</span>SSL
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8443</span><span class="w"> </span>--mode<span class="o">=</span>SSL<span class="w"> </span>--ssl_context<span class="o">=</span>TLS1.1
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8443</span><span class="w"> </span>--mode<span class="o">=</span>SSL<span class="w"> </span>--ssl_keypath<span class="o">=</span>/home/foo/sslkeys/
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># TEST</span>
+$<span class="w"> </span>openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span><span class="m">192</span>.168.1.100:8443
+</pre></div>
+</div>
+<p><strong>IP restriction</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--restrict_allow<span class="o">=</span><span class="m">192</span>.168.2.10
+$<span class="w"> </span>ipserver<span class="w"> </span>--restrict_allow<span class="o">=</span><span class="s2">&quot;192.168.2.10;192.168.10.0/24&quot;</span>
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--restrict_deny<span class="o">=</span><span class="m">192</span>.168.10.101
+$<span class="w"> </span>ipserver<span class="w"> </span>--restrict_deny<span class="o">=</span><span class="s2">&quot;192.168.10.101;192.168.50.0/24&quot;</span>
+</pre></div>
+</div>
+<p><strong>Dump file</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--dumpfile
+</pre></div>
+</div>
+</div>
+<div class="section" id="tcp-forwarding">
+<h3>TCP Forwarding<a class="headerlink" href="#tcp-forwarding" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8001</span><span class="w"> </span>--forwarding<span class="o">=</span>wikipedia.org:80
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8443</span><span class="w"> </span>--mode<span class="o">=</span>SSL<span class="w"> </span>--forwarding<span class="o">=</span>tcp://wikipedia.org:80
+$<span class="w"> </span>ipserver<span class="w"> </span>--forwarding<span class="o">=</span>ssl://wikipedia.org:443
+$<span class="w"> </span>ipserver<span class="w"> </span>--forwarding<span class="o">=</span>wikipedia.org:80<span class="w"> </span>--dumpfile
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># TEST</span>
+$<span class="w"> </span>openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span><span class="m">192</span>.168.1.100:8443
+
+$<span class="w"> </span>curl<span class="w"> </span>https://localhost/path<span class="w"> </span>-v
+
+Please<span class="w"> </span>see<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>about<span class="w"> </span><span class="s2">&quot;HTTP Forwarding&quot;</span>.
+</pre></div>
+</div>
+</div>
+<div class="section" id="http-https">
+<h3>HTTP/HTTPS<a class="headerlink" href="#http-https" title="Permalink to this headline">¶</a></h3>
+<p><strong>View File and directory</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP
+$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_opt<span class="o">=</span>FILE
+$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_opt<span class="o">=</span>FILE<span class="w"> </span>--http_path<span class="o">=</span><span class="s2">&quot;../&quot;</span>
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8443</span><span class="w"> </span>--mode<span class="o">=</span>HTTPS
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8443</span><span class="w"> </span>--mode<span class="o">=</span>HTTPS<span class="w"> </span>--http_path<span class="o">=</span><span class="s2">&quot;../&quot;</span>
+
+<span class="c1"># Shortcut</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--http_file<span class="o">=</span><span class="m">1</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--http_file<span class="o">=</span><span class="s2">&quot;../&quot;</span>
+</pre></div>
+</div>
+<p><strong>Enable file upload</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_opt<span class="o">=</span>FILE<span class="w"> </span>--enable_file_upload<span class="o">=</span><span class="m">1</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTPS<span class="w"> </span>--http_path<span class="o">=</span><span class="s2">&quot;../&quot;</span><span class="w"> </span>--enable_file_upload<span class="o">=</span><span class="m">2</span>
+
+<span class="c1"># Shortcut</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--http_file_upload<span class="o">=</span><span class="m">1</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--http_file_upload<span class="o">=</span><span class="s2">&quot;../&quot;</span>
+</pre></div>
+</div>
+<p><strong>Application</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_opt<span class="o">=</span>APP
+$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTPS--http_opt<span class="o">=</span>APP<span class="w"> </span>--http_path<span class="o">=</span><span class="s2">&quot;../&quot;</span>
+
+<span class="c1"># Shortcut</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--http_app<span class="o">=</span><span class="m">1</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--http_app<span class="o">=</span><span class="s2">&quot;./app/&quot;</span>
+</pre></div>
+</div>
+<p><strong>Display info</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_opt<span class="o">=</span>INFO
+</pre></div>
+</div>
+<p><strong>HTTP Forwarding</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_opt<span class="o">=</span>FORWARDING<span class="w"> </span>--forwarding<span class="o">=</span><span class="s2">&quot;https://www.reddit.com/&quot;</span>
+
+<span class="c1"># Shortcut</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--http_forwarding<span class="o">=</span><span class="s2">&quot;https://www.reddit.com/&quot;</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTPS<span class="w"> </span>--http_forwarding<span class="o">=</span><span class="s2">&quot;https://www.wikipedia.org/&quot;</span>
+</pre></div>
+</div>
+<p><strong>HTTP/HTTPS test</strong></p>
+<p>You can test by web-browser or command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Commands</span>
+$<span class="w"> </span>curl<span class="w"> </span>http://localhost/test.py
+
+$<span class="w"> </span>curl<span class="w"> </span>https://localhost:8443<span class="w"> </span>-k<span class="w"> </span>-v
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="http-digest-authentication">
+<h2>HTTP Digest authentication<a class="headerlink" href="#http-digest-authentication" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_digest_auth<span class="o">=</span><span class="s2">&quot;admin:123456&quot;</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_digest_auth<span class="o">=</span><span class="s2">&quot;admin:d71fa85bc0ded05215b28dfd8ca14112&quot;</span><span class="w"> </span>--http_file_upload<span class="o">=</span><span class="m">1</span>
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8001</span><span class="w"> </span>--http_app<span class="o">=</span><span class="s2">&quot;./app/&quot;</span><span class="w"> </span>--http_digest_auth<span class="o">=</span><span class="s2">&quot;.htdigest&quot;</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8443</span><span class="w"> </span>--mode<span class="o">=</span>HTTPS<span class="w"> </span>--http_app<span class="o">=</span><span class="s2">&quot;./app/&quot;</span><span class="w"> </span>--http_digest_auth<span class="o">=</span><span class="s2">&quot;.htdigest&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mixed-options">
+<h2>Mixed options<a class="headerlink" href="#mixed-options" title="Permalink to this headline">¶</a></h2>
+<p>You can investigate the detailed behavior of HTTP/HTTPS by mixed options.</p>
+<p><strong>HTTP file-upload + IP restriction</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--http_file_upload<span class="o">=</span><span class="s2">&quot;../&quot;</span><span class="w"> </span>--restrict_allow<span class="o">=</span><span class="s2">&quot;192.168.2.10;192.168.10.0/24&quot;</span>
+</pre></div>
+</div>
+<p><strong>HTTP application + Digest auth</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--http_app<span class="o">=</span><span class="s2">&quot;./app/&quot;</span><span class="w"> </span>--http_digest_auth<span class="o">=</span><span class="s2">&quot;admin:123456&quot;</span>
+</pre></div>
+</div>
+<p><strong>HTTPS + Output Send/Receive data</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTPS<span class="w"> </span>--output_target<span class="o">=</span>ALL<span class="w"> </span>--output<span class="o">=</span>BINARY
+</pre></div>
+</div>
+<p><strong>HTTPS + Dumpfile</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTPS<span class="w"> </span>--http_opt<span class="o">=</span>INFO<span class="w"> </span>--dumpfile
+</pre></div>
+</div>
+</div>
+<div class="section" id="description-of-interactive-command">
+<h2>Description of Interactive command<a class="headerlink" href="#description-of-interactive-command" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>:help
+<span class="o">[</span>Command<span class="w"> </span>help<span class="o">]</span>
+send:<span class="w">         </span>Begin<span class="w"> </span>input<span class="w"> </span>to<span class="w"> </span>send.<span class="w"> </span>Send<span class="w"> </span>by<span class="w"> </span>a<span class="w"> </span>Line-break.<span class="w"> </span>The<span class="w"> </span>shortcut<span class="w"> </span>is<span class="w"> </span><span class="sb">`</span>s<span class="sb">`</span>.
+bulk:<span class="w">         </span>Begin<span class="w"> </span>bulk<span class="w"> </span>input<span class="w"> </span>to<span class="w"> </span>send.<span class="w"> </span>Send<span class="w"> </span>by<span class="w"> </span>Ctrl-key.<span class="w"> </span>The<span class="w"> </span>shortcut<span class="w"> </span>is<span class="w"> </span><span class="sb">`</span>b<span class="sb">`</span>.
+<span class="s2">&quot;1,2,3,..&quot;</span>:<span class="w">   </span>Switch<span class="w"> </span>the<span class="w"> </span>connection.
+current:<span class="w">      </span>Show<span class="w"> </span>current<span class="w"> </span>connection.
+latest:<span class="w">       </span>Switch<span class="w"> </span>latest<span class="w"> </span>connection.
+list:<span class="w">         </span>List<span class="w"> </span>the<span class="w"> </span>connections.
+close:<span class="w">        </span>Close<span class="w"> </span>current<span class="w"> </span>connection.
+refresh:<span class="w">      </span>Refresh<span class="w"> </span>connections.
+exit:<span class="w">         </span>Exit.
+help:<span class="w">         </span>Show<span class="w"> </span>help.
+</pre></div>
+</div>
+<p><strong>Examples</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>:s
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Switched<span class="w"> </span>automatically.
+Please<span class="w"> </span>input<span class="w"> </span>data<span class="w"> </span>to<span class="w"> </span>send...
+
+Hello<span class="w"> </span>world!
+
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>Sent<span class="w"> </span>to<span class="w"> </span><span class="m">127</span>.0.0.1:45528
+
+--
+:2
+<span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Switched.
+
+--
+:list
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="m">192</span>.168.10.1:54721
+<span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span><span class="m">192</span>.168.10.1:54722
+
+--
+:latest
+<span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Switched<span class="w"> </span>automatically.
+
+--
+:current
+
+<span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Switched<span class="w"> </span>automatically.
+ID:<span class="w"> </span><span class="m">2</span>
+Client<span class="w"> </span>IP:<span class="w"> </span><span class="m">192</span>.168.10.1
+Client<span class="w"> </span>port:<span class="w"> </span><span class="m">54722</span>
+
+--
+:close
+<span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span>Switched<span class="w"> </span>automatically.
+<span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span>The<span class="w"> </span>connection<span class="w"> </span>is<span class="w"> </span>closed.
+</pre></div>
+</div>
+</div>
+<div class="section" id="ipserver-command">
+<h2>“ipserver” command<a class="headerlink" href="#ipserver-command" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+</div>
+<p><strong>Usage</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>TCP<span class="w"> </span>--port<span class="o">=</span><span class="m">8001</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>SSL<span class="w"> </span>--port<span class="o">=</span><span class="m">8443</span>
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--forwarding<span class="o">=</span>google.com:80
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--forwarding<span class="o">=</span>tcp://google.com:80
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--forwarding<span class="o">=</span>ssl://google.com:443
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--restrict_allow<span class="o">=</span><span class="s2">&quot;192.168.2.10;192.168.10.0/24&quot;</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--restrict_deny<span class="o">=</span><span class="s2">&quot;192.168.10.101;192.168.10.102&quot;</span>
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8001</span><span class="w"> </span>--mode<span class="o">=</span>HTTP
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_opt<span class="o">=</span>INTERACTIVE
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_opt<span class="o">=</span>FILE
+$<span class="w"> </span>ipserver<span class="w"> </span>--http_file<span class="o">=</span>./<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--http_file<span class="o">=</span><span class="m">1</span><span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--http_file_upload<span class="o">=</span><span class="m">1</span><span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span>
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_opt<span class="o">=</span>APP<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--http_app<span class="o">=</span>./examples/public-sample/<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--http_app<span class="o">=</span><span class="m">1</span><span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span>
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_opt<span class="o">=</span>INFO<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span>
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_opt<span class="o">=</span>FORWARDING<span class="w"> </span>--forwarding<span class="o">=</span>https://www.amazon.com<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--http_forwarding<span class="o">=</span>https://www.amazon.com<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span>
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--http_file<span class="o">=</span>./<span class="w"> </span>--http_digest_auth<span class="o">=</span>.htdigest
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--http_file_upload<span class="o">=</span>./<span class="w"> </span>--http_digest_auth<span class="o">=</span><span class="s2">&quot;admin:123456&quot;</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--http_app<span class="o">=</span><span class="m">1</span><span class="w"> </span>--http_digest_auth<span class="o">=</span><span class="s2">&quot;admin:d71fa85bc0ded05215b28dfd8ca14112&quot;</span>
+
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8001</span><span class="w"> </span>--quiet
+</pre></div>
+</div>
+<p><strong>Command options</strong></p>
+<p>“ipserver” have many Command options. For details on Command options, please refer <a class="reference external" href="https://deer-hunt.github.io/ipserver/command_arguments.html">here</a>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ipserver<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--verbose<span class="w"> </span><span class="o">{</span><span class="m">0</span>,1,2,3<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--debug<span class="o">]</span><span class="w"> </span><span class="o">[</span>--info<span class="o">]</span>
+<span class="w">                </span><span class="o">[</span>--log<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--quiet<span class="o">]</span><span class="w"> </span><span class="o">[</span>--conf<span class="o">]</span>
+<span class="w">                </span><span class="o">[</span>--mode<span class="w"> </span><span class="o">{</span>TCP,UDP,SSL,HTTP,HTTPS<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--input<span class="w"> </span><span class="o">{</span>TEXT,BINARY,HEX,BASE64<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--output<span class="w"> </span><span class="o">{</span>NONE,TEXT,BINARY,HEX,BASE64<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--output_target<span class="w"> </span><span class="o">{</span>ALL,SEND,RECEIVE<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--output_max<span class="o">]</span>
+<span class="w">                </span><span class="o">[</span>--dumpfile<span class="o">]</span><span class="w"> </span><span class="o">[</span>--bind<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--port<span class="w"> </span><span class="o">{</span>int<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--timeout<span class="w"> </span><span class="o">{</span>float<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--max_connections<span class="w"> </span><span class="o">{</span>int<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--restrict_allow<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--restrict_deny<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--ssl_context<span class="w"> </span><span class="o">{</span>SSLV3,TLS1.0,TLS1.1,TLS1.2,TLS1.3<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--ssl_keypath<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--ssl_certfile<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--ssl_keyfile<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--forwarding<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--http_opt<span class="w"> </span><span class="o">{</span>INTERACTIVE,FILE,PASS,APP,INFO,FORWARDING<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--http_path<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--http_forwarding_convert_host<span class="o">]</span>
+<span class="w">                </span><span class="o">[</span>--http_digest_auth<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--enable_file_upload<span class="w"> </span><span class="o">{</span>int<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--http_app<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--http_file<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--http_file_upload<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--http_forwarding<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--version<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ipserver-s-documents">
+<h3>ipserver’s documents<a class="headerlink" href="#ipserver-s-documents" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pages/command_arguments.html">Command arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/customize_examples.html">Customizing and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/development_architecture.html">Program architecture and Classes</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="related-oss">
+<h2>Related OSS<a class="headerlink" href="#related-oss" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/deer-hunt/ipsurv/">IpSurv</a></p></li>
+</ul>
+</div>
+<div class="section" id="modules-and-classes-reference">
+<h2>Modules and Classes reference<a class="headerlink" href="#modules-and-classes-reference" title="Permalink to this headline">¶</a></h2>
+<p>The following is the documentation for the module and class. <a class="reference external" href="https://github.com/deer-hunt/ipserver/tree/main/ipserver">Github source</a></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="#">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pages/command_arguments.html">Command arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/customize_examples.html">Customizing and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/development_architecture.html">Program architecture and Classes</a></li>
+</ul>
+
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="pages/command_arguments.html"
+                          title="next chapter">Command arguments</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><div class="custom-sidebar">
+	<h3>Others</h3>
+	<ul>
+		<li><a href="https://deer-hunt.github.io/ipserver/py-modindex.html">Module Index</a></li>
+		<li><a href="https://deer-hunt.github.io/ipserver/genindex.html">Classes and Methods docs</a></li>
+		<li>&nbsp;</li>
+		<li><a href="https://github.com/deer-hunt/ipserver" target="_blank">GitHub</a></li>
+	</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pages/command_arguments.html" title="Command arguments"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">ipserver  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to IpServer</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, deer-hunt.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

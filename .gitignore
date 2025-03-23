@@ -1,0 +1,6 @@
+venv
+.dev
+.idea
+__pycache__
+.doctrees
+.buildinfo

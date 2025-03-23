@@ -1,0 +1,794 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Command arguments &#8212; ipserver  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Customizing and Examples" href="customize_examples.html" />
+    <link rel="prev" title="Welcome to IpServer" href="../index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="customize_examples.html" title="Customizing and Examples"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Welcome to IpServer"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ipserver  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Command arguments</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="command-arguments">
+<h1>Command arguments<a class="headerlink" href="#command-arguments" title="Permalink to this headline">¶</a></h1>
+<p>This document is a description of ipserver’s command arguments.</p>
+<div class="section" id="general-and-debugging">
+<h2>General and Debugging<a class="headerlink" href="#general-and-debugging" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="verbose">
+<h3><code class="docutils literal notranslate"><span class="pre">--verbose</span></code><a class="headerlink" href="#verbose" title="Permalink to this headline">¶</a></h3>
+<p>Verbose mode. <code class="docutils literal notranslate"><span class="pre">Level</span> <span class="pre">-</span> <span class="pre">1:TRACE_ERROR,</span> <span class="pre">2:INFO,</span> <span class="pre">3:DEBUG.</span></code></p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p><strong>Choices:</strong></p></li>
+</ul>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>TRACE_ERROR. Output error with trace.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>INFO. Output setting values and internal values.</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>DEBUG. Output maximum debug information.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">verbose</span><span class="o">=</span><span class="mi">1</span>
+<span class="o">--</span><span class="n">verbose</span><span class="o">=</span><span class="mi">2</span>
+<span class="o">--</span><span class="n">verbose</span><span class="o">=</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="debug">
+<h3><code class="docutils literal notranslate"><span class="pre">--debug</span></code><a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">--debug</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">--verbose=3</span></code>.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">debug</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="info">
+<h3><code class="docutils literal notranslate"><span class="pre">--info</span></code><a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">--info</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">--verbose=2</span></code>.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">info</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="log">
+<h3><code class="docutils literal notranslate"><span class="pre">--log</span></code><a class="headerlink" href="#log" title="Permalink to this headline">¶</a></h3>
+<p>Enable logging. Set Log filename. Verbose data is written.
+If <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> is 0, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> is changed to 2 automatically.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">log</span><span class="o">=</span><span class="n">logfile</span><span class="o">.</span><span class="n">log</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="quiet">
+<h3><code class="docutils literal notranslate"><span class="pre">--quiet</span></code><a class="headerlink" href="#quiet" title="Permalink to this headline">¶</a></h3>
+<p>Stop to output message. And Enable logging.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">quiet</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conf">
+<h3><code class="docutils literal notranslate"><span class="pre">--conf</span></code><a class="headerlink" href="#conf" title="Permalink to this headline">¶</a></h3>
+<p>Load arguments from conf file by JSON. e.g. ipserver_conf.json
+JSON data is shown in <code class="docutils literal notranslate"><span class="pre">--info,</span> <span class="pre">--verbose=2</span></code> log.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ipserver --conf=ipserver.conf</span>
+</pre></div>
+</div>
+<p><strong>ipserver.conf</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="mi">2</span> <span class="p">,</span> <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;HTTP&quot;</span><span class="p">,</span> <span class="s2">&quot;http_opt&quot;</span><span class="p">:</span> <span class="s2">&quot;FILE&quot;</span><span class="p">,</span> <span class="s2">&quot;http_digest_auth&quot;</span><span class="p">:</span> <span class="s2">&quot;admin:12345678&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="main-arguments">
+<h2>Main Arguments<a class="headerlink" href="#main-arguments" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mode">
+<h3><code class="docutils literal notranslate"><span class="pre">--mode</span></code><a class="headerlink" href="#mode" title="Permalink to this headline">¶</a></h3>
+<p>Listening mode. Default: TCP</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">TCP</span></code></p></li>
+<li><p><strong>Choices:</strong></p></li>
+</ul>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TCP</p></td>
+<td><p>TCP protocol.</p></td>
+</tr>
+<tr class="row-odd"><td><p>UDP</p></td>
+<td><p>UDP protocol.</p></td>
+</tr>
+<tr class="row-even"><td><p>SSL</p></td>
+<td><p>SSL protocol.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTTP</p></td>
+<td><p>HTTP protocol.</p></td>
+</tr>
+<tr class="row-even"><td><p>HTTPS</p></td>
+<td><p>HTTP protocol via HTTPS.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">mode</span><span class="o">=</span><span class="n">TCP</span>
+<span class="o">--</span><span class="n">mode</span><span class="o">=</span><span class="n">HTTP</span>
+<span class="o">--</span><span class="n">mode</span><span class="o">=</span><span class="n">SSL</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="input">
+<h3><code class="docutils literal notranslate"><span class="pre">--input</span></code><a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h3>
+<p>Input format. Default: TEXT</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">TEXT</span></code></p></li>
+<li><p><strong>Choices:</strong></p></li>
+</ul>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TEXT</p></td>
+<td><p>Text format</p></td>
+</tr>
+<tr class="row-odd"><td><p>BINARY</p></td>
+<td><p>Binary format</p></td>
+</tr>
+<tr class="row-even"><td><p>HEX</p></td>
+<td><p>Hexadecimal format</p></td>
+</tr>
+<tr class="row-odd"><td><p>BASE64</p></td>
+<td><p>Base64 encoded format</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="nb">input</span><span class="o">=</span><span class="n">TEXT</span>
+<span class="o">--</span><span class="nb">input</span><span class="o">=</span><span class="n">HEX</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="output">
+<h3><code class="docutils literal notranslate"><span class="pre">--output</span></code><a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
+<p>Output format. Default: TEXT</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">TEXT</span></code></p></li>
+<li><p><strong>Choices:</strong></p></li>
+</ul>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NONE</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p>TEXT</p></td>
+<td><p>Text format</p></td>
+</tr>
+<tr class="row-even"><td><p>BINARY</p></td>
+<td><p>Binary format</p></td>
+</tr>
+<tr class="row-odd"><td><p>HEX</p></td>
+<td><p>Hexadecimal format</p></td>
+</tr>
+<tr class="row-even"><td><p>BASE64</p></td>
+<td><p>Base64 encoded format</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">TEXT</span>
+<span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">NONE</span>
+<span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">BASE64</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="output-target">
+<h3><code class="docutils literal notranslate"><span class="pre">--output_target</span></code><a class="headerlink" href="#output-target" title="Permalink to this headline">¶</a></h3>
+<p>Output target. Default: RECEIVE</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">RECEIVE</span></code></p></li>
+<li><p><strong>Choices:</strong></p></li>
+</ul>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ALL</p></td>
+<td><p>Both directions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SEND</p></td>
+<td><p>Only send.</p></td>
+</tr>
+<tr class="row-even"><td><p>RECEIVE</p></td>
+<td><p>Only receive.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">ALL</span>
+<span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">SEND</span>
+<span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">RECEIVE</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="output-max">
+<h3><code class="docutils literal notranslate"><span class="pre">--output_max</span></code><a class="headerlink" href="#output-max" title="Permalink to this headline">¶</a></h3>
+<p>Max output bytes.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><strong>Default:</strong> 2048</p></li>
+<li><p><strong>Choices:</strong></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">output_max</span><span class="o">=</span><span class="mi">100000</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dumpfile">
+<h3><code class="docutils literal notranslate"><span class="pre">--dumpfile</span></code><a class="headerlink" href="#dumpfile" title="Permalink to this headline">¶</a></h3>
+<p>Dump response data to files. Dir: <code class="docutils literal notranslate"><span class="pre">./dumpfiles/</span></code></p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">dumpfile</span>
+</pre></div>
+</div>
+<p><strong>Dumpfile examples:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipserver_9_1_recv_192</span><span class="mf">.168.10.3_58395</span><span class="o">.</span><span class="n">dat</span>
+<span class="n">ipserver_8_1_recv_192</span><span class="mf">.168.10.3_58385</span><span class="o">.</span><span class="n">dat</span>
+<span class="n">ipserver_7_1_recv_192</span><span class="mf">.168.10.3_58384</span><span class="o">.</span><span class="n">dat</span>
+<span class="n">ipserver_6_4_send_192</span><span class="mf">.168.10.3_58442</span><span class="o">.</span><span class="n">dat</span>
+<span class="n">ipserver_6_3_recv_192</span><span class="mf">.168.10.3_58442</span><span class="o">.</span><span class="n">dat</span>
+<span class="n">ipserver_6_2_send_192</span><span class="mf">.168.10.3_58442</span><span class="o">.</span><span class="n">dat</span>
+<span class="n">ipserver_6_1_recv_192</span><span class="mf">.168.10.3_58442</span><span class="o">.</span><span class="n">dat</span>
+<span class="n">ipserver_5_1_recv_192</span><span class="mf">.168.10.3_58441</span><span class="o">.</span><span class="n">dat</span>
+<span class="n">ipserver_5_1_recv_192</span><span class="mf">.168.10.3_58362</span><span class="o">.</span><span class="n">dat</span>
+<span class="n">ipserver_4_1_recv_192</span><span class="mf">.168.10.3_58355</span><span class="o">.</span><span class="n">dat</span>
+<span class="n">ipserver_3_4_send_192</span><span class="mf">.168.10.3_58426</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bind">
+<h3><code class="docutils literal notranslate"><span class="pre">--bind</span></code><a class="headerlink" href="#bind" title="Permalink to this headline">¶</a></h3>
+<p>Bind IP. e.g. 127.0.0.1, localhost, 0.0.0.0</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">bind</span><span class="o">=</span><span class="mf">127.0.0.1</span>
+<span class="o">--</span><span class="n">bind</span><span class="o">=</span><span class="mf">192.168.10.1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="port">
+<h3><code class="docutils literal notranslate"><span class="pre">--port</span></code><a class="headerlink" href="#port" title="Permalink to this headline">¶</a></h3>
+<p>Listen port.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">8000</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="mi">8002</span>
+<span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="mi">8003</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="timeout">
+<h3><code class="docutils literal notranslate"><span class="pre">--timeout</span></code><a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h3>
+<p>Timeout. If timeout is 0 or less, Timeout is disabled.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">30.0</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">timeout</span><span class="o">=</span><span class="mf">60.0</span>
+<span class="o">--</span><span class="n">timeout</span><span class="o">=-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="max-connections">
+<h3><code class="docutils literal notranslate"><span class="pre">--max_connections</span></code><a class="headerlink" href="#max-connections" title="Permalink to this headline">¶</a></h3>
+<p>Max connections. If the limit is reached, waiting until there is availability.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">20</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">max_connections</span><span class="o">=</span><span class="mi">20</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="restrict-allow">
+<h3><code class="docutils literal notranslate"><span class="pre">--restrict_allow</span></code><a class="headerlink" href="#restrict-allow" title="Permalink to this headline">¶</a></h3>
+<p>Restrict except for allowed IP. e.g. 192.168.10.101;192.168.10.0/24</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipserver</span> <span class="o">--</span><span class="n">restrict_allow</span><span class="o">=</span><span class="s2">&quot;192.168.2.10;192.168.10.0/24&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="restrict-deny">
+<h3><code class="docutils literal notranslate"><span class="pre">--restrict_deny</span></code><a class="headerlink" href="#restrict-deny" title="Permalink to this headline">¶</a></h3>
+<p>Restrict specified IP. e.g. 192.168.10.101;192.168.10.0/24</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">restrict_deny</span><span class="o">=</span><span class="s2">&quot;192.168.10.101;192.168.10.102&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="forwarding">
+<h3><code class="docutils literal notranslate"><span class="pre">--forwarding</span></code><a class="headerlink" href="#forwarding" title="Permalink to this headline">¶</a></h3>
+<p>Enable forwarding and set forwarding destination. Specify TCP forwarding or HTTP forwarding.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<p><strong>In TCP mode</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">forwarding</span><span class="o">=</span><span class="n">www</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span>	 <span class="c1"># TCP connection</span>
+<span class="o">--</span><span class="n">forwarding</span><span class="o">=</span><span class="n">tcp</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="p">:</span><span class="mi">80</span> <span class="c1"># TCP connection</span>
+<span class="o">--</span><span class="n">forwarding</span><span class="o">=</span><span class="n">ssl</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="p">:</span><span class="mi">80</span> <span class="c1"># SSL connection</span>
+</pre></div>
+</div>
+<p><strong>In HTTP mode</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">forwarding</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span> <span class="c1"># HTTP reuqest</span>
+<span class="o">--</span><span class="n">forwarding</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span> <span class="c1"># HTTPS request</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ssl-context">
+<h3><code class="docutils literal notranslate"><span class="pre">--ssl_context</span></code><a class="headerlink" href="#ssl-context" title="Permalink to this headline">¶</a></h3>
+<p>SSL context. [SSLv3, TLS1.0, TLS1.1, TLS1.2, TLS1.3]</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>Choices:</strong></p></li>
+</ul>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SSLV3</p></td>
+<td><p>SSLv3</p></td>
+</tr>
+<tr class="row-odd"><td><p>TLS1.0</p></td>
+<td><p>TLS1.0</p></td>
+</tr>
+<tr class="row-even"><td><p>TLS1.1</p></td>
+<td><p>TLS1.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>TLS1.2</p></td>
+<td><p>TLS1.2</p></td>
+</tr>
+<tr class="row-even"><td><p>TLS1.3</p></td>
+<td><p>TLS1.3</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">ssl_context</span><span class="o">=</span><span class="n">TLS1</span><span class="mf">.2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ssl-keypath">
+<h3><code class="docutils literal notranslate"><span class="pre">--ssl_keypath</span></code><a class="headerlink" href="#ssl-keypath" title="Permalink to this headline">¶</a></h3>
+<p>SSL key path. If <code class="docutils literal notranslate"><span class="pre">--ssl_keypath</span></code> is not specified, “SSL self-signed certificate” is used with SSL connection.</p>
+<blockquote>
+<div><p>Some browsers could limit access for security reasons by using “SSL self-signed certificate” connection. “Firefox” tends to be relatively easier to access.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> ``</p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">ssl_keypath</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">keys</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ssl-certfile">
+<h3><code class="docutils literal notranslate"><span class="pre">--ssl_certfile</span></code><a class="headerlink" href="#ssl-certfile" title="Permalink to this headline">¶</a></h3>
+<p>SSL certificate file.</p>
+<blockquote>
+<div><p>Refer to description of <code class="docutils literal notranslate"><span class="pre">--ssl_keypath</span></code>.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> ``</p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">ssl_certfile</span><span class="o">=</span><span class="n">file</span><span class="o">.</span><span class="n">cert</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ssl-keyfile">
+<h3><code class="docutils literal notranslate"><span class="pre">--ssl_keyfile</span></code><a class="headerlink" href="#ssl-keyfile" title="Permalink to this headline">¶</a></h3>
+<p>SSL key file.</p>
+<blockquote>
+<div><p>Refer to description of <code class="docutils literal notranslate"><span class="pre">--ssl_keypath</span></code>.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> ``</p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">ssl_keyfile</span><span class="o">=</span><span class="n">file</span><span class="o">.</span><span class="n">key</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="http-opt">
+<h3><code class="docutils literal notranslate"><span class="pre">--http_opt</span></code><a class="headerlink" href="#http-opt" title="Permalink to this headline">¶</a></h3>
+<p>Behaviors in HTTP option.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">INTERACTIVE</span></code></p></li>
+<li><p><strong>Choices:</strong></p></li>
+</ul>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Related option</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>INTERACTIVE</p></td>
+<td><p>Interactive response.</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>FILE</p></td>
+<td><p>Display file or directory.</p></td>
+<td><p>–http_path, –http_file, –http_file_upload</p></td>
+</tr>
+<tr class="row-even"><td><p>FORWARDING</p></td>
+<td><p>Request Forwarding</p></td>
+<td><p>–forwarding, –http_forwarding</p></td>
+</tr>
+<tr class="row-odd"><td><p>APP</p></td>
+<td><p>Run application or show file.</p></td>
+<td><p>–http_path, –http_app</p></td>
+</tr>
+<tr class="row-even"><td><p>INFO</p></td>
+<td><p>Display info. It’s request headers.</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PASS</p></td>
+<td><p>Pass the display. Mainly used when customizing with Python.</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">http_opt</span><span class="o">=</span><span class="n">FILE</span>
+<span class="o">--</span><span class="n">http_opt</span><span class="o">=</span><span class="n">FILE</span> <span class="o">--</span><span class="n">http_path</span><span class="o">=</span><span class="s1">&#39;../&#39;</span>
+<span class="o">--</span><span class="n">http_opt</span><span class="o">=</span><span class="n">APP</span>
+<span class="o">--</span><span class="n">http_opt</span><span class="o">=</span><span class="n">APP</span> <span class="o">--</span><span class="n">http_path</span><span class="o">=</span><span class="s1">&#39;./app/&#39;</span>
+<span class="o">--</span><span class="n">http_opt</span><span class="o">=</span><span class="n">FORWARDING</span> <span class="o">--</span><span class="n">forwarding</span><span class="o">=</span><span class="s1">&#39;http://www.wikipedia.org/&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="http-path">
+<h3><code class="docutils literal notranslate"><span class="pre">--http_path</span></code><a class="headerlink" href="#http-path" title="Permalink to this headline">¶</a></h3>
+<p>HTTP public directory path.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">./</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">http_path</span><span class="o">=</span><span class="s2">&quot;../&quot;</span>
+<span class="o">--</span><span class="n">http_path</span><span class="o">=</span><span class="s2">&quot;/path&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="http-forwarding-convert-host">
+<h3><code class="docutils literal notranslate"><span class="pre">--http_forwarding_convert_host</span></code><a class="headerlink" href="#http-forwarding-convert-host" title="Permalink to this headline">¶</a></h3>
+<p>Convert hostname of content to <code class="docutils literal notranslate"><span class="pre">/</span></code> in HTTP forwarding. This feature provide that the resource file as “css, js, img” to be loaded through <code class="docutils literal notranslate"><span class="pre">ipserver</span></code> forcibly.</p>
+<p><strong>Behavior:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;img src=&quot;https://www.github.com/hello&quot;&gt;, &lt;img src=&quot;http://github.com/hello&quot;&gt;
+ ↓
+&lt;img src=&quot;/hello&quot;&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">http_forwarding_convert_host</span>
+<span class="n">ipserver</span> <span class="o">--</span><span class="n">http_forwarding</span><span class="o">=</span><span class="s2">&quot;https://www.amazon.com/&quot;</span> <span class="o">--</span><span class="n">http_forwarding_convert_host</span> <span class="o">--</span><span class="n">info</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="http-digest-auth">
+<h3><code class="docutils literal notranslate"><span class="pre">--http_digest_auth</span></code><a class="headerlink" href="#http-digest-auth" title="Permalink to this headline">¶</a></h3>
+<p>Enable digest authentication. Set authentication setting.</p>
+<p><strong>Format</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span> <span class="s2">&quot;Filename&quot;</span><span class="p">:</span> <span class="o">.</span><span class="n">htdigest</span>
+<span class="n">b</span><span class="o">.</span> <span class="s2">&quot;User/Password&quot;</span><span class="p">:</span> <span class="s2">&quot;admin2:123456&quot;</span>
+<span class="n">c</span><span class="o">.</span> <span class="s2">&quot;User/MD5&quot;</span><span class="p">:</span> <span class="s2">&quot;admin2:d71fab~~~~dfca14112&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> ``</p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipserver</span> <span class="o">--</span><span class="n">mode</span><span class="o">=</span><span class="n">HTTP</span> <span class="o">--</span><span class="n">http_digest_auth</span><span class="o">=</span><span class="s2">&quot;admin:123456&quot;</span>
+<span class="n">ipserver</span> <span class="o">--</span><span class="n">http_app</span><span class="o">=</span><span class="mi">1</span> <span class="o">--</span><span class="n">http_digest_auth</span><span class="o">=</span><span class="s2">&quot;.htdigest&quot;</span>
+</pre></div>
+</div>
+<p><strong>How to create .htdigest file</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ htdigest -c .htdigest &quot;digest&quot; admin
+
+--
+admin:digest:09b62d36d2639b4431bef96221975aed
+</pre></div>
+</div>
+</div>
+<div class="section" id="enable-file-upload">
+<h3><code class="docutils literal notranslate"><span class="pre">--enable_file_upload</span></code><a class="headerlink" href="#enable-file-upload" title="Permalink to this headline">¶</a></h3>
+<p>Enable file-upload in FILE mode. 1: Overwrite 2: New create only</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipserver</span> <span class="o">--</span><span class="n">mode</span><span class="o">=</span><span class="n">HTTP</span> <span class="o">--</span><span class="n">enable_file_upload</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">ipserver</span> <span class="o">--</span><span class="n">http_file</span><span class="o">=</span><span class="mi">1</span> <span class="o">--</span><span class="n">enable_file_upload</span><span class="o">=</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="version">
+<h3><code class="docutils literal notranslate"><span class="pre">--version</span></code><a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h3>
+<p>Show version information.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="shortcut-options">
+<h2>Shortcut options<a class="headerlink" href="#shortcut-options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="http-app">
+<h3><code class="docutils literal notranslate"><span class="pre">--http_app</span></code><a class="headerlink" href="#http-app" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">--http_app</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">--mode=HTTP</span> <span class="pre">and</span> <span class="pre">--http_opt=APP</span></code>.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">http_app</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># Current directory</span>
+<span class="o">--</span><span class="n">http_app</span><span class="o">=./</span><span class="n">examples</span><span class="o">/</span><span class="n">public</span><span class="o">-</span><span class="n">sample</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="http-file">
+<h3><code class="docutils literal notranslate"><span class="pre">--http_file</span></code><a class="headerlink" href="#http-file" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">--http_file</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">--mode=HTTP</span> <span class="pre">and</span> <span class="pre">--http_opt=FILE</span></code>.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">http_file</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># Current directory</span>
+<span class="o">--</span><span class="n">http_file</span><span class="o">=</span><span class="s2">&quot;../&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="http-file-upload">
+<h3><code class="docutils literal notranslate"><span class="pre">--http_file_upload</span></code><a class="headerlink" href="#http-file-upload" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">--http_file_upload</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">--mode=HTTP</span> <span class="pre">and</span> <span class="pre">--http_opt=FILE</span> <span class="pre">and</span> <span class="pre">--enable_file_upload=1</span></code>.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">http_file_upload</span><span class="o">=</span><span class="mi">1</span>
+<span class="o">--</span><span class="n">http_file_upload</span><span class="o">=</span><span class="s2">&quot;../&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="http-forwarding">
+<h3><code class="docutils literal notranslate"><span class="pre">--http_forwarding</span></code><a class="headerlink" href="#http-forwarding" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">--mode=HTTP</span> <span class="pre">and</span> <span class="pre">--http_opt=FORWARDING</span></code>.</p>
+<ul class="simple">
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">http_forwarding</span><span class="o">=</span><span class="s2">&quot;https://www.amazon.com&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customize_examples.html">Customizing and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_architecture.html">Program architecture and Classes</a></li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../index.html"
+                          title="previous chapter">Welcome to IpServer</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="customize_examples.html"
+                          title="next chapter">Customizing and Examples</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><div class="custom-sidebar">
+	<h3>Others</h3>
+	<ul>
+		<li><a href="https://deer-hunt.github.io/ipserver/py-modindex.html">Module Index</a></li>
+		<li><a href="https://deer-hunt.github.io/ipserver/genindex.html">Classes and Methods docs</a></li>
+		<li>&nbsp;</li>
+		<li><a href="https://github.com/deer-hunt/ipserver" target="_blank">GitHub</a></li>
+	</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="customize_examples.html" title="Customizing and Examples"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Welcome to IpServer"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ipserver  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Command arguments</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2025, deer-hunt.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

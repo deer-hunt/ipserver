@@ -1,0 +1,20 @@
+ipserver.core package
+=====================
+
+.. include:: top.rst
+
+ipserver.core.object\_factory module
+------------------------------------
+
+.. automodule:: ipserver.core.object_factory
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ipserver.core.pipeline module
+-----------------------------
+
+.. automodule:: ipserver.core.pipeline
+   :members:
+   :undoc-members:
+   :show-inheritance:
