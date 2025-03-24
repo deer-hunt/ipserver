@@ -329,13 +329,14 @@ JSON data is shown in <code class="docutils literal notranslate"><span class="pr
 </div>
 <div class="section" id="dumpfile">
 <h3><code class="docutils literal notranslate"><span class="pre">--dumpfile</span></code><a class="headerlink" href="#dumpfile" title="Permalink to this headline">¶</a></h3>
-<p>Dump response data to files. Dir: <code class="docutils literal notranslate"><span class="pre">./dumpfiles/</span></code></p>
+<p>Dump response data to files. Default Dir: <code class="docutils literal notranslate"><span class="pre">./dumpfiles/</span></code></p>
 <ul class="simple">
-<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
-<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
 <li><p><strong>Example:</strong></p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">dumpfile</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">dumpfile</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># ./dumpfiles/</span>
+<span class="o">--</span><span class="n">dumpfile</span><span class="o">=</span><span class="n">logs</span> <span class="c1"># ./logs/</span>
 </pre></div>
 </div>
 <p><strong>Dumpfile examples:</strong></p>
@@ -406,13 +407,14 @@ JSON data is shown in <code class="docutils literal notranslate"><span class="pr
 </div>
 <div class="section" id="restrict-allow">
 <h3><code class="docutils literal notranslate"><span class="pre">--restrict_allow</span></code><a class="headerlink" href="#restrict-allow" title="Permalink to this headline">¶</a></h3>
-<p>Restrict except for allowed IP. e.g. 192.168.10.101;192.168.10.0/24</p>
+<p>Restrict except for specified IP. e.g. 192.168.10.101;192.168.10.0/24</p>
 <ul class="simple">
 <li><p><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
 <li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
 <li><p><strong>Example:</strong></p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipserver</span> <span class="o">--</span><span class="n">restrict_allow</span><span class="o">=</span><span class="s2">&quot;192.168.2.10;192.168.10.0/24&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipserver</span> <span class="o">--</span><span class="n">restrict_allow</span><span class="o">=</span><span class="s2">&quot;192.168.2.10&quot;</span>
+<span class="n">ipserver</span> <span class="o">--</span><span class="n">restrict_allow</span><span class="o">=</span><span class="s2">&quot;192.168.2.10;192.168.10.0/24&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -424,7 +426,8 @@ JSON data is shown in <code class="docutils literal notranslate"><span class="pr
 <li><p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
 <li><p><strong>Example:</strong></p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">restrict_deny</span><span class="o">=</span><span class="s2">&quot;192.168.10.101;192.168.10.102&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipserver</span> <span class="o">--</span><span class="n">restrict_deny</span><span class="o">=</span><span class="s2">&quot;192.168.10.101&quot;</span>
+<span class="n">ipserver</span> <span class="o">--</span><span class="n">restrict_deny</span><span class="o">=</span><span class="s2">&quot;192.168.10.101;192.168.10.102&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -440,6 +443,10 @@ JSON data is shown in <code class="docutils literal notranslate"><span class="pr
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">forwarding</span><span class="o">=</span><span class="n">www</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span>	 <span class="c1"># TCP connection</span>
 <span class="o">--</span><span class="n">forwarding</span><span class="o">=</span><span class="n">tcp</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="p">:</span><span class="mi">80</span> <span class="c1"># TCP connection</span>
 <span class="o">--</span><span class="n">forwarding</span><span class="o">=</span><span class="n">ssl</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="p">:</span><span class="mi">80</span> <span class="c1"># SSL connection</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipserver</span> <span class="o">--</span><span class="n">forwarding</span><span class="o">=</span><span class="n">tcp</span><span class="p">:</span><span class="o">//</span><span class="n">your</span><span class="o">-</span><span class="n">db</span><span class="o">-</span><span class="n">host</span><span class="p">:</span><span class="mi">22</span> <span class="o">--</span><span class="n">timeout</span><span class="o">=-</span><span class="mi">1</span> <span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="mi">8022</span>
+<span class="n">ipserver</span> <span class="o">--</span><span class="n">forwarding</span><span class="o">=</span><span class="n">tcp</span><span class="p">:</span><span class="o">//</span><span class="n">your</span><span class="o">-</span><span class="n">db</span><span class="o">-</span><span class="n">host</span><span class="p">:</span><span class="mi">3306</span> <span class="o">--</span><span class="n">timeout</span><span class="o">=-</span><span class="mi">1</span> <span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="mi">13306</span>
 </pre></div>
 </div>
 <p><strong>In HTTP mode</strong></p>

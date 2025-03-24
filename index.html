@@ -56,7 +56,7 @@
 <p>The latest version and documentation may be found on GitHub. The Github URL is the following.</p>
 <p><a class="reference external" href="https://github.com/deer-hunt/ipserver/">https://github.com/deer-hunt/ipserver/</a></p>
 <div style="display:flex;line-height:1.5rem;">
-<div style="margin-right: 10px;"><img width="100" height="100" src="./_images/ipsurv-logo.png" align="left" /></div>
+<div style="margin-right: 10px;"><img width="90" height="90" src="./_images/ipsurv-logo.png" align="left" /></div>
 <div style="width: 80%;">
    <a href="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests.yml"><img alt="CI - Test" src="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests.yml/badge.svg"></a>
    <a href="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests-windows.yml"><img alt="CI - Test" src="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests-windows.yml/badge.svg"></a>
@@ -130,7 +130,7 @@ Output:<span class="w">           </span>NONE
 Output<span class="w"> </span>target:<span class="w">    </span>RECEIVE
 Timeout:<span class="w">          </span><span class="m">30</span>.0
 Max<span class="w"> </span>connections:<span class="w">   </span><span class="m">20</span>
-Dumpfile:<span class="w">         </span>False
+Dumpfile:<span class="w">         </span>-
 
 <span class="o">[</span>Command<span class="w"> </span>help<span class="o">]</span>
 send:<span class="w">             </span>Begin<span class="w"> </span>input<span class="w"> </span>to<span class="w"> </span>send.<span class="w"> </span>Send<span class="w"> </span>by<span class="w"> </span>a<span class="w"> </span>Line-break.<span class="w"> </span>The<span class="w"> </span>shortcut<span class="w"> </span>is<span class="w"> </span><span class="sb">`</span>s<span class="sb">`</span>.
@@ -199,16 +199,27 @@ $<span class="w"> </span>ipserver<span class="w"> </span>--restrict_deny<span cl
 </pre></div>
 </div>
 <p><strong>Dump file</strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--dumpfile
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--dumpfile<span class="o">=</span><span class="m">1</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8002</span><span class="w"> </span>--dumpfile<span class="o">=</span>logs
 </pre></div>
 </div>
 </div>
 <div class="section" id="tcp-forwarding">
 <h3>TCP Forwarding<a class="headerlink" href="#tcp-forwarding" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8001</span><span class="w"> </span>--forwarding<span class="o">=</span>wikipedia.org:80
-$<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=</span><span class="m">8443</span><span class="w"> </span>--mode<span class="o">=</span>SSL<span class="w"> </span>--forwarding<span class="o">=</span>tcp://wikipedia.org:80
-$<span class="w"> </span>ipserver<span class="w"> </span>--forwarding<span class="o">=</span>ssl://wikipedia.org:443
-$<span class="w"> </span>ipserver<span class="w"> </span>--forwarding<span class="o">=</span>wikipedia.org:80<span class="w"> </span>--dumpfile
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 80 Port Forwarding : HTTP</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--forwarding<span class="o">=</span>wikipedia.org<span class="w"> </span>--port<span class="o">=</span><span class="m">8001</span><span class="w"> </span><span class="c1"># port: 80</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>SSL<span class="w"> </span>--forwarding<span class="o">=</span>tcp://wikipedia.org:80<span class="w"> </span>--port<span class="o">=</span><span class="m">8443</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--forwarding<span class="o">=</span>tcp://wikipedia.org:80<span class="w"> </span>--timeout<span class="o">=</span>-1
+
+<span class="c1"># 443 Port Forwarding : HTTPS</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--forwarding<span class="o">=</span>ssl://wikipedia.org:443<span class="w"> </span><span class="c1"># Listen: 8000 port</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--forwarding<span class="o">=</span>wikipedia.org:443<span class="w"> </span>--port<span class="o">=</span><span class="m">8443</span><span class="w"> </span>--dumpfile<span class="o">=</span><span class="m">1</span>
+
+<span class="c1"># 22 Port Forwarding : SSH</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--forwarding<span class="o">=</span>tcp://your-host:22<span class="w"> </span>--timeout<span class="o">=</span>-1<span class="w"> </span>--port<span class="o">=</span><span class="m">8022</span>
+
+<span class="c1"># 3306 Port Forwarding : MySQL</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--forwarding<span class="o">=</span>tcp://your-db-host:3306<span class="w"> </span>--timeout<span class="o">=</span>-1<span class="w"> </span>--port<span class="o">=</span><span class="m">13306</span>
 </pre></div>
 </div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># TEST</span>
@@ -246,7 +257,7 @@ $<span class="w"> </span>ipserver<span class="w"> </span>--http_file_upload<span
 </div>
 <p><strong>Application</strong></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTP<span class="w"> </span>--http_opt<span class="o">=</span>APP
-$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTPS--http_opt<span class="o">=</span>APP<span class="w"> </span>--http_path<span class="o">=</span><span class="s2">&quot;../&quot;</span>
+$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTPS<span class="w"> </span>--http_opt<span class="o">=</span>APP<span class="w"> </span>--http_path<span class="o">=</span><span class="s2">&quot;../&quot;</span>
 
 <span class="c1"># Shortcut</span>
 $<span class="w"> </span>ipserver<span class="w"> </span>--http_app<span class="o">=</span><span class="m">1</span>
@@ -301,7 +312,7 @@ $<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=
 </pre></div>
 </div>
 <p><strong>HTTPS + Dumpfile</strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTPS<span class="w"> </span>--http_opt<span class="o">=</span>INFO<span class="w"> </span>--dumpfile
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ipserver<span class="w"> </span>--mode<span class="o">=</span>HTTPS<span class="w"> </span>--http_opt<span class="o">=</span>INFO<span class="w"> </span>--dumpfile<span class="o">=</span><span class="m">1</span>
 </pre></div>
 </div>
 </div>
@@ -407,7 +418,7 @@ $<span class="w"> </span>ipserver<span class="w"> </span>--port<span class="o">=
 <span class="w">                </span><span class="o">[</span>--input<span class="w"> </span><span class="o">{</span>TEXT,BINARY,HEX,BASE64<span class="o">}]</span>
 <span class="w">                </span><span class="o">[</span>--output<span class="w"> </span><span class="o">{</span>NONE,TEXT,BINARY,HEX,BASE64<span class="o">}]</span>
 <span class="w">                </span><span class="o">[</span>--output_target<span class="w"> </span><span class="o">{</span>ALL,SEND,RECEIVE<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--output_max<span class="o">]</span>
-<span class="w">                </span><span class="o">[</span>--dumpfile<span class="o">]</span><span class="w"> </span><span class="o">[</span>--bind<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--port<span class="w"> </span><span class="o">{</span>int<span class="o">}]</span>
+<span class="w">                </span><span class="o">[</span>--dumpfile<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--bind<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--port<span class="w"> </span><span class="o">{</span>int<span class="o">}]</span>
 <span class="w">                </span><span class="o">[</span>--timeout<span class="w"> </span><span class="o">{</span>float<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--max_connections<span class="w"> </span><span class="o">{</span>int<span class="o">}]</span>
 <span class="w">                </span><span class="o">[</span>--restrict_allow<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--restrict_deny<span class="w"> </span><span class="o">{</span>string<span class="o">}]</span>
 <span class="w">                </span><span class="o">[</span>--ssl_context<span class="w"> </span><span class="o">{</span>SSLV3,TLS1.0,TLS1.1,TLS1.2,TLS1.3<span class="o">}]</span>

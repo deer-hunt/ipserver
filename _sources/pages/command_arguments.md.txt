@@ -209,15 +209,16 @@ Max output bytes.
 
 ### `--dumpfile`
 
-Dump response data to files. Dir: `./dumpfiles/`
+Dump response data to files. Default Dir: `./dumpfiles/`
 
-- **Type:** `bool`
-- **Default:** `False`
+- **Type:** `str`
+- **Default:** `None`
 
 - **Example:**
 
 ```
---dumpfile
+--dumpfile=1 # ./dumpfiles/
+--dumpfile=logs # ./logs/
 ```
 
 **Dumpfile examples:**
@@ -295,7 +296,7 @@ Max connections. If the limit is reached, waiting until there is availability.
 
 ### `--restrict_allow`
 
-Restrict except for allowed IP. e.g. 192.168.10.101;192.168.10.0/24
+Restrict except for specified IP. e.g. 192.168.10.101;192.168.10.0/24
 
 - **Type:** `str`
 - **Default:** `None`
@@ -303,6 +304,7 @@ Restrict except for allowed IP. e.g. 192.168.10.101;192.168.10.0/24
 - **Example:**
 
 ```
+ipserver --restrict_allow="192.168.2.10"
 ipserver --restrict_allow="192.168.2.10;192.168.10.0/24"
 ```
 
@@ -317,7 +319,8 @@ Restrict specified IP. e.g. 192.168.10.101;192.168.10.0/24
 - **Example:**
 
 ```
---restrict_deny="192.168.10.101;192.168.10.102"
+ipserver --restrict_deny="192.168.10.101"
+ipserver --restrict_deny="192.168.10.101;192.168.10.102"
 ```
 
 
@@ -336,6 +339,11 @@ Enable forwarding and set forwarding destination. Specify TCP forwarding or HTTP
 --forwarding=www.wikipedia.org	 # TCP connection
 --forwarding=tcp://www.wikipedia.org:80 # TCP connection
 --forwarding=ssl://www.wikipedia.org:80 # SSL connection
+```
+
+```
+ipserver --forwarding=tcp://your-db-host:22 --timeout=-1 --port=8022
+ipserver --forwarding=tcp://your-db-host:3306 --timeout=-1 --port=13306
 ```
 
 **In HTTP mode**

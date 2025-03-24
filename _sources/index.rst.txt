@@ -21,7 +21,7 @@ The latest version and documentation may be found on GitHub. The Github URL is t
 .. raw:: html
 
    <div style="display:flex;line-height:1.5rem;">
-   <div style="margin-right: 10px;"><img width="100" height="100" src="./_images/ipsurv-logo.png" align="left" /></div>
+   <div style="margin-right: 10px;"><img width="90" height="90" src="./_images/ipsurv-logo.png" align="left" /></div>
    <div style="width: 80%;">
       <a href="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests.yml"><img alt="CI - Test" src="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests.yml/badge.svg"></a>
       <a href="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests-windows.yml"><img alt="CI - Test" src="https://github.com/deer-hunt/ipserver/actions/workflows/unit-tests-windows.yml/badge.svg"></a>
@@ -112,7 +112,7 @@ Running example
    Output target:    RECEIVE
    Timeout:          30.0
    Max connections:   20
-   Dumpfile:         False
+   Dumpfile:         -
 
    [Command help]
    send:             Begin input to send. Send by a Line-break. The shortcut is `s`.
@@ -198,7 +198,8 @@ TCP Server
 
 .. code-block:: shell
 
-   $ ipserver --port=8002 --dumpfile
+   $ ipserver --port=8002 --dumpfile=1
+   $ ipserver --port=8002 --dumpfile=logs
 
 
 TCP Forwarding
@@ -206,10 +207,20 @@ TCP Forwarding
 
 .. code-block:: shell
 
-   $ ipserver --port=8001 --forwarding=wikipedia.org:80
-   $ ipserver --port=8443 --mode=SSL --forwarding=tcp://wikipedia.org:80
-   $ ipserver --forwarding=ssl://wikipedia.org:443
-   $ ipserver --forwarding=wikipedia.org:80 --dumpfile
+   # 80 Port Forwarding : HTTP
+   $ ipserver --forwarding=wikipedia.org --port=8001 # port: 80
+   $ ipserver --mode=SSL --forwarding=tcp://wikipedia.org:80 --port=8443
+   $ ipserver --forwarding=tcp://wikipedia.org:80 --timeout=-1
+
+   # 443 Port Forwarding : HTTPS
+   $ ipserver --forwarding=ssl://wikipedia.org:443 # Listen: 8000 port
+   $ ipserver --forwarding=wikipedia.org:443 --port=8443 --dumpfile=1
+
+   # 22 Port Forwarding : SSH
+   $ ipserver --forwarding=tcp://your-host:22 --timeout=-1 --port=8022
+
+   # 3306 Port Forwarding : MySQL
+   $ ipserver --forwarding=tcp://your-db-host:3306 --timeout=-1 --port=13306
 
 
 .. code-block:: shell
@@ -258,7 +269,7 @@ HTTP/HTTPS
 .. code-block:: shell
 
    $ ipserver --mode=HTTP --http_opt=APP
-   $ ipserver --mode=HTTPS--http_opt=APP --http_path="../"
+   $ ipserver --mode=HTTPS --http_opt=APP --http_path="../"
 
    # Shortcut
    $ ipserver --http_app=1
@@ -335,7 +346,7 @@ You can investigate the detailed behavior of HTTP/HTTPS by mixed options.
 
 .. code-block:: shell
 
-   $ ipserver --mode=HTTPS --http_opt=INFO --dumpfile
+   $ ipserver --mode=HTTPS --http_opt=INFO --dumpfile=1
 
 
 Description of Interactive command
@@ -458,7 +469,7 @@ Introduction
                    [--input {TEXT,BINARY,HEX,BASE64}]
                    [--output {NONE,TEXT,BINARY,HEX,BASE64}]
                    [--output_target {ALL,SEND,RECEIVE}] [--output_max]
-                   [--dumpfile] [--bind {string}] [--port {int}]
+                   [--dumpfile {string}] [--bind {string}] [--port {int}]
                    [--timeout {float}] [--max_connections {int}]
                    [--restrict_allow {string}] [--restrict_deny {string}]
                    [--ssl_context {SSLV3,TLS1.0,TLS1.1,TLS1.2,TLS1.3}]
