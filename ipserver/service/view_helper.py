@@ -30,6 +30,9 @@ class ViewHelper:
         self.quiet = args.quiet
         self.output_max = args.output_max
 
+    def set_quiet(self, quiet):
+        self.quiet = quiet
+
     def show_help(self):
         width = 18
 
@@ -65,10 +68,12 @@ class ViewHelper:
             self.line('Output:'.ljust(width) + str(args.output))
             self.line('Output target:'.ljust(width) + str(args.output_target))
 
-            self.line('Timeout:'.ljust(width) + str(args.timeout))
+            timeout = str(args.timeout) if args.timeout > 0 else '-'
+            self.line('Timeout:'.ljust(width) + timeout)
             self.line('Max connections:'.ljust(width) + str(args.max_connections))
 
-            self.line('Dumpfile:'.ljust(width) + str(args.dumpfile))
+            dumpfile = args.fixed_dumpfile if args.fixed_dumpfile is not None else '-'
+            self.line('Dumpfile:'.ljust(width) + str(dumpfile))
 
             if args.mode == Constant.MODE_SSL:
                 ssl_context = args.ssl_context if args.ssl_context is not None else 'auto'

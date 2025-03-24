@@ -11,8 +11,8 @@ from ipserver.util.sys_util import Output
 Benchmark download speed by downloading dummy image. Default: 200MB
 You can test by using browser or curl or any other client tool.
 
-# python3 benchmark_download_speed.py --port=8002
-# curl http://develop-server:8002/bench?mb=250
+$ python3 benchmark_download_speed.py --port=8002
+$ curl http://develop-server:8002/bench?mb=250
 '''
 
 

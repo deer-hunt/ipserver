@@ -7,7 +7,7 @@ from string import Template
 HTTP customize response.
 
 Command:
-# python3 http_response_customize.py --info
+$ python3 http_response_customize.py --info
 
 http://develop-server:8000/
 '''

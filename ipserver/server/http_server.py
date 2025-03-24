@@ -16,8 +16,6 @@ from pathlib import Path
 from socket import SocketIO
 from urllib.parse import parse_qs
 
-from multipart import parse_form_data
-
 from ipserver.configs import Constant
 from ipserver.server.http_server_module import HTTPDigestAuth, HttpFileUploader, QueueLogger
 from ipserver.server.socket_server import TCPSocketServer, SSLSocketServer, ConnSock, SendQueue, SocketCloseError
@@ -351,7 +349,9 @@ class HTTPHandler(SimpleHTTPRequestHandler):
         """
         environ = {**environ, **{'wsgi.input': self.rfile}}
 
-        forms, files = parse_form_data(environ)
+        multipart = HttpFileUploader.load_multipart()
+
+        forms, files = multipart.parse_form_data(environ)
 
         posts = {}
 
@@ -421,6 +421,8 @@ class HTTPHandler(SimpleHTTPRequestHandler):
                 self._respond_content(httpio)
 
             status = httpio.status
+        except AppException as e:
+            raise e
         except Exception:
             status = 500
 

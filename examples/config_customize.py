@@ -12,15 +12,15 @@ Specification:
 - Creating ObjectFactory class.
 
 Command:
-# python3 config_customize.py --info
-# telnet localhost 8000
+$ python3 config_customize.py --info
+$ telnet localhost 8000
 '''
 
 
 class MyObjectFactory(ObjectFactory):
     def get_config(self):
         Config.ARGUMENTS['timeout']['default'] = 120
-        Config.ARGUMENTS['dumpfile']['default'] = True
+        Config.ARGUMENTS['dumpfile']['default'] = 'logs'
 
         return Config
 

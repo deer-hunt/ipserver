@@ -1,5 +1,6 @@
 from ipserver.util.socket_client import SocketClient
 from ipserver.util.urlparser import URLParser
+from ipserver.util.sys_util import AppException
 
 
 class ForwardingSocket:
@@ -23,18 +24,21 @@ class ForwardingSocket:
         return parsed_url
 
     def parse_destination(self, forwarding):
-        parsed_url = self.create_parsed_url(forwarding)
+        try:
+            parsed_url = self.create_parsed_url(forwarding)
 
-        if parsed_url.scheme == 'tcp':
-            protocol = SocketClient.PROTOCOL_TCP
-        elif parsed_url.scheme == 'udp':
-            protocol = SocketClient.PROTOCOL_UDP
-        elif parsed_url.scheme == 'ssl':
-            protocol = SocketClient.PROTOCOL_SSL
-        else:
-            protocol = SocketClient.PROTOCOL_TCP
+            if parsed_url.scheme == 'tcp':
+                protocol = SocketClient.PROTOCOL_TCP
+            elif parsed_url.scheme == 'udp':
+                protocol = SocketClient.PROTOCOL_UDP
+            elif parsed_url.scheme == 'ssl':
+                protocol = SocketClient.PROTOCOL_SSL
+            else:
+                protocol = SocketClient.PROTOCOL_TCP
 
-        port = parsed_url.port if parsed_url.port else 80
+            port = parsed_url.port if parsed_url.port else 80
+        except Exception:
+            raise AppException('Forwarding destination format error.({})'.format(forwarding))
 
         return (protocol, parsed_url.hostname, port)
 

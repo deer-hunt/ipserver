@@ -1,4 +1,5 @@
 import hashlib
+import importlib
 import logging
 import logging.handlers
 import os
@@ -184,6 +185,17 @@ class HttpFileUploader:
     def __init__(self, pipeline):
         self.pipeline = pipeline
         self.logger = getLogger('queue')
+
+    @staticmethod
+    def load_multipart():
+        module = None
+
+        try:
+            module = importlib.import_module('multipart')
+        except Exception:
+            raise AppException('`multipart` module is not found. `pip install multipart`.')
+
+        return module
 
     def dispatch(self, httpio, mode):
         self.show_head(httpio)

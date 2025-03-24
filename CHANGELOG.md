@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.1](https://github.com/deer-hunt/ipserver/releases/tag/v1.0.1) (2025-03-24)
+
+- Fixed some bugs.
+
 ## [1.0.0](https://github.com/deer-hunt/ipserver/releases/tag/v1.0.0) (2025-03-23)
 
 - Release v1.0.0.

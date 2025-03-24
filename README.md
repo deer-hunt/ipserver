@@ -16,7 +16,7 @@
 </div>
 
 <div>
-<img width="80" height="80" src="https://raw.githubusercontent.com/deer-hunt/ipserver/main/docs/images/ipsurv-logo.png" align="left" />
+<img width="85" height="85" src="https://raw.githubusercontent.com/deer-hunt/ipserver/main/docs/images/ipsurv-logo.png" align="left" />
 
 "IpServer" is a simple server that supports TCP, UDP, SSL, HTTP, and HTTPS protocols for various uses such as testing, debugging, or network investigation. It features also an interactive mode and forwarding capabilities. Additionally, you can customize its behavior using Python.
 
@@ -41,7 +41,9 @@ $ ipserver --help
 
 **Conda**
 
-Coming soon..
+```
+$ conda install conda-forge::ipserver
+```
 
 
 ## Requirements
@@ -87,7 +89,7 @@ Output:           NONE
 Output target:    RECEIVE
 Timeout:          30.0
 Max connections:   20
-Dumpfile:         False
+Dumpfile:         -
 
 [Command help]
 send:             Begin input to send. Send by a Line-break. The shortcut is `s`.
@@ -166,17 +168,40 @@ $ ipserver --restrict_deny="192.168.10.101;192.168.50.0/24"
 **Dump file**
 
 ```bash
-$ ipserver --port=8002 --dumpfile
+$ ipserver --port=8002 --dumpfile=1
+$ ipserver --port=8002 --dumpfile=logs
 ```
 
 ### TCP Forwarding
 
+- 80 Port Forwarding : HTTP
+
 ```
-$ ipserver --port=8001 --forwarding=wikipedia.org:80
-$ ipserver --port=8443 --mode=SSL --forwarding=tcp://wikipedia.org:80
-$ ipserver --forwarding=ssl://wikipedia.org:443
-$ ipserver --forwarding=wikipedia.org:80 --dumpfile
+$ ipserver --forwarding=wikipedia.org --port=8001 # port: 80
+$ ipserver --mode=SSL --forwarding=tcp://wikipedia.org:80 --port=8443
+$ ipserver --forwarding=tcp://wikipedia.org:80 --timeout=-1
 ```
+
+- 443 Port Forwarding : HTTPS
+
+```
+$ ipserver --forwarding=ssl://wikipedia.org:443 # Listen: 8000 port
+$ ipserver --forwarding=wikipedia.org:443 --port=8443 --dumpfile=1
+```
+
+- 22 Port Forwarding : SSH
+
+```
+$ ipserver --forwarding=tcp://your-host:22 --timeout=-1 --port=8022
+```
+
+- 3306 Port Forwarding : MySQL
+
+```
+$ ipserver --forwarding=tcp://your-db-host:3306 --timeout=-1 --port=13306
+```
+
+**Test**
 
 ```bash
 # TEST
@@ -219,7 +244,7 @@ $ ipserver --http_file_upload="../"
 
 ```bash
 $ ipserver --mode=HTTP --http_opt=APP
-$ ipserver --mode=HTTPS--http_opt=APP --http_path="../"
+$ ipserver --mode=HTTPS --http_opt=APP --http_path="../"
 
 # Shortcut
 $ ipserver --http_app=1
@@ -288,7 +313,7 @@ $ ipserver --mode=HTTPS --output_target=ALL --output=BINARY
 **HTTPS + Dumpfile**
 
 ```
-$ ipserver --mode=HTTPS --http_opt=INFO --dumpfile
+$ ipserver --mode=HTTPS --http_opt=INFO --dumpfile=1
 ```
 
 
@@ -359,7 +384,7 @@ usage: ipserver [-h] [--verbose {0,1,2,3}] [--debug] [--info]
                    [--input {TEXT,BINARY,HEX,BASE64}]
                    [--output {NONE,TEXT,BINARY,HEX,BASE64}]
                    [--output_target {ALL,SEND,RECEIVE}] [--output_max]
-                   [--dumpfile] [--bind {string}] [--port {int}]
+                   [--dumpfile {string}] [--bind {string}] [--port {int}]
                    [--timeout {float}] [--max_connections {int}]
                    [--restrict_allow {string}] [--restrict_deny {string}]
                    [--ssl_context {SSLV3,TLS1.0,TLS1.1,TLS1.2,TLS1.3}]

@@ -8,33 +8,33 @@ class Constant:
   ipserver --mode=TCP --port=8001
   ipserver --mode=SSL --port=8443
 
-  ipserver --port=8002 --forwarding=google.com:80
-  ipserver --port=8002 --forwarding=tcp://google.com:80
-  ipserver --port=8002 --forwarding=ssl://google.com:443
+  ipserver --forwarding=google.com:80
+  ipserver --forwarding=tcp://google.com:80
+  ipserver --forwarding=ssl://google.com:443
 
-  ipserver --port=8002 --restrict_allow="192.168.2.10;192.168.10.0/24"
-  ipserver --port=8002 --restrict_deny="192.168.10.101;192.168.10.102"
+  ipserver --restrict_allow="192.168.2.10;192.168.10.0/24"
+  ipserver --restrict_deny="192.168.10.101;192.168.10.102"
 
   ipserver --port=8001 --mode=HTTP
   ipserver --port=8002 --mode=HTTP --http_opt=INTERACTIVE
 
-  ipserver --port=8002 --mode=HTTP --http_opt=FILE
-  ipserver --http_file=./ --port=8002
-  ipserver --http_file=1 --port=8002
-  ipserver --http_file_upload=1 --port=8002
+  ipserver --mode=HTTP --http_opt=FILE
+  ipserver --http_file=./
+  ipserver --http_file=1
+  ipserver --http_file_upload=1
 
   ipserver --mode=HTTP --http_opt=APP --port=8002
   ipserver --http_app=./examples/public-sample/ --port=8002
   ipserver --http_app=1 --port=8002
 
-  ipserver --mode=HTTP --http_opt=INFO --port=8002
+  ipserver --mode=HTTP --http_opt=INFO
 
-  ipserver --mode=HTTP --http_opt=FORWARDING --forwarding=https://www.amazon.com --port=8002
-  ipserver --http_forwarding=https://www.amazon.com --port=8002
+  ipserver --mode=HTTP --http_opt=FORWARDING --forwarding=https://www.amazon.com
+  ipserver --http_forwarding=https://www.amazon.com
 
-  ipserver --port=8002 --http_file=./ --http_digest_auth=.htdigest
-  ipserver --port=8002 --http_file_upload=./ --http_digest_auth="admin:123456"
-  ipserver --port=8002 --http_app=1 --http_digest_auth="admin:d71fa85bc0ded05215b28dfd8ca14112"
+  ipserver --http_file=./ --http_digest_auth=.htdigest
+  ipserver --http_file_upload=./ --http_digest_auth="admin:123456"
+  ipserver --http_app=1 --http_digest_auth="admin:d71fa85bc0ded05215b28dfd8ca14112"
 
   ipserver --port=8001 --quiet
 
@@ -116,7 +116,8 @@ documents:
     HTTP_FILE_CMD = 'ipcmd'
     HTTP_FILE_UPLOAD = 'file-upload'
 
-    DUMPFILE_DIR = 'dumpfiles'
+    DUMPFILE_DIR = './dumpfiles/'
+    DUMPFILE_PREFIX = 'ipserver_'
 
     HTTP_MD5_SALT = 'ipsalt'
 
@@ -135,7 +136,7 @@ class Config:
         'output': {'default': 'TEXT', 'type': str.upper, 'help': 'Output format. Default: TEXT', 'choices': ['NONE', 'TEXT', 'BINARY', 'HEX', 'BASE64']},
         'output_target': {'default': 'RECEIVE', 'type': str.upper, 'help': 'Output target.', 'choices': ['ALL', 'SEND', 'RECEIVE']},
         'output_max': {'default': 2048, 'type': int, 'help': 'Max output bytes.'},
-        'dumpfile': {'default': False, 'help': 'Dump response data to files. Dir: `./dumpfiles/`', 'action': 'store_true'},
+        'dumpfile': {'default': None, 'type': str, 'help': 'Dump transmission data to files. Default Dir: `./dumpfiles/`', 'metavar': '{string}'},
 
         'bind': {'default': '0.0.0.0', 'type': str, 'help': 'Bind IP. e.g. 127.0.0.1, localhost, 0.0.0.0', 'metavar': '{string}'},
         'port': {'default': 8000, 'type': int, 'help': 'Listen port.', 'metavar': '{int}'},

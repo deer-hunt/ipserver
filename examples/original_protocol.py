@@ -6,7 +6,7 @@ import re
 '''
 Original protocol - Calculation protocol
 
-# python3 original_protocol.py --port=8002
+$ python3 original_protocol.py --port=8002
 
 Example:
 ----

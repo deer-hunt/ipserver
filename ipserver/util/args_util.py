@@ -130,12 +130,15 @@ class ArgsHelper:
         logging.basicConfig(**opts)
 
     @staticmethod
-    def is_bool(v):
+    def is_bool(v, strict=False):
+        v = str(v).strip()
+
         try:
-            if v == 1 or strtobool(v):
+            if len(v) > 0 and strtobool(v):
                 return True
         except Exception:
-            pass
+            if strict:
+                return None
 
         return False
 

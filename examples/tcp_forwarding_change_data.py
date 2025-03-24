@@ -7,7 +7,7 @@ import re
 TCP forwarding change data.
 
 Command:
-# python3 tcp_forwarding_change_data.py --port=8002
+$ python3 tcp_forwarding_change_data.py --port=8002
 
 http://develop-server:8002/
 

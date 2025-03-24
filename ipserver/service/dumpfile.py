@@ -1,6 +1,7 @@
 import os
 
 from logging import getLogger
+from ipserver.configs import Constant
 
 
 class DumpFile:
@@ -10,14 +11,14 @@ class DumpFile:
         self.cur_direction = None
 
     def initialize(self, dirname):
-        self.dirname = dirname
+        self.dirname = dirname.rstrip('/') + '/'
 
         if not os.path.exists(self.dirname):
             os.makedirs(self.dirname)
 
     def write(self, conn_sock, direction, binary):
         filename = self.get_filename(conn_sock, direction)
-        path = self.dirname + '/' + filename
+        path = self.dirname + filename
 
         getLogger(__name__).info('DUMPFILE_PATH: ' + path)
 
@@ -29,7 +30,7 @@ class DumpFile:
         return path
 
     def get_filename(self, conn_sock, direction, ext='.dat'):
-        filename = 'ipserver_' + str(conn_sock.conn_id) + '_' + str(conn_sock.sequence) + '_' + direction + '_' + conn_sock.addr[0] + '_' + str(conn_sock.addr[1]) + ext
+        filename = Constant.DUMPFILE_PREFIX + str(conn_sock.conn_id) + '_' + str(conn_sock.sequence) + '_' + direction + '_' + conn_sock.addr[0] + '_' + str(conn_sock.addr[1]) + ext
 
         filename = self.pipeline.get_filename(conn_sock, direction, filename)
 

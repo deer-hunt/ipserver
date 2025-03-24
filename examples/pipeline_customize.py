@@ -12,8 +12,8 @@ Specification:
 - Creating ObjectFactory class.
 
 Command:
-# python3 pipeline_customize.py --info
-# telnet localhost 8000
+$ python3 pipeline_customize.py --info
+$ telnet localhost 8000
 '''
 
 

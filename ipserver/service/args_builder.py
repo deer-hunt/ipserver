@@ -143,6 +143,7 @@ class ArgsBuilder:
         try:
             args.fixed_output_target = self._fix_output_target(args)
             args.fixed_ssl_context = self._fix_ssl_context(args)
+            args.fixed_dumpfile = self._fix_dumpfile(args)
             args.fixed_restrict_allow = self._fix_restrict_ips(args.restrict_allow)
             args.fixed_restrict_deny = self._fix_restrict_ips(args.restrict_deny)
         except Exception as e:
@@ -175,6 +176,18 @@ class ArgsBuilder:
                 raise Exception('Unknown SSL context.')
 
         return ssl_context
+
+    def _fix_dumpfile(self, args):
+        dumpfile = args.dumpfile
+
+        r = ArgsHelper.is_bool(dumpfile, strict=True)
+
+        if r is True:
+            dumpfile = Constant.DUMPFILE_DIR
+        elif r is False:
+            dumpfile = None
+
+        return dumpfile
 
     def _fix_restrict_ips(self, v):
         ips = []

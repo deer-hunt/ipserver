@@ -8,7 +8,7 @@ from ipserver.configs import Constant
 Setting `http_opt` by path. Changing the behavior.
 
 Command:
-# python3 http_opt_by_path.py --port=8002
+$ python3 http_opt_by_path.py --port=8002
 
 http://develop-server:8002/
 http://develop-server:8002/info/

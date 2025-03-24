@@ -7,7 +7,7 @@ import re
 '''
 The forwarding protocol is SSL, however the listening protocol is not SSL. So you can debug the transmission data in detail.
 
-# python3 tcp_forwarding_ssl_protocol.py --port=8000
+$ python3 tcp_forwarding_ssl_protocol.py --port=8000
 '''
 
 

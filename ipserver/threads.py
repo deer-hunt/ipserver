@@ -39,9 +39,9 @@ class ConnSockListener(threading.Thread):
         self.dumpfile = None
 
     def initialize(self):
-        if self.args.dumpfile:
+        if self.args.fixed_dumpfile is not None:
             self.dumpfile = self.factory.create_dumpfile(self.pipeline)
-            self.dumpfile.initialize(Constant.DUMPFILE_DIR)
+            self.dumpfile.initialize(self.args.fixed_dumpfile)
 
     def run(self):
         conn_sock = None

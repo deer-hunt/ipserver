@@ -7,7 +7,7 @@ import re
 HTTP forwarding HTML append.
 
 Command:
-# python3 http_forwarding_html_append.py --info
+$ python3 http_forwarding_html_append.py --info
 
 http://develop-server:8000/
 '''

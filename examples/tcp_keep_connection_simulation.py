@@ -16,8 +16,8 @@ from ipserver.util.sys_util import Output
 '''
 Keep connection & Particle simulation. Run command to Particle simulation via TCP protocol.
 
-# python3 tcp_raw_http_response.py --port=8002
-# telnet develop-server 8002
+$ python3 tcp_raw_http_response.py --port=8002
+$ telnet develop-server 8002
 
 [Command]
 DATE

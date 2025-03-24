@@ -7,8 +7,8 @@ import re
 '''
 Customize HTTP handler.
 
-# python3 customize_http_handler.py --info
-# curl http://localhost:8000
+$ python3 customize_http_handler.py --info
+$ curl http://localhost:8000
 '''
 
 

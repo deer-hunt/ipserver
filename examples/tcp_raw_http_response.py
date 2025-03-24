@@ -6,8 +6,8 @@ from datetime import datetime
 '''
 Response HTTP by raw data.
 
-# python3 tcp_raw_http_response.py --port=8002
-# curl http://develop-server:8002/
+$ python3 tcp_raw_http_response.py --port=8002
+$ curl http://develop-server:8002/
 '''
 
 

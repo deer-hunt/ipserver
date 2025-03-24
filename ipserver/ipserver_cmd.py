@@ -36,6 +36,7 @@ class IpServerCmd:
 
             self.dispatch(args)
         except Exception as e:
+            self.view.set_quiet(False)
             self.view.output_error(e)
 
     def _verify_args(self, args, parser):
